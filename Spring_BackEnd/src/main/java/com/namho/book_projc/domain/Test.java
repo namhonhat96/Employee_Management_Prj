@@ -13,12 +13,12 @@ import javax.persistence.*;
 @Setter
 
 @Entity
-@Table(name = "TestingTable", schema = "project2")
+@Table(name = "Testing_Table", schema = "project2")
 public class Test {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idTestingTable")
+    @Column(name = "ID")
     private int ID;
 
     @Column(name = "nameTable")
