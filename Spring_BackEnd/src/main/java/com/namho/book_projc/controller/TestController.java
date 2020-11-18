@@ -11,7 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class TestController {
 
     private TestService testService;
@@ -22,16 +23,14 @@ public class TestController {
     }
 
 
-    @GetMapping("/")
-    public String home() {
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String home() {
+//        return "index";
+//    }
 
     @GetMapping("/list-test")
-    public String getBook(Model model) {
+    public List<Test> getBook() {
         List<Test> testList = testService.getAllTestInfo();
-        System.out.println(testList.get(0).getID());
-        model.addAttribute("testList", testList);
-        return "test_list";
+        return testList;
     }
 }
