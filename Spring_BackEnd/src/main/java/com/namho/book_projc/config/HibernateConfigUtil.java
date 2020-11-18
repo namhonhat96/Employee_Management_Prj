@@ -1,4 +1,4 @@
-package com.beaconfire.work_mgt_project.config;
+package com.namho.book_projc.config;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -20,3 +20,5 @@ public class HibernateConfigUtil {
         return sessionFactory.openSession();
     }
 }
+
+
