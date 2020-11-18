@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface TestService {
 
+    public void save(Test test);
     List<Test> getAllTestInfo();
 }

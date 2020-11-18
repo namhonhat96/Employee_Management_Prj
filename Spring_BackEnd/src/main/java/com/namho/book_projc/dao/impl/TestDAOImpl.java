@@ -18,6 +18,21 @@ import org.hibernate.Transaction;
 @Repository
 public class TestDAOImpl implements TestDAO {
     @Override
+    public void save(Test test) {
+        Session session = HibernateConfigUtil.openSession();
+        Transaction tx = null;
+        try {
+            session.save(test);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public List<Test> getTestInfo() {
         Session session = HibernateConfigUtil.openSession();
         List<Test> results = null;

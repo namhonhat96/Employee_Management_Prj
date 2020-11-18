@@ -22,15 +22,15 @@ public class TestController {
         this.testService = testService;
     }
 
-
-//    @GetMapping("/")
-//    public String home() {
-//        return "index";
-//    }
-
-    @GetMapping("/list-test")
+    @GetMapping("/do-test")
     public List<Test> getBook() {
         List<Test> testList = testService.getAllTestInfo();
         return testList;
     }
+
+    @PostMapping("/do-test")
+    void addUser(@RequestBody Test test) {
+        testService.save(test);
+    }
+
 }

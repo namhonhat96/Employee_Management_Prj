@@ -13,10 +13,14 @@ public class TestServiceImpl implements TestService {
     private TestDAO testDAO;
 
     @Autowired
-    public void setBookDAO(TestDAO testDAO){
+    public void setTestDAO(TestDAO testDAO){
         this.testDAO = testDAO;
     }
 
+    @Override
+    public void save(Test test){
+        testDAO.save(test);
+    }
 
     @Override
     public List<Test> getAllTestInfo() {
