@@ -10,10 +10,12 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
-        <mapping class="com.namho.book_projc.domain.Test"/>
+
         <mapping class="com.namho.book_projc.domain.OnBoardApp_Contact"/>
         <mapping class="com.namho.book_projc.domain.OnBoard_Person"/>
         <mapping class="com.namho.book_projc.domain.OnBoardApp_Employee"/>
+        <mapping class="com.namho.book_projc.pojo.User"/>
+
     </session-factory>
 </hibernate-configuration>
 
