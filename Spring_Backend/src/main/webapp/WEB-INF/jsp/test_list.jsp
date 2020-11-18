@@ -6,11 +6,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Test List</title>
+    <title>Book List</title>
 </head>
 <body>
 
-<a href="/list-test">List Test</a>
+<a href="/">Go home</a>
 
 <h1 align="center">My Test List</h1>
 <br/>
@@ -21,8 +21,8 @@
     </tr>
     <c:forEach var="test" items="${testList}">
         <tr>
-            <td>${test.id}</td>
-            <td>${test.name}</td>
+            <td>${test.ID}</td>
+            <td>${test.testingName}</td>
         </tr>
     </c:forEach>
 </table>
