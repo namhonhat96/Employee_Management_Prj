@@ -124,8 +124,5 @@
       }
     }
   },
-  "defaultProject": "empl",
-  "cli": {
-    "analytics": "2b1edf13-8002-473d-a7dd-bd45f2820fd4"
-  }
+  "defaultProject": "empl"
 }
