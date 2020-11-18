@@ -1,4 +1,4 @@
-package com.namho.book_projc.dao;
+package com.example.demo.dao;
 
 public interface OnBoardApp_PersonDAO {
 

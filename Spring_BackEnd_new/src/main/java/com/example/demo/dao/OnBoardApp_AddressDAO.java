@@ -1,4 +1,4 @@
-package com.namho.book_projc.dao;
+package com.example.demo.dao;
 
 public interface OnBoardApp_AddressDAO {
     void addAdress(int ID, String addressLine1, String addressLine2, String city, int zipcode,

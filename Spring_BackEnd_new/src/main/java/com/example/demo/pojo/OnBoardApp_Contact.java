@@ -1,4 +1,4 @@
-package com.namho.book_projc.domain;
+package com.example.demo.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

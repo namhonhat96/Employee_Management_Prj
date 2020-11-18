@@ -1,4 +1,4 @@
-package com.namho.book_projc.dao;
+package com.example.demo.dao;
 
 public interface OnBoardApp_EmployeeDAO {
     void addEmployee(int ID, int personID, String car, int visaID, String visaStartDate,

@@ -38,7 +38,6 @@ public class UserController {
     {
         Map<String, String> userMap = new HashMap<>();
         List<User> userList = userService.getAllUsers();
-        //userList.add(new User(1, "admin@gmail.com", "a@gmail.com", "admin", 1, "1/1/2020", "1/1/2020"));
         for(int i = 0; i < userList.size(); i++)
         {
             System.out.println("User value: " + userList.get(i).getUserName());
@@ -46,7 +45,6 @@ public class UserController {
             userMap.put(userList.get(i).getUserName(),
                     userList.get(i).getPassword());
         }
-        //userMap.put("admin", "admin");
 
         if(userMap.containsKey(username) && userMap.get(username).equals(password))
         {

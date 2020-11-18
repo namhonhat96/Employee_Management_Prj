@@ -1,8 +1,7 @@
-package com.namho.book_projc.controller;
+package com.example.demo.controller;
 
-import com.namho.book_projc.domain.OnBoardApp_Employee;
-import com.namho.book_projc.service.OnBoardApp_EmployeeService;
-import com.namho.book_projc.service.OnBoardApp_PersonService;
+import com.example.demo.pojo.OnBoardApp_Employee;
+import com.example.demo.service.OnBoardApp_EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

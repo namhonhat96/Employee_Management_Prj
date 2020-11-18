@@ -1,17 +1,12 @@
-package com.namho.book_projc.controller;
+package com.example.demo.controller;
 
-import com.namho.book_projc.domain.OnBoardApp_Person;
-import com.namho.book_projc.domain.Test;
-import com.namho.book_projc.service.OnBoardApp_PersonService;
-import com.namho.book_projc.service.TestService;
+import com.example.demo.pojo.OnBoardApp_Person;
+import com.example.demo.service.OnBoardApp_PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Random;
 
 @RestController

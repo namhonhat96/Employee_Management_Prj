@@ -1,4 +1,4 @@
-package com.namho.book_projc.domain;
+package com.example.demo.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "VisaStatus_Table", schema = "project2")
-public class OnBoardApp_VisaStatus {
+public class OnBoardApp_VisaStatus implements Serializable {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
