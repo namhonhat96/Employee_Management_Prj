@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface OnBoardApp_VisaStatusDAO {
     void addVisaStatus(int ID, String visaType,String active,
-                   String modificationDate, String createUser);
+                    String createUser);
     OnBoardApp_VisaStatus getVisaStatusByID(Integer id);
     List<OnBoardApp_VisaStatus> getAllVisaStatus();
 
     void updateVisaStatus(int ID, String visaType, String active,
-                          String modificationDate, String createUser);
+                           String createUser);
 }

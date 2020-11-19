@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OnBoardApp_EmployeeService{
@@ -26,5 +27,16 @@ public class OnBoardApp_EmployeeService{
     public OnBoardApp_Employee getEmployeeByID(Integer id)
     {
         return this.employeeDAO.getEmployeeByID(id);
+    }
+
+    @Transactional
+    public List<OnBoardApp_Employee> getAllEmployees(){
+        return this.employeeDAO.getAllEmployees();
+    }
+
+    @Transactional
+    public void updateEmployee(int ID, int personID, String car, int visaID, String visaStartDate,
+                        String visaEndDate, String driverLisence, String driver_exp){
+        this.employeeDAO.updateEmployee(ID, personID,car,visaID,visaStartDate,visaEndDate,driverLisence,driver_exp);
     }
 }

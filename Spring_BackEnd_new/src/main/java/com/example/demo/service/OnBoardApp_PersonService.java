@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OnBoardApp_PersonService {
@@ -26,5 +27,15 @@ public class OnBoardApp_PersonService {
     public OnBoardApp_Person getPersonByID(Integer id)
     {
         return this.onBoardApp_personDAO.getPersonByID(id);
+    }
+
+    @Transactional
+    public void updatePerson(int ID, String firstname, String lastname, String middlename, String email, String cellphone, String alternatephone, String gender, int SSN, String DOB){
+        this.onBoardApp_personDAO.updatePerson(ID,firstname,lastname,middlename,email,cellphone,alternatephone,gender,SSN,DOB);
+    }
+
+    @Transactional
+    public List<OnBoardApp_Person> getAllPersons(){
+        return this.onBoardApp_personDAO.getAllPersons();
     }
 }

@@ -9,6 +9,10 @@ import com.example.demo.pojo.OnBoardApp_ApplicationWorkFlow;
 import com.example.demo.pojo.OnBoardApp_Contact;
 import org.springframework.stereotype.Repository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Repository("OnBoardApp_ApplicationWorkFlowDAOImpl")
@@ -19,9 +23,24 @@ public class OnBoardApp_ApplicationWorkFlowDAOImpl extends AbstractHibernateDAO<
     }
 
     @Override
-    public void addApplicationWorkFlow(int ID, int employeeID, String createDate, String modificationDate, String type) {
+    public void addApplicationWorkFlow(int ID, int employeeID, String type) {
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String createDate = dateFormat.format(date);
+        String modificationDate = dateFormat.format(date);
         OnBoardApp_ApplicationWorkFlow application = new OnBoardApp_ApplicationWorkFlow(ID,employeeID,createDate,modificationDate,"","",type );
         getCurrentSession().save(application);
+    }
+
+    @Override
+    public void updateApplicationWorkFlow(int ID, int employeeID, String type) {
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        String modificationDate = dateFormat.format(date);
+        OnBoardApp_ApplicationWorkFlow application = getApplicationWorkFlowByID(ID);
+        application.setEmployeeID(employeeID);
+        application.setModificationDate(modificationDate);
+        application.setType(type);
     }
 
     @Override

@@ -24,6 +24,21 @@ public class OnBoardApp_PersonDAOImpl extends AbstractHibernateDAO<OnBoardApp_Pe
     }
 
     @Override
+    public void updatePerson(int ID, String firstname, String lastname, String middlename, String email, String cellphone, String alternatephone, String gender, int SSN, String DOB) {
+        OnBoardApp_Person person = getPersonByID(ID);
+        person.setFirstname(firstname);
+        person.setLastname(lastname);
+        person.setMiddlename(middlename);
+        person.setCellphone(alternatephone);
+        person.setAlternatephone(alternatephone);
+        person.setEmail(email);
+        person.setGender(gender);
+        person.setSSN(SSN);
+        person.setDOB(DOB);
+        getCurrentSession().update(person);
+    }
+
+    @Override
     public OnBoardApp_Person getPersonByID(Integer id) {
         return getCurrentSession().get(OnBoardApp_Person.class, id);
     }

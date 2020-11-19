@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OnBoardApp_ContactService {
@@ -28,5 +29,15 @@ public class OnBoardApp_ContactService {
     public OnBoardApp_Contact getContactByID(Integer id)
     {
         return this.onBoardApp_contactDAO.getContactByID(id);
+    }
+
+    @Transactional
+    public void updateContact(int ID, int personID, String relationship, String isReference, String isEmergency){
+        this.onBoardApp_contactDAO.updateContact(ID, personID, relationship, isReference, isEmergency);
+    }
+
+    @Transactional
+    public List<OnBoardApp_Contact> getAllContacts(){
+        return this.onBoardApp_contactDAO.getAllContacts();
     }
 }
