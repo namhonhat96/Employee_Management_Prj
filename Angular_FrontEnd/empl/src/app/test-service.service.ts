@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 export class TestServiceService {
   private usersUrl: string;
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080';
+    this.usersUrl = 'http://localhost:8080/do-test';
   }
 
   public findAll(): Observable<Test[]> {
-    return this.http.get<Test[]>(this.usersUrl);
+    return this.http.get<Test[]>('http://localhost:8080/do-test');
   }
 
   public save(user: Test) {
