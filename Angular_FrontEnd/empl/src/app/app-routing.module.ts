@@ -1,10 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { LogoutComponent } from "./logout/logout.component";
+import { AuthGaurdService } from "./service/auth-gaurd.service";
+import { HomePageComponent } from "./home-page/home-page.component";
 
-import { TestListComponent } from './test-list/test-list.component';
 const routes: Routes = [
-  { path: 'test-list', component: TestListComponent },
-  // { path: 'test-add', component: TestUpdateComponent },
+  { path: "", component: HomePageComponent, canActivate: [AuthGaurdService] },
+  { path: "login", component: LoginComponent },
+  {
+    path: "logout",
+    component: LogoutComponent,
+    canActivate: [AuthGaurdService],
+  },
 ];
 
 @NgModule({
