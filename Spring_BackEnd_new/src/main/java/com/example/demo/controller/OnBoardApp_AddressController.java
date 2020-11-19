@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -18,13 +19,6 @@ public class OnBoardApp_AddressController {
     public void setAddressService(OnBoardApp_AddressService onBoardApp_addressService) {
         this.onBoardApp_addressService = onBoardApp_addressService;
     }
-
-    @GetMapping("/onboard-address/{id}")
-    @ResponseBody
-    public OnBoardApp_Address getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
-        return this.onBoardApp_addressService.getAddressByID(ID);
-    }
-
     @PostMapping("/onboard-address")
     void addContact(@RequestBody OnBoardApp_Address address) {
         Random random = new Random();
@@ -32,4 +26,25 @@ public class OnBoardApp_AddressController {
         this.onBoardApp_addressService.addAddress(ID,address.getAddressLine1(),address.getAddressLine2(),address.getCity(),
                 address.getZipcode(),address.getStateName(),address.getStateAbbr(),address.getPersonID());
     }
+
+    @PostMapping("/onboard-address/update/{id}")
+    void updateEmployee(@RequestBody OnBoardApp_Address address, @PathVariable("id") Integer ID) {
+        this.onBoardApp_addressService.updateAddress(ID, address.getAddressLine1(), address.getAddressLine2(),
+                address.getCity(), address.getZipcode(), address.getStateName(),
+                address.getStateAbbr(), address.getPersonID());
+    }
+
+
+    @GetMapping("/onboard-address/list")
+    public List<OnBoardApp_Address> getOnBoardApp_EmployeeList(){
+        List<OnBoardApp_Address> OnBoardApp_Addresslist = this.onBoardApp_addressService.getAllAddresses();
+        return OnBoardApp_Addresslist;
+    }
+
+    @GetMapping("/onboard-address/{id}")
+    @ResponseBody
+    public OnBoardApp_Address getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_addressService.getAddressByID(ID);
+    }
+
 }

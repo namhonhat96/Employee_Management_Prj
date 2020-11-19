@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface OnBoardApp_ContactDAO {
     void addContact(int ID, int personID, String relationship, String isReference, String isEmergency);
+    void updateContact(int ID, int personID, String relationship, String isReference, String isEmergency);
     OnBoardApp_Contact getContactByID(Integer id);
     List<OnBoardApp_Contact> getAllContacts();
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OnBoardApp_VisaStatusService {
@@ -19,8 +20,8 @@ public class OnBoardApp_VisaStatusService {
     }
 
     @Transactional
-    public void addVisaStatus(int ID, String visaType,String active, String modificationDate, String createUser){
-        this.onBoardApp_visaStatusDAO.addVisaStatus(ID,visaType,active, modificationDate,createUser);
+    public void addVisaStatus(int ID, String visaType,String active, String createUser){
+        this.onBoardApp_visaStatusDAO.addVisaStatus(ID,visaType,active,createUser);
     }
 
     @Transactional
@@ -30,7 +31,12 @@ public class OnBoardApp_VisaStatusService {
     }
 
     @Transactional
-    public void updateVisaStatus(int ID, String visaType,String active, String modificationDate, String createUser){
-        this.onBoardApp_visaStatusDAO.updateVisaStatus(ID,visaType,active, modificationDate,createUser);
+    public void updateVisaStatus(int ID, String visaType,String active, String createUser){
+        this.onBoardApp_visaStatusDAO.updateVisaStatus(ID,visaType,active,createUser);
+    }
+
+    @Transactional
+    public List<OnBoardApp_VisaStatus> getAllVisaStatus(){
+        return this.onBoardApp_visaStatusDAO.getAllVisaStatus();
     }
 }

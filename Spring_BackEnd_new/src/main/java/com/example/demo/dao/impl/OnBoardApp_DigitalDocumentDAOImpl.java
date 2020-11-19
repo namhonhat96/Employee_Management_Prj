@@ -29,6 +29,16 @@ public class OnBoardApp_DigitalDocumentDAOImpl  extends AbstractHibernateDAO<OnB
     }
 
     @Override
+    public void updateDigitalDocument(int ID, String type, String required, String templateLocation, String description) {
+        OnBoardApp_DigitalDocument document = getDigitalDocumentByID(ID);
+        document.setType(type);
+        document.setRequired(required);
+        document.setTemplateLocaiton(templateLocation);
+        document.setDescription(description);
+        getCurrentSession().update(document);
+    }
+
+    @Override
     public OnBoardApp_DigitalDocument getDigitalDocumentByID(Integer id) {
         return getCurrentSession().get(OnBoardApp_DigitalDocument.class, id);
     }

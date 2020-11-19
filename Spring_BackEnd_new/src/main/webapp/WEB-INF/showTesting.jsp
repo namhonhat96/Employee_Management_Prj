@@ -9,7 +9,7 @@
     <title>Login</title>
 </head>
 <body>
-<form method="POST" action="login?redirect=${param.redirect}">
+<form method="GET" action="test/1">
     <div style="color: red">${error}</div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>

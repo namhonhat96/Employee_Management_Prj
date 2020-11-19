@@ -9,7 +9,9 @@ public interface OnBoardApp_PersonDAO {
 
     void addPerson(int ID, String firstname, String lastname, String middlename,
     String email, String cellphone, String alternatephone, String gender, int SSN, String DOB );
-
+    public void updatePerson(int ID, String firstname, String lastname, String middlename,
+                             String email, String cellphone, String alternatephone, String gender, int SSN, String DOB);
     OnBoardApp_Person getPersonByID(Integer id);
     List<OnBoardApp_Person> getAllPersons();
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OnBoardApp_ApplicationWorkFlowService {
@@ -20,13 +21,23 @@ public class OnBoardApp_ApplicationWorkFlowService {
     }
 
     @Transactional
-    void addApplicationWorkFlow(int ID, int employeeID, String createDate, String modificationDate, String type){
-        this.onBoardApp_applicationWorkFlowDAO.addApplicationWorkFlow(ID,employeeID,createDate,modificationDate,type);
+    public void addApplicationWorkFlow(int ID, int employeeID, String type){
+        this.onBoardApp_applicationWorkFlowDAO.addApplicationWorkFlow(ID,employeeID,type);
+    }
+
+    @Transactional
+    public void updateApplicationWorkFlow(int ID, int employeeID, String type){
+        this.onBoardApp_applicationWorkFlowDAO.updateApplicationWorkFlow(ID,employeeID,type);
     }
 
     @Transactional
     public OnBoardApp_ApplicationWorkFlow getApplicationWorkFlowByID(Integer id)
     {
         return this.onBoardApp_applicationWorkFlowDAO.getApplicationWorkFlowByID(id);
+    }
+
+    @Transactional
+    public List<OnBoardApp_ApplicationWorkFlow> getAllApplicationWorkFlows(){
+        return this.onBoardApp_applicationWorkFlowDAO.getAllApplicationWorkFlows();
     }
 }
