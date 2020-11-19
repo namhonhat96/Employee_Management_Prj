@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Random;
 
 @Repository("OnBoardApp_DigitalDocumentDAOImpl")
@@ -24,6 +25,18 @@ public class OnBoardApp_DigitalDocumentDAOImpl  extends AbstractHibernateDAO<OnB
 
         OnBoardApp_DigitalDocument document = new OnBoardApp_DigitalDocument(ID,type, required, templateLocation,
                     description );
+        getCurrentSession().save(document);
+    }
 
+    @Override
+    public OnBoardApp_DigitalDocument getDigitalDocumentByID(Integer id) {
+        return getCurrentSession().get(OnBoardApp_DigitalDocument.class, id);
+    }
+
+    @Override
+    public List<OnBoardApp_DigitalDocument> getAllDigitalDocuments() {
+        String sql = "from OnBoardApp_DigitalDocument";
+        List result = getCurrentSession().createQuery(sql).list();
+        return result;
     }
 }

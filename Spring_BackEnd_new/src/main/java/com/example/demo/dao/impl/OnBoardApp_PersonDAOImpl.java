@@ -6,8 +6,10 @@ import com.example.demo.pojo.OnBoardApp_Person;
 import com.example.demo.pojo.OnBoardApp_VisaStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 
-@Repository
+
+@Repository("OnBoardApp_PersonDAOImpl")
 public class OnBoardApp_PersonDAOImpl extends AbstractHibernateDAO<OnBoardApp_Person> implements OnBoardApp_PersonDAO {
     public OnBoardApp_PersonDAOImpl()
     {
@@ -19,5 +21,17 @@ public class OnBoardApp_PersonDAOImpl extends AbstractHibernateDAO<OnBoardApp_Pe
         OnBoardApp_Person person = new OnBoardApp_Person(ID,firstname, lastname, middlename,
                 email, cellphone,alternatephone,gender,SSN,DOB );
         getCurrentSession().save(person);
+    }
+
+    @Override
+    public OnBoardApp_Person getPersonByID(Integer id) {
+        return getCurrentSession().get(OnBoardApp_Person.class, id);
+    }
+
+    @Override
+    public List<OnBoardApp_Person> getAllPersons() {
+        String sql = "from OnBoardApp_Person";
+        List result = getCurrentSession().createQuery(sql).list();
+        return result;
     }
 }

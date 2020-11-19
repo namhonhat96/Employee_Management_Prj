@@ -5,8 +5,9 @@ import com.example.demo.pojo.User;
 import java.util.List;
 
 public interface UserDAO {
-    User getUserByID(Integer id);
+
     int addUser(User user);
 
+    User getUserByID(Integer id);
     List<User> getAllUsers();
 }

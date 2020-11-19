@@ -14,7 +14,7 @@ public class OnBoardApp_PersonController {
     private OnBoardApp_PersonService onBoardApp_personService;
 
     @Autowired
-    public void OnBoardApp_PersonService(OnBoardApp_PersonService onBoardApp_personService) {
+    public void setPersonService(OnBoardApp_PersonService onBoardApp_personService) {
         this.onBoardApp_personService = onBoardApp_personService;
     }
 

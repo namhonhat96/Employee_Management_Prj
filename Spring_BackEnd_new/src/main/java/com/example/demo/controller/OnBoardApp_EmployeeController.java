@@ -1,11 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.pojo.OnBoardApp_Contact;
 import com.example.demo.pojo.OnBoardApp_Employee;
 import com.example.demo.service.OnBoardApp_EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
@@ -14,8 +13,14 @@ public class OnBoardApp_EmployeeController {
     private OnBoardApp_EmployeeService onBoardApp_employeeService;
 
     @Autowired
-    public void OnBoardApp_PersonService(OnBoardApp_EmployeeService onBoardApp_employeeService) {
+    public void setEmployeeService(OnBoardApp_EmployeeService onBoardApp_employeeService) {
         this.onBoardApp_employeeService = onBoardApp_employeeService;
+    }
+
+    @GetMapping("/onboard-employee/{id}")
+    @ResponseBody
+    public OnBoardApp_Employee getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_employeeService.getEmployeeByID(ID);
     }
 
     @PostMapping("/onboard-employee")
