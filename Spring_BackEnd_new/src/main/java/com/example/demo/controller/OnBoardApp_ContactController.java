@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@CrossOrigin()
+@RestController
 public class OnBoardApp_ContactController {
 
     private OnBoardApp_ContactService onBoardApp_contactService;

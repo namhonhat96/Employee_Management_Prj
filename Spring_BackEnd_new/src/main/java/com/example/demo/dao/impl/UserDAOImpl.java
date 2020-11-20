@@ -35,7 +35,7 @@ public class UserDAOImpl extends AbstractHibernateDAO<User> implements UserDAO
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String modificationDate = dateFormat.format(date);
         User user = getUserByID(ID);
-        user.setUserName(username);
+        user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
         user.setPersonID(personID);

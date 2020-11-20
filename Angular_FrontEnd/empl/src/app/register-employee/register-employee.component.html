@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
+    <mat-card-title>Register Employee Information</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
@@ -32,19 +32,25 @@
             </mat-form-field>
           </td>
         </tr>
-        <p *ngIf="error" class="error">
-          {{ error }}
-        </p>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Email"
+                [(ngModel)]="email"
+                name="email"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
       </table>
     </form>
-    <mat-spinner
-      [style.display]="showSpinner ? 'Invalid username/password' : 'none'"
-    ></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="checkLogin()" color="primary">
-      Login
+    <button mat-raised-button (click)="registerUser()" color="primary">
+      Submit
     </button>
   </mat-card-actions>
-  <a routerLink="/register-employee">Register Application</a>
 </mat-card>

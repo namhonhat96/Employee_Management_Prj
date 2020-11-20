@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@CrossOrigin()
+@RestController
 public class OnBoardApp_ApplicationWorkFlowController {
 
     private OnBoardApp_ApplicationWorkFlowService onBoardApp_applicationWorkFlowService;

@@ -13,6 +13,9 @@ import { AngularMaterialModule } from "./angular-material.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BasicAuthHtppInterceptorService } from "./service/basic-auth-interceptor.service";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { RegisterUserComponent } from "./register-user/register-user.component";
+import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
+import { RegisterPersonComponent } from "./register-person/register-person.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,9 @@ import { HomePageComponent } from "./home-page/home-page.component";
     LoginComponent,
     LogoutComponent,
     HomePageComponent,
+    RegisterUserComponent,
+    RegisterEmployeeComponent,
+    RegisterPersonComponent,
   ],
   imports: [
     BrowserModule,

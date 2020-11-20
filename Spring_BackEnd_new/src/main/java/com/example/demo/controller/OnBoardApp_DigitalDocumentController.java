@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@CrossOrigin()
+@RestController
 public class OnBoardApp_DigitalDocumentController {
     private OnBoardApp_DigitalDocumentService onBoardApp_digitalDocumentService;
 
