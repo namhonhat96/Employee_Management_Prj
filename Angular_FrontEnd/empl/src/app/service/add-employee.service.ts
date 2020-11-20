@@ -10,7 +10,6 @@ export class AddEmployeeService {
 
   registerEmployeeTable(
     car,
-    visaID,
     visaStartDate,
     visaEndDate,
     driverLisence,
@@ -18,7 +17,6 @@ export class AddEmployeeService {
   ) {
     return this.httpClient.post<any>("http://localhost:8081/onboard-employee", {
       car,
-      visaID,
       visaStartDate,
       visaEndDate,
       driverLisence,

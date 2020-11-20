@@ -9,10 +9,20 @@ export class AdduserService {
   constructor(private httpClient: HttpClient) {}
 
   registerUserTable(username, password, email) {
-    return this.httpClient.post<any>("http://localhost:8081/onboard-user", {
-      username,
-      password,
-      email,
-    });
+    return this.httpClient
+      .post<any>("http://localhost:8081/onboard-user", {
+        username,
+        password,
+        email,
+      })
+      .pipe(
+        map((userData) => {
+          sessionStorage.setItem("email", email);
+          localStorage.setItem("username", username);
+          let tokenStr = "Bearer " + userData.token;
+          sessionStorage.setItem("token", tokenStr);
+          return userData;
+        })
+      );
   }
 }

@@ -27,7 +27,9 @@ export class RegisterPersonComponent implements OnInit {
   constructor(
     private router: Router,
     private addPersonservice: AddPersonService
-  ) {}
+  ) {
+    this.email = sessionStorage.getItem("email");
+  }
 
   registerPerson() {
     this.addPersonservice

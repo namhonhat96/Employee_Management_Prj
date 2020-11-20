@@ -28,7 +28,7 @@ public class OnBoardApp_ApplicationWorkFlowDAOImpl extends AbstractHibernateDAO<
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String createDate = dateFormat.format(date);
         String modificationDate = dateFormat.format(date);
-        OnBoardApp_ApplicationWorkFlow application = new OnBoardApp_ApplicationWorkFlow(ID,employeeID,createDate,modificationDate,"","",type );
+        OnBoardApp_ApplicationWorkFlow application = new OnBoardApp_ApplicationWorkFlow(ID,employeeID,createDate,modificationDate,"processing","",type );
         getCurrentSession().save(application);
     }
 

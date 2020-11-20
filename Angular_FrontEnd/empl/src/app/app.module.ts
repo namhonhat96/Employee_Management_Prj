@@ -16,6 +16,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { RegisterUserComponent } from "./register-user/register-user.component";
 import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
 import { RegisterPersonComponent } from "./register-person/register-person.component";
+import { RegisterVisaComponent } from "./register-visa/register-visa.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { RegisterPersonComponent } from "./register-person/register-person.compo
     RegisterUserComponent,
     RegisterEmployeeComponent,
     RegisterPersonComponent,
+    RegisterVisaComponent,
   ],
   imports: [
     BrowserModule,

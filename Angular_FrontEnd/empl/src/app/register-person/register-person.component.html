@@ -40,7 +40,6 @@
                 placeholder="Middle Name"
                 [(ngModel)]="middle"
                 name="middlename"
-                required
               />
             </mat-form-field>
           </td>
@@ -49,13 +48,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="Email"
-                [(ngModel)]="email"
-                name="email"
-                required
-              />
+              <p>{{ email }}</p>
             </mat-form-field>
           </td>
         </tr>
@@ -82,7 +75,6 @@
                 placeholder="Alternate Phone"
                 [(ngModel)]="alternatephone"
                 name="alternatephone"
-                required
               />
             </mat-form-field>
           </td>
@@ -96,6 +88,18 @@
                 {{ c.name }}
               </option>
             </select>
+
+            <div>
+              <select [(ngModel)]="gender">
+                <option
+                  *ngFor="let x of gender_options"
+                  [value]="x.id"
+                  [selected]="car.color.id == x.id"
+                >
+                  {{ x.name }}
+                </option>
+              </select>
+            </div>
           </td>
         </tr>
 
