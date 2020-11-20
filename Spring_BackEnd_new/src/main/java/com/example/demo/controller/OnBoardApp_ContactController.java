@@ -7,6 +7,7 @@ import com.example.demo.service.OnBoardApp_ContactService;
 import com.example.demo.service.OnBoardApp_EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +25,12 @@ public class OnBoardApp_ContactController {
         this.onBoardApp_contactService = onBoardApp_contactService;
     }
 
-    @PostMapping("/onboard-contact")
-    void addContact(@RequestBody OnBoardApp_Contact contact) {
+    @RequestMapping(value = "/onboard-contact", method = RequestMethod.POST)
+    ResponseEntity<?> addContact(@RequestBody OnBoardApp_Contact contact) {
         Random random = new Random();
         int ID = random.nextInt();
-        onBoardApp_contactService.addContact(ID, contact.getPersonID(), contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
+        onBoardApp_contactService.addContact(ID, 1, contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @PostMapping("/onboard-contact/update/{id}")

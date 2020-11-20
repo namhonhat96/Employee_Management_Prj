@@ -46,7 +46,7 @@ export class RegisterPersonComponent implements OnInit {
       )
       .subscribe(
         (data) => {
-          this.router.navigate(["register-employee"]);
+          this.router.navigate(["register-address"]);
         },
         (error) => {
           this.router.navigate[""];

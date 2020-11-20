@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -17,6 +17,8 @@ import { RegisterUserComponent } from "./register-user/register-user.component";
 import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
 import { RegisterPersonComponent } from "./register-person/register-person.component";
 import { RegisterVisaComponent } from "./register-visa/register-visa.component";
+import { RegisterAddressComponent } from "./register-address/register-address.component";
+import { RegisterContactComponent } from "./register-contact/register-contact.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import { RegisterVisaComponent } from "./register-visa/register-visa.component";
     RegisterEmployeeComponent,
     RegisterPersonComponent,
     RegisterVisaComponent,
+    RegisterAddressComponent,
+    RegisterContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { RegisterVisaComponent } from "./register-visa/register-visa.component";
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

@@ -14,7 +14,7 @@ export class RegisterEmployeeComponent implements OnInit {
   visaEndDate: string | any;
   driverLisence: string | any;
   driver_exp: string | any;
-  isResident: boolean | any;
+  isResident: false;
   selectedValue = null;
   selectCitizen: string | any;
   options = [
@@ -47,8 +47,8 @@ export class RegisterEmployeeComponent implements OnInit {
               "false",
               localStorage.getItem("username")
             ).subscribe();
-
-            this.router.navigate(["register-reference"]);
+            //Finish the on-board application
+            this.router.navigate(["login"]);
           }
         },
         (error) => {
@@ -57,9 +57,5 @@ export class RegisterEmployeeComponent implements OnInit {
       );
   }
 
-  ngOnInit() {
-    if (this.selectedValue == "Yes") {
-      this.isResident = true;
-    }
-  }
+  ngOnInit() {}
 }

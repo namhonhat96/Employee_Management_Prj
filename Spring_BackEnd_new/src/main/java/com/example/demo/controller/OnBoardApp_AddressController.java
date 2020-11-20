@@ -5,6 +5,7 @@ import com.example.demo.pojo.OnBoardApp_Contact;
 import com.example.demo.service.OnBoardApp_AddressService;
 import com.example.demo.service.OnBoardApp_ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +21,14 @@ public class OnBoardApp_AddressController {
     public void setAddressService(OnBoardApp_AddressService onBoardApp_addressService) {
         this.onBoardApp_addressService = onBoardApp_addressService;
     }
-    @PostMapping("/onboard-address")
-    void addContact(@RequestBody OnBoardApp_Address address) {
+
+    @RequestMapping(value = "/onboard-address", method = RequestMethod.POST)
+    ResponseEntity<?> addAddress(@RequestBody OnBoardApp_Address address) {
         Random random = new Random();
         int ID = random.nextInt();
         this.onBoardApp_addressService.addAddress(ID,address.getAddressLine1(),address.getAddressLine2(),address.getCity(),
                 address.getZipcode(),address.getStateName(),address.getStateAbbr(),address.getPersonID());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @PostMapping("/onboard-address/update/{id}")

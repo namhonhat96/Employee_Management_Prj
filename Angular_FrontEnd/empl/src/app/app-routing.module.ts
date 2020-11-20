@@ -7,6 +7,9 @@ import { HomePageComponent } from "./home-page/home-page.component";
 import { RegisterUserComponent } from "./register-user/register-user.component";
 import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
 import { RegisterPersonComponent } from "./register-person/register-person.component";
+import { RegisterVisaComponent } from "./register-visa/register-visa.component";
+import { RegisterAddressComponent } from "./register-address/register-address.component";
+import { RegisterContactComponent } from "./register-contact/register-contact.component";
 const routes: Routes = [
   { path: "", component: HomePageComponent, canActivate: [AuthGaurdService] },
   { path: "login", component: LoginComponent },
@@ -24,6 +27,15 @@ const routes: Routes = [
     path: "register-person",
     component: RegisterPersonComponent,
   },
+  {
+    path: "register-visa",
+    component: RegisterVisaComponent,
+  },
+  {
+    path: "register-address",
+    component: RegisterAddressComponent,
+  },
+  { path: "register-contact", component: RegisterContactComponent },
 ];
 
 @NgModule({
