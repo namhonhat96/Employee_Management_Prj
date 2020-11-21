@@ -6,6 +6,7 @@ import com.example.demo.pojo.Test;
 import com.example.demo.service.OnBoardApp_PersonService;
 import com.example.demo.service.OnBoardApp_VisaStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@CrossOrigin()
+@RestController
 public class OnBoardApp_VisaStatusController {
     private OnBoardApp_VisaStatusService onBoardApp_visaStatusService;
 
@@ -22,11 +24,13 @@ public class OnBoardApp_VisaStatusController {
         this.onBoardApp_visaStatusService = onBoardApp_visaStatusService;
     }
 
-    @PostMapping("/onboard-visa-status")
-    void addVisaStatus(@RequestBody OnBoardApp_VisaStatus visaStatus) {
+
+    @RequestMapping(value = "/onboard-visa-status", method = RequestMethod.POST)
+    ResponseEntity<?> addVisaStatus(@RequestBody OnBoardApp_VisaStatus visaStatus) {
         Random random = new Random();
         int ID = random.nextInt();
         this.onBoardApp_visaStatusService.addVisaStatus(ID,visaStatus.getVisaType(),visaStatus.getActive(), visaStatus.getCreateUser());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @PostMapping("/onboard-visa-status/update/{id}")

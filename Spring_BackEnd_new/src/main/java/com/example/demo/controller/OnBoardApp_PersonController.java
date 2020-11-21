@@ -4,11 +4,13 @@ import com.example.demo.pojo.OnBoardApp_Person;
 import com.example.demo.pojo.OnBoardApp_VisaStatus;
 import com.example.demo.service.OnBoardApp_PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Random;
 
+@CrossOrigin()
 @RestController
 public class OnBoardApp_PersonController {
     private OnBoardApp_PersonService onBoardApp_personService;
@@ -18,13 +20,16 @@ public class OnBoardApp_PersonController {
         this.onBoardApp_personService = onBoardApp_personService;
     }
 
-    @PostMapping("/onboard-person")
-    void addPerson(@RequestBody OnBoardApp_Person person) {
+
+    @RequestMapping(value = "/onboard-person", method = RequestMethod.POST)
+    ResponseEntity<?> addPerson(@RequestBody OnBoardApp_Person person) {
+        System.out.println(person.getFirstname());
         Random random = new Random();
-        int ID = random.nextInt();
+        int ID = random.nextInt(1000);
         onBoardApp_personService.addPerson(ID,person.getFirstname(),person.getLastname(),
                 person.getMiddlename(),person.getEmail(),person.getCellphone(),person.getAlternatephone(),
                 person.getGender(),person.getSSN(),person.getDOB());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @PostMapping("/onboard-person/update/{id}")

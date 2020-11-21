@@ -41,6 +41,8 @@ public class OnBoardApp_AddressImpl extends AbstractHibernateDAO<OnBoardApp_Addr
 
     @Override
     public List<OnBoardApp_Address> getAllAddresses() {
-        return null;
+        String sql = "from OnBoardApp_Address";
+        List result = getCurrentSession().createQuery(sql).list();
+        return result;
     }
 }

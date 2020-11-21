@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> login(HttpServletResponse httpServletResponse, @RequestBody JwtRequest authenticationRequest)
+    public ResponseEntity<?> login(HttpServletResponse httpServletResponse, @RequestBody User authenticationRequest)
     {
             String username = authenticationRequest.getUsername();
             String password = authenticationRequest.getPassword();
@@ -42,7 +42,7 @@ public class UserController {
             List<User> userList = userService.getAllUsers();
             for(int i = 0; i < userList.size(); i++)
             {
-                userMap.put(userList.get(i).getUserName(),
+                userMap.put(userList.get(i).getUsername(),
                         userList.get(i).getPassword());
             }
 
@@ -60,16 +60,18 @@ public class UserController {
 
     }
 
-    @PostMapping("/onboard-user")
-    void addVisaStatus(@RequestBody User user) {
+    @RequestMapping(value = "/onboard-user", method = RequestMethod.POST)
+    public ResponseEntity<?> addUser(@RequestBody User user) {
         Random random = new Random();
-        int ID = random.nextInt();
-        this.userService.addUser(ID, user.getUserName(),user.getEmail(), user.getPassword(),user.getPersonID());
+        int ID = random.nextInt(1000);
+        int personID = random.nextInt(1000);
+        this.userService.addUser(ID, user.getUsername(),user.getEmail(), user.getPassword(),personID);
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @PostMapping("/onboard-user/update/{id}")
     void updateUser(@RequestBody User user, @PathVariable("id") Integer ID) {
-        this.userService.updateUser(ID,user.getUserName(),user.getEmail(), user.getPassword(),user.getPersonID());
+        this.userService.updateUser(ID,user.getUsername(),user.getEmail(), user.getPassword(),user.getPersonID());
     }
 
     @GetMapping("/onboard-user/list")

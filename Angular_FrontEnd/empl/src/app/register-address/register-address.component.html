@@ -1,0 +1,80 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Register Address Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Address Line 1"
+                [(ngModel)]="addressLine1"
+                name="addressLine1"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Address Line 2"
+                [(ngModel)]="addressLine2"
+                name="addressLine2"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="City"
+                [(ngModel)]="city"
+                name="city"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Zipcode"
+                [(ngModel)]="zipcode"
+                name="zipcode"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="State Name"
+                [(ngModel)]="stateName"
+                name="stateName"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="registerAddress()" color="primary">
+      Submit
+    </button>
+  </mat-card-actions>
+</mat-card>
