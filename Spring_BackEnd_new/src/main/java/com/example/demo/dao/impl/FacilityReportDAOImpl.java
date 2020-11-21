@@ -11,6 +11,11 @@ import java.util.List;
 
 @Repository("FacilityReportDAOImpl")
 public class FacilityReportDAOImpl extends AbstractHibernateDAO<FacilityReport> implements FacilityReportDAO {
+    public FacilityReportDAOImpl()
+    {
+        setClazz(FacilityReport.class);
+    }
+
     @Override
     public void addFacilityReport(int ID, String title, int employeeID, String reportDate, String description, String status) {
         FacilityReport facilityReport = new FacilityReport(ID,title, employeeID, reportDate,

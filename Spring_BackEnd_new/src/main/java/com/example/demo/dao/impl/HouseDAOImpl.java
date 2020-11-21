@@ -3,6 +3,7 @@ package com.example.demo.dao.impl;
 import com.example.demo.dao.AbstractHibernateDAO;
 import com.example.demo.dao.HouseDAO;
 import com.example.demo.pojo.FacilityReport;
+import com.example.demo.pojo.FacilityReportDetail;
 import com.example.demo.pojo.House;
 import com.example.demo.pojo.OnBoardApp_Address;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,12 @@ import java.util.List;
 
 @Repository("HouseDAOImpl")
 public class HouseDAOImpl extends AbstractHibernateDAO<House> implements HouseDAO {
+
+    public HouseDAOImpl()
+    {
+        setClazz(House.class);
+    }
+
     @Override
     public void addHouse(int ID, int contactID, String address, int numberOfPerson) {
         House house = new House(ID,contactID, address, numberOfPerson);
