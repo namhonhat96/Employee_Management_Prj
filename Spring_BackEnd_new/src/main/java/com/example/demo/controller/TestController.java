@@ -38,10 +38,9 @@ public class TestController {
     }
 
     @GetMapping("/listtest")
-    public String getTest(Model model) {
+    public  List<Test> getTest() {
         List<Test> testList = testService.getAllTests();
-        model.addAttribute("testList", testList);
-        return "list_test";
+        return testList;
     }
 
     @GetMapping("/updatetest")
@@ -53,11 +52,9 @@ public class TestController {
 
 
     @PostMapping("/updatetest/{id}")
-    public String updateTest(@PathVariable("id") Integer id, Model model, @ModelAttribute("test")Test test) {
+    public void updateTest(@PathVariable("id") Integer id, @RequestBody Test test) {
         //Update test to the database
-        String name = "updated";
-        testService.updateTest(id,name);
-        return "success_test";
+        testService.updateTest(id,test.getName());
     }
 
     @GetMapping("/testID/{id}")

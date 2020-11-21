@@ -52,7 +52,7 @@ public class HouseController {
         return houseList;
     }
 
-    @GetMapping("/onboard-facility/{id}")
+    @GetMapping("/house/{id}")
     @ResponseBody
     public House getHouseByID(@PathVariable("id") Integer ID) {
         return this.houseService.getHouseByID(ID);

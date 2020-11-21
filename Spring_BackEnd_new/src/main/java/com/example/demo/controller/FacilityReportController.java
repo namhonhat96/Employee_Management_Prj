@@ -39,7 +39,7 @@ public class FacilityReportController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-facility/update/{id}")
+    @PostMapping("/onboard-facility-report/update/{id}")
     void updateFacility(@RequestBody FacilityReport facilityReport, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
@@ -49,13 +49,13 @@ public class FacilityReportController {
     }
 
 
-    @GetMapping("/onboard-facility/list")
+    @GetMapping("/onboard-facility-report/list")
     public List<FacilityReport> getAllFacilityReports(){
         List<FacilityReport> facilityReportList = this.facilityReportService.getAllFacilityReports();
         return facilityReportList;
     }
 
-    @GetMapping("/onboard-facility/{id}")
+    @GetMapping("/onboard-facility-report/{id}")
     @ResponseBody
     public FacilityReport getFacilityReportByID(@PathVariable("id") Integer ID) {
         return this.facilityReportService.getFacilityReportByID(ID);

@@ -20,7 +20,6 @@ import java.util.Random;
 public class FacilityReportDetailController {
     private FacilityReportDetailDAO facilityReportDetailDAO;
 
-
     @Autowired
     public void setFacilityReportDetailDAO(FacilityReportDetailDAO facilityReportDetailDAO) {
         this.facilityReportDetailDAO = facilityReportDetailDAO;
@@ -42,7 +41,7 @@ public class FacilityReportDetailController {
     }
 
     @PostMapping("/onboard-facility-detail/update/{id}")
-    void updateFacility(@RequestBody FacilityReportDetail facilityReportDetail, @PathVariable("id") Integer ID) {
+    void updateFacilityReportDetail(@RequestBody FacilityReportDetail facilityReportDetail, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String reportDate = dateFormat.format(date);
@@ -58,7 +57,7 @@ public class FacilityReportDetailController {
         return facilityReportDetails;
     }
 
-    @GetMapping("/onboard-facility/{id}")
+    @GetMapping("/onboard-facility-detail/{id}")
     @ResponseBody
     public FacilityReportDetail getFacilityReportByID(@PathVariable("id") Integer ID) {
         return this.facilityReportDetailDAO.getFacilityReportDetailByID(ID);
