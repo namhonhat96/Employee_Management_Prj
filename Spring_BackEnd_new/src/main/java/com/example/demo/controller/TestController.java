@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.Test;
+import com.example.demo.pojo.User;
 import com.example.demo.service.TestService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,39 +24,27 @@ public class TestController {
         this.testService = testService;
     }
 
-    @GetMapping("/addtest")
-    public String getAddTest(Model model) {
-        model.addAttribute("test", new Test());
-        return "add_test";
-    }
-
-    @PostMapping("/addtest")
-    public String addBook(Model model) {
+    @RequestMapping(value = "/addtest", method = RequestMethod.POST)
+    public ResponseEntity<?> addTest(@RequestBody Test test) {
         Random random = new Random();
         int ID = random.nextInt(10000);
-        testService.addTest(ID, "random");
-        model.addAttribute("newTest", new Test());
-        return "success_test";
+        testService.addTest(ID, test.getName());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/listtest")
+    @RequestMapping(value = "/listtest",method = RequestMethod.GET)
     public  List<Test> getTest() {
         List<Test> testList = testService.getAllTests();
+        System.out.println("List Test is called");
         return testList;
     }
 
-    @GetMapping("/updatetest")
-    public String welcome(Model model)
-    {
-        model.addAttribute("test", new Test());
-        return "update_test";
-    }
-
-
-    @PostMapping("/updatetest/{id}")
-    public void updateTest(@PathVariable("id") Integer id, @RequestBody Test test) {
+    @RequestMapping(value = "/updatetest/{id}",method = RequestMethod.POST)
+    public ResponseEntity<?>  updateTest(@PathVariable("id") Integer id, @RequestBody Test test) {
         //Update test to the database
+        System.out.println("Update Test is called");
         testService.updateTest(id,test.getName());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @GetMapping("/testID/{id}")
