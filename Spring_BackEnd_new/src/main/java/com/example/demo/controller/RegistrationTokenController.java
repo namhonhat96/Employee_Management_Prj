@@ -28,23 +28,21 @@ public class RegistrationTokenController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/reg_token/update/{id}")
-    void updateRole(@RequestBody RegistrationToken registrationToken, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/reg_token/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateRole(@RequestBody RegistrationToken registrationToken, @PathVariable("id") Integer ID) {
         this.registrationTokenService.updateRegistrationToken(ID, registrationToken.getToken(), registrationToken.getValidDuration(), registrationToken.getEmail(),
                 registrationToken.getCreatedBy());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/reg_token/list")
+    @RequestMapping(value = "/reg_token/list", method = RequestMethod.GET)
     public List<RegistrationToken> getRegistrationTokens(){
         List<RegistrationToken> registrationTokenList = this.registrationTokenService.getRegistrationTokens();
         return registrationTokenList;
     }
 
-    @GetMapping("/reg_token/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/reg_token/{id}", method = RequestMethod.GET)
     public RegistrationToken getRegistrationTokenByID(@PathVariable("id") Integer ID) {
         return this.registrationTokenService.getRegistrationTokenByID(ID);
     }
-
-
 }

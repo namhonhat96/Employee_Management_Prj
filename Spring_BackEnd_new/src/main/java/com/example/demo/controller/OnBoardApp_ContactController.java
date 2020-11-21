@@ -33,10 +33,11 @@ public class OnBoardApp_ContactController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-contact/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-contact/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateContact(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
         onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),
                 contact.getIsReference(), contact.getIsEmergency());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
 

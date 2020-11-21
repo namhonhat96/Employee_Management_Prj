@@ -36,23 +36,23 @@ public class RoleController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-role/update/{id}")
-    void updateRole(@RequestBody Role role, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-role/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateRole(@RequestBody Role role, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String dateString = dateFormat.format(date);
         this.roleService.updateRole(ID,role.getRoleName(), role.getDescription(),
                 dateString, role.getLastModificationUser());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/onboard-role/list")
+    @RequestMapping(value = "/onboard-role/list", method = RequestMethod.GET)
     public List<Role> getAllRoles(){
         List<Role> roleList = this.roleService.getAllRoles();
         return roleList;
     }
 
-    @GetMapping("/onboard-role/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-role/{id}", method = RequestMethod.GET)
     public Role getPersonByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.roleService.getRoleByID(ID);
     }
