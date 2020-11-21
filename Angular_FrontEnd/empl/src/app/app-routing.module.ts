@@ -1,15 +1,43 @@
 import { HomePageCenterComponent } from './home-page/home-page-center/home-page-center.component';
-import { WelcomePageComponent } from './home-page/welcome-page/welcome-page.component';
-import { VisaComponent } from './home-page/visa/visa.component';
-import { HousingComponent } from './home-page/housing/housing.component';
-import { PersonalInfoComponent } from './home-page/personal-info/personal-info.component';
-
-//import { HousingComponent}
-
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { LogoutComponent } from "./logout/logout.component";
+import { AuthGaurdService } from "./service/auth-gaurd.service";
+import { HomePageComponent } from "./home-page/home-page.component";
+import { RegisterUserComponent } from "./register-user/register-user.component";
+import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
+import { RegisterPersonComponent } from "./register-person/register-person.component";
+import { RegisterVisaComponent } from "./register-visa/register-visa.component";
+import { RegisterAddressComponent } from "./register-address/register-address.component";
+import { RegisterContactComponent } from "./register-contact/register-contact.component";
 const routes: Routes = [
+  { path: "", component: HomePageComponent, canActivate: [AuthGaurdService] },
+  { path: "login", component: LoginComponent },
+  { path: "register-user", component: RegisterUserComponent },
+  {
+    path: "logout",
+    component: LogoutComponent,
+    canActivate: [AuthGaurdService],
+  },
+  {
+    path: "register-employee",
+    component: RegisterEmployeeComponent,
+  },
+  {
+    path: "register-person",
+    component: RegisterPersonComponent,
+  },
+  {
+    path: "register-visa",
+    component: RegisterVisaComponent,
+  },
+  {
+    path: "register-address",
+    component: RegisterAddressComponent,
+  },
+  { path: "register-contact", 
+    component: RegisterContactComponent },
   { 
     path: 'home-page', 
     //loadChildren: () =>  import('./home-page/home-page.module').then(m => m.HomePageModule),
@@ -17,26 +45,7 @@ const routes: Routes = [
     pathMatch: 'full'*/
     component: HomePageCenterComponent,
   },  
-  /*{
-    path: 'personal-info',
-    component: PersonalInfoComponent
-    //loadChildren: () => import('./personal-info/personal-info.module').then(m => m.PersonalInfoModule)
-},
-{
-    path: 'visa',
-    component: VisaComponent
-    //loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)
-},
-{
-    path: 'housing',
-    component: HousingComponent,
-    //loadChildren: () => import('./housing/housing.module').then(m => m.HousingModule)
-},
-{
-    path: 'welcome-page',
-    component: WelcomePageComponent
 
-}*/
 ];
 
 @NgModule({

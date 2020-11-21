@@ -1,0 +1,141 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Register Personal Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="First Name"
+                [(ngModel)]="firstname"
+                name="firstname"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Last Name"
+                [(ngModel)]="lastname"
+                name="lastname"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Middle Name"
+                [(ngModel)]="middle"
+                name="middlename"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <p>{{ email }}</p>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Cell Phone"
+                [(ngModel)]="cellphone"
+                name="cellphone"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Alternate Phone"
+                [(ngModel)]="alternatephone"
+                name="alternatephone"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Gender:
+            <select [(ngModel)]="gender">
+              <option *ngFor="let c of gender_options" [ngValue]="c">
+                {{ c.name }}
+              </option>
+            </select>
+
+            <div>
+              <select [(ngModel)]="gender">
+                <option
+                  *ngFor="let x of gender_options"
+                  [value]="x.id"
+                  [selected]="car.color.id == x.id"
+                >
+                  {{ x.name }}
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="SSN"
+                [(ngModel)]="SSN"
+                name="SSN"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="DOB"
+                [(ngModel)]="DOB"
+                name="DOB"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="registerPerson()" color="primary">
+      Submit
+    </button>
+  </mat-card-actions>
+</mat-card>

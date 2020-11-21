@@ -26,9 +26,15 @@ public class UserService {
     }
 
     @Transactional
-    public int addUser(User user)
+    public void addUser(int ID, String username, String email, String password, int personID)
     {
-        return this.userDAOImpl.addUser(user);
+        this.userDAOImpl.addUser(ID, username,email,password, personID);
+    }
+
+    @Transactional
+    public void updateUser(int ID, String username, String email, String password, int personID)
+    {
+        this.userDAOImpl.updateUser(ID, username,email,password, personID);
     }
 
     @Transactional
@@ -36,4 +42,6 @@ public class UserService {
     {
         return this.userDAOImpl.getUserByID(id);
     }
+
+
 }

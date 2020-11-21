@@ -233,5 +233,7 @@ CREATE TABLE `Testing_Table` (
 
 INSERT INTO `project2`.`Testing_Table` (`ID`, `nameTable`) VALUES ('1', 'test1');
 
+ALTER TABLE `project2`.`Employee_Table` 
+CHANGE COLUMN `ManagerID` `ManagerID` INT NULL DEFAULT NULL ;
 
 
