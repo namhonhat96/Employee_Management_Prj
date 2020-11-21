@@ -11,9 +11,9 @@ import { MessageService } from '../message.service';
 })
 export class HousingsComponent implements OnInit {
 
-  selectedHousing: Housing;
+  selectedHousing: Housing | undefined;
 
-  housing: Housing[];
+  housing: Housing[] | undefined;
 
   constructor(private housingService: HousingService, private messageService: MessageService) { }
 
