@@ -23,22 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c3509d1-2d16-46d1-95e1-eefa5d2477f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-user/housing-user.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-user/housing-user.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-user/housing-user.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-user/housing-user.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing-detail/housing-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/app/housing/housing.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

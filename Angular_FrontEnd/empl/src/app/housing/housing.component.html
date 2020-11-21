@@ -1,3 +1,11 @@
-<h2>{{housing.housingName| uppercase}}Details</h2>
-<div><span>housingId:</span>{{housing.housingId}}</div>
-<div><span>name:</span>{{housing.housingName}}</div>
+<h2>My Housing</h2>
+
+<ul class="housing">
+  <li *ngFor="let h of housing"
+    [class.selected]="ho === selectedHousing"
+    (click)="onSelect(housing)">
+    <span class="badge">{{housing.housingId}}</span> {{housing.housingName}}
+  </li>
+</ul>
+
+<app-housing-detail [housing]="selectedHousing"></app-housing-detail>
