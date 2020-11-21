@@ -1,3 +1,5 @@
+import { HomePageModule } from './home-page/home-page.module';
+import { Router } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -35,6 +37,7 @@ import { RegisterContactComponent } from "./register-contact/register-contact.co
     RegisterContactComponent,
   ],
   imports: [
+    HomePageModule,
     BrowserModule,
     AngularMaterialModule,
     AppRoutingModule,
@@ -52,4 +55,8 @@ import { RegisterContactComponent } from "./register-contact/register-contact.co
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+
+export class AppModule {
+  constructor(router: Router){} 
+ }
+

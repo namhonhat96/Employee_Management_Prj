@@ -1,3 +1,4 @@
+import { HomePageCenterComponent } from './home-page/home-page-center/home-page-center.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
@@ -35,7 +36,16 @@ const routes: Routes = [
     path: "register-address",
     component: RegisterAddressComponent,
   },
-  { path: "register-contact", component: RegisterContactComponent },
+  { path: "register-contact", 
+    component: RegisterContactComponent },
+  { 
+    path: 'home-page', 
+    //loadChildren: () =>  import('./home-page/home-page.module').then(m => m.HomePageModule),
+    /*redirectTo: '/home-page-center',
+    pathMatch: 'full'*/
+    component: HomePageCenterComponent,
+  },  
+
 ];
 
 @NgModule({
