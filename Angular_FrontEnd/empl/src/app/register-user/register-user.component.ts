@@ -1,3 +1,4 @@
+import { BoundElementPropertyAst } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AdduserService } from "../service/adduser.service";
@@ -13,6 +14,9 @@ export class RegisterUserComponent implements OnInit {
   email: string | any;
 
   constructor(private router: Router, private addUserservice: AdduserService) {}
+
+  isOPT: boolean;
+  isEAD: boolean;
 
   registerUser() {
     this.addUserservice
