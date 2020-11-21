@@ -2,9 +2,9 @@
 
 <ul class="housing">
   <li *ngFor="let h of housing"
-    [class.selected]="ho === selectedHousing"
-    (click)="onSelect(housing)">
-    <span class="badge">{{housing.housingId}}</span> {{housing.housingName}}
+    [class.selected]="h === selectedHousing"
+    (click)="onSelect(h)">
+    <span class="badge">{{h.housingId}}</span> 
   </li>
 </ul>
 
