@@ -40,25 +40,24 @@ public class FacilityReportDetailController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-facility-detail/update/{id}")
-    void updateFacilityReportDetail(@RequestBody FacilityReportDetail facilityReportDetail, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-facility-detail/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?>  updateFacilityReportDetail(@RequestBody FacilityReportDetail facilityReportDetail, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String reportDate = dateFormat.format(date);
         this.facilityReportDetailDAO.updateFacilityReportDetail(ID, facilityReportDetail.getReportID(),
                 facilityReportDetail.getEmployeeID(), facilityReportDetail.getComment(),
                 facilityReportDetail.getCreateDate(),reportDate );
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-
-    @GetMapping("/onboard-facility-detail/list")
+    @RequestMapping(value = "/onboard-facility-detail/list", method = RequestMethod.GET)
     public List<FacilityReportDetail> getAllFacilityReportDetails(){
         List<FacilityReportDetail> facilityReportDetails = this.facilityReportDetailDAO.getAllFacilityReportDetails();
         return facilityReportDetails;
     }
 
-    @GetMapping("/onboard-facility-detail/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-facility-detail/{id}", method = RequestMethod.GET)
     public FacilityReportDetail getFacilityReportByID(@PathVariable("id") Integer ID) {
         return this.facilityReportDetailDAO.getFacilityReportDetailByID(ID);
     }

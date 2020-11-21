@@ -36,24 +36,23 @@ public class HouseController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/house/update/{id}")
-    void updateFacility(@RequestBody House house, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/house/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?>  updateFacility(@RequestBody House house, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String reportDate = dateFormat.format(date);
         this.houseService.updateHouse(ID, house.getContactID(), house.getAddress(),
                 house.getNumberOfPerson());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-
-    @GetMapping("/house/list")
+    @RequestMapping(value = "/house/list", method = RequestMethod.GET)
     public List<House> getAllHouses(){
         List<House> houseList = this.houseService.getAllHouses();
         return houseList;
     }
 
-    @GetMapping("/house/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/house/{id}", method = RequestMethod.GET)
     public House getHouseByID(@PathVariable("id") Integer ID) {
         return this.houseService.getHouseByID(ID);
     }

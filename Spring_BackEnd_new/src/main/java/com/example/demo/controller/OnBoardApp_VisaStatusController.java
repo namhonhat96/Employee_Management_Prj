@@ -33,19 +33,19 @@ public class OnBoardApp_VisaStatusController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-visa-status/update/{id}")
-    void updateVisaStatus(@RequestBody OnBoardApp_VisaStatus visaStatus, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-visa-status/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateVisaStatus(@RequestBody OnBoardApp_VisaStatus visaStatus, @PathVariable("id") Integer ID) {
         this.onBoardApp_visaStatusService.updateVisaStatus(ID,visaStatus.getVisaType(),visaStatus.getActive(), visaStatus.getCreateUser());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/onboard-visa-status/list")
+    @RequestMapping(value = "/onboard-visa-status/list", method = RequestMethod.GET)
     public List<OnBoardApp_VisaStatus> getOnBoardApp_VisaStatusList(){
         List<OnBoardApp_VisaStatus> OnBoardApp_VisaStatuslist = this.onBoardApp_visaStatusService.getAllVisaStatus();
         return OnBoardApp_VisaStatuslist;
     }
 
-    @GetMapping("/onboard-visa-status/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-visa-status/{id}", method = RequestMethod.GET)
     public OnBoardApp_VisaStatus getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_visaStatusService.getVisaStatusByID(ID);
     }

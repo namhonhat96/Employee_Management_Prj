@@ -1,13 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.Test;
-import com.example.demo.pojo.User;
 import com.example.demo.service.TestService;
-import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,18 +37,16 @@ public class TestController {
 
     @RequestMapping(value = "/updatetest/{id}",method = RequestMethod.POST)
     public ResponseEntity<?>  updateTest(@PathVariable("id") Integer id, @RequestBody Test test) {
-        //Update test to the database
         System.out.println("Update Test is called");
         testService.updateTest(id,test.getName());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/testID/{id}")
-    public String getTestID(@PathVariable("id") Integer id, Model model)
+    @RequestMapping(value = "/testID/{id}",method = RequestMethod.GET)
+    public Test getTestID(@PathVariable("id") Integer id)
     {
         Test test = testService.getTestByID(id);
-        model.addAttribute("test", test);
-        return "test_id_result";
+        return test;
     }
 
 }

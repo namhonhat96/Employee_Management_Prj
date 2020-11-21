@@ -39,24 +39,24 @@ public class FacilityReportController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-facility-report/update/{id}")
-    void updateFacility(@RequestBody FacilityReport facilityReport, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-facility-report/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateFacilityReport(@RequestBody FacilityReport facilityReport, @PathVariable("id") Integer ID) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String reportDate = dateFormat.format(date);
         this.facilityReportService.updateFacilityReport(ID, facilityReport.getTitle(), facilityReport.getEmployeeID(),
                 reportDate, facilityReport.getDescription(), facilityReport.getStatus());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
 
-    @GetMapping("/onboard-facility-report/list")
+    @RequestMapping(value = "/onboard-facility-report/list", method = RequestMethod.GET)
     public List<FacilityReport> getAllFacilityReports(){
         List<FacilityReport> facilityReportList = this.facilityReportService.getAllFacilityReports();
         return facilityReportList;
     }
 
-    @GetMapping("/onboard-facility-report/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-facility-report/{id}", method = RequestMethod.GET)
     public FacilityReport getFacilityReportByID(@PathVariable("id") Integer ID) {
         return this.facilityReportService.getFacilityReportByID(ID);
     }
