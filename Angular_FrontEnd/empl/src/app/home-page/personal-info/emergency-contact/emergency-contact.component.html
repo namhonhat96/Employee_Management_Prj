@@ -1,0 +1,8 @@
+<div class="shadow p-4 mb-4 bg-white">
+    <p>Emergency Contact</p>
+    <div *ngIf = "info$ | async as info">
+        <p>Full Name: <span>{{info.fullName}}</span></p>
+        <p>Phone: <span>{{info.phone}}</span></p>
+        <p>Address: <span>{{info.address}}</span></p>
+    </div> 
+</div>

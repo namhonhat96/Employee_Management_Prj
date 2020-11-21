@@ -1,13 +1,11 @@
+import { EmploymentSectionComponent } from './personal-info/employement-section/employment-section.component';
+import { DocumentSectionComponent } from './personal-info/document-section/document-section.component';
+import { EmergencyContactComponent } from './personal-info/emergency-contact/emergency-contact.component';
+import { ContactInfoSectionComponent } from './personal-info/contact-info-section/contact-info-section.component';
+import { AddressSectionComponent } from './personal-info/address-section/address-section.component';
+import { NameSectionComponent } from './personal-info/name-section/name-section.component';
 import { HomePageCenterComponent } from './home-page-center/home-page-center.component';
-import { WorkScheduleComponent } from './personal-info/work-schedule/work-schedule.component';
-import { TimeAttendanceComponent } from './personal-info/time-attendance/time-attendance.component';
-import { StatusComponent } from './personal-info/status/status.component';
-import { RegularPayComponent } from './personal-info/regular-pay/regular-pay.component';
-import { PositionComponent } from './personal-info/position/position.component';
-import { EmploymentComponent } from './personal-info/employment/employment.component';
-import { CustomFieldComponent } from './personal-info/custom-field/custom-field.component';
-import { CorporateComponent } from './personal-info/corporate/corporate.component';
-import { AdditionalEarningComponent } from './personal-info/additional-earning/additional-earning.component';
+
 import { ReportComponent } from './housing/report/report.component';
 import { HouseDetailComponent } from './housing/house-detail/house-detail.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -34,23 +32,24 @@ import { CommonModule } from '@angular/common';
 
     ],
     declarations: [
+        HomePageCenterComponent,
+
         WelcomePageComponent,
+
         VisaComponent,
-        PersonalInfoComponent,
+
         HousingComponent,
         HouseDetailComponent,
         ReportComponent,
-        AdditionalEarningComponent,
-        CorporateComponent,
-        CustomFieldComponent,
-        EmploymentComponent,
-        PositionComponent,
-        RegularPayComponent,
-        StatusComponent,
-        TimeAttendanceComponent,
-        WorkScheduleComponent,
-        WelcomePageComponent,
-        HomePageCenterComponent
+        
+        PersonalInfoComponent,
+        
+        NameSectionComponent,
+        AddressSectionComponent,
+        ContactInfoSectionComponent,
+        EmploymentSectionComponent,
+        EmergencyContactComponent,
+        DocumentSectionComponent
     ]
 })
 

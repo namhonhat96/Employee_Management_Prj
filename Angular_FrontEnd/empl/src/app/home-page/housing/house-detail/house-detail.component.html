@@ -20,3 +20,11 @@
     </div>
 </div> -->
 <h1>Housing detail</h1>
+<h4>Address: {{ address}}</h4>
+<h2>Employee List</h2>
+
+<ul>
+  <li *ngFor="let employee of employee$ | async">
+    {{ employee.id }} - {{ employee.name }} - {{employee.phone}} 
+  </li>
+</ul>

@@ -50,4 +50,20 @@
     </div>
 </div> -->
 
-<p>Report page</p>
+<h2>Report List</h2>
+<ul>
+    <li *ngFor="let report of report$ | async">
+        {{ report.id }} - {{ report.title }} <br>
+        {{ report.createdBy }} <br>
+        {{ report.reportDate }} <br>
+        {{ report.status }} <br>
+        {{ report.description }} <br>
+        
+        <ul>
+            <li *ngFor="let comment of comment$ | async">
+                {{ comment.id }} - {{ comment.createdBy }} - {{ comment.commentDate}} <br>
+                {{ comment.description }}
+            </li>
+        </ul> 
+    </li>
+  </ul>
