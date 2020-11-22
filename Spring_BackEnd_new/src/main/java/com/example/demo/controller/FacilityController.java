@@ -44,7 +44,7 @@ public class FacilityController {
         List<Facility> facilityList = this.facilityService.getAllFacilities();
         return facilityList;
     }
-    
+
     @RequestMapping(value = "/onboard-facility/{id}", method = RequestMethod.GET)
     public Facility getFacilityByID(@PathVariable("id") Integer ID) {
         return this.facilityService.getFacilityByID(ID);

@@ -23,6 +23,8 @@ export class RegisterUserComponent implements OnInit {
       .registerUserTable(this.username, this.password, this.email)
       .subscribe(
         (data) => {
+          localStorage.setItem("email", this.email);
+          localStorage.setItem("username", this.username);
           this.router.navigate(["register-person"]);
         },
         (error) => {}
