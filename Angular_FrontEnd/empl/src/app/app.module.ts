@@ -22,6 +22,10 @@ import { RegisterVisaComponent } from "./register-visa/register-visa.component";
 import { RegisterAddressComponent } from "./register-address/register-address.component";
 import { RegisterContactComponent } from "./register-contact/register-contact.component";
 import { HrHomePageComponent } from "./hr-home-page/hr-home-page.component";
+import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info-hr.component";
+import { VisaHRComponent } from "./hr-home-page/visa/visa.component";
+import { HouseHRComponent } from "./hr-home-page/house/house.component";
+import { HireComponent } from "./hr-home-page/hire/hire.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,10 @@ import { HrHomePageComponent } from "./hr-home-page/hr-home-page.component";
     RegisterAddressComponent,
     RegisterContactComponent,
     HrHomePageComponent,
+    PersonInfoHrComponent,
+    VisaHRComponent,
+    HouseHRComponent,
+    HireComponent,
   ],
   imports: [
     HomePageModule,
