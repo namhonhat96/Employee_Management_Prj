@@ -26,8 +26,9 @@ public class OnBoardApp_AddressController {
     ResponseEntity<?> addAddress(@RequestBody OnBoardApp_Address address) {
         Random random = new Random();
         int ID = random.nextInt();
+        int personID = random.nextInt(1000);
         this.onBoardApp_addressService.addAddress(ID,address.getAddressLine1(),address.getAddressLine2(),address.getCity(),
-                address.getZipcode(),address.getStateName(),address.getStateAbbr(),address.getPersonID());
+                address.getZipcode(),address.getStateName(),address.getStateAbbr(),personID);
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

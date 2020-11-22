@@ -25,12 +25,14 @@ export class RegisterVisaComponent implements OnInit {
       .registerVisa(this.visaType, this.active, this.createUser)
       .subscribe(
         (data) => {
-          this.addAppService.registerEmployeeTable(1111, "OnBoarding");
+          this.addAppService.registerAppTable(1111, "OnBoarding");
           this.router.navigate(["/login"]);
         },
         (error) => {}
       );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createUser = localStorage.getItem("username");
+  }
 }

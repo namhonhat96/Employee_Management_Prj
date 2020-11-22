@@ -24,8 +24,14 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     this.loginservice.authenticate(this.username, this.password).subscribe(
       (data) => {
-        this.router.navigate([""]);
         this.invalidLogin = false;
+        localStorage.removeItem("username");
+        localStorage.setItem("username", this.username);
+        if (this.username == "admin") {
+          this.router.navigate(["hr-home-page"]);
+        } else {
+          this.router.navigate(["home-page"]);
+        }
       },
       (error) => {
         this.invalidLogin = true;
