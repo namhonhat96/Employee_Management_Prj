@@ -11,8 +11,13 @@ import { RegisterPersonComponent } from "./register-person/register-person.compo
 import { RegisterVisaComponent } from "./register-visa/register-visa.component";
 import { RegisterAddressComponent } from "./register-address/register-address.component";
 import { RegisterContactComponent } from "./register-contact/register-contact.component";
+import { HrHomePageComponent } from "./hr-home-page/hr-home-page.component";
 const routes: Routes = [
-  { path: "", component: HomePageComponent, canActivate: [AuthGaurdService] },
+  {
+    path: "employee-",
+    component: HomePageComponent,
+    canActivate: [AuthGaurdService],
+  },
   { path: "login", component: LoginComponent },
   { path: "register-user", component: RegisterUserComponent },
   {
@@ -23,6 +28,10 @@ const routes: Routes = [
   {
     path: "register-employee",
     component: RegisterEmployeeComponent,
+  },
+  {
+    path: "hr-home-page",
+    component: HrHomePageComponent,
   },
   {
     path: "register-person",
