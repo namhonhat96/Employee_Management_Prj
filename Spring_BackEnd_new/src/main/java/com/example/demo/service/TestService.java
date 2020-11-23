@@ -39,6 +39,7 @@ public class TestService {
 
     @Transactional
     public int updateTest(int ID, String name){
+        System.out.print("service called");
         return this.testDAO.updateTest(ID,name);
     }
 
