@@ -1,0 +1,12 @@
+<div class="shadow p-4 mb-4 bg-white">
+    <p>Name Section</p>
+    <div *ngIf = "info$ | async as info">
+        <p>Name: <span>{{info.name}}</span></p>
+        <p>Preferred Name: <span>{{info.preferredName}}</span></p>
+        <p>Avatar: <span>{{info.avatar}}</span></p>
+        <p>Date Of Birth: <span>{{info.dateOfBirth}}</span></p>
+        <p>Age: <span>{{info.age}}</span></p>
+        <p>Gender: <span>{{info.gender}}</span></p>
+        <p>SSN: <span>{{info.ssn}}</span></p>
+    </div>
+</div>

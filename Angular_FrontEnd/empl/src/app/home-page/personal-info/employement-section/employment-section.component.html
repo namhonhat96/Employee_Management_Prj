@@ -1,0 +1,11 @@
+<div class="shadow p-4 mb-4 bg-white">
+    <p>Employment Section</p>
+    <div *ngIf = "info$ | async as info">
+        <p>Work Authorization: <span>{{info.workAuthorization}}</span></p>
+        <p>Work Authorization Start: <span>{{info.authorizationStart}}</span></p>
+        <p>Work Authorization End: <span>{{info.authorizationEnd}}</span></p>
+        <p>Employment Start: <span>{{info.employmentStart}}</span></p>
+        <p>Employment End: <span>{{info.employmentEnd}}</span></p>
+    </div>
+
+</div>

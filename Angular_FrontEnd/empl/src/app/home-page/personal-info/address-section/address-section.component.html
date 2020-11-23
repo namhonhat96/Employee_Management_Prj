@@ -1,0 +1,14 @@
+
+<div class="shadow p-4 mb-4 bg-white">
+    <p>Address Section</p>
+
+    <div *ngIf = "info$ | async as info">
+        <p>Primary Adress: <span>{{info.primaryAddress}}</span></p>
+        <p>Secondary Adress: <span>{{info.secondaryAddress}}</span></p>
+        
+    </div> 
+
+</div>
+
+
+

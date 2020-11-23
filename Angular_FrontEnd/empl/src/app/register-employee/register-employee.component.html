@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Register Employee Information</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Car"
+                [(ngModel)]="car"
+                name="car"
+              /><br />
+            </mat-form-field>
+            <small>Format: Marker - Model - Color</small>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Are you a citizen or permanent citizen of the U.S?
+            <select [(ngModel)]="selectedValue">
+              <option *ngFor="let c of options" [ngValue]="c">
+                {{ c.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <div>
+            Please choose your citizenship:
+            <input type="radio" id="citizen" name="citizen" value="citizen" />
+            <label for="citizen">US Citizen</label>
+            <input
+              type="radio"
+              id="greencard"
+              name="greencard"
+              value="greencard"
+            />
+            <label for="greencard">Green Card</label><br />
+          </div>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Visa Start Date"
+                [(ngModel)]="visaStartDate"
+                name="visaStartDate"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Visa End Date"
+                [(ngModel)]="visaEndDate"
+                name="visaEndDate"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Driver License"
+                [(ngModel)]="driverLisence"
+                name="driverLisence"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                placeholder="Driver License Expiration"
+                [(ngModel)]="driver_exp"
+                name="driver_exp"
+              /><br />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="registerEmployee()" color="primary">
+      Submit
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,80 @@
+<!--<div class ="container">
+    <div class = "row">
+
+    
+        
+        <div class="col-xs-12 col-sm-4">
+            <label for="title">Title</label>
+            <input type = "text" id ="title" name ="title">
+            <br><br>
+            <label for="description">Description</label>
+            <input type = "text" id = "description" name ="description">
+            <br><br>
+        </div>
+        
+        
+        <div *ngFor="let report of reportList">
+            <div class = "row">
+                <div class="col-xs-12 col-sm-4">
+                    {{report.title}}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    {{report.description}}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    {{report.createdBy}}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    {{report.date}}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    {{report.status}}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div *ngFor = "let comment of report.commentList">
+                        <div>
+                            {{comment.description}}
+                        </div>
+                        <div>
+                            {{comment.createdBy}}
+                        </div>
+                        <div *ngIf="comment.date">
+                            {{comment.date}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<h2>Report List</h2>
+
+<table id="customers">
+  <tr>
+    <th>Report ID</th>
+    <th>Report Title</th>
+    <th>Report Created User</th>
+    <th>Report Date</th>
+    <th>Report Status</th>
+    <th>Report Comments</th>
+  </tr>
+  <tr *ngFor="let report of report$ | async">
+    <td>{{ report.id }}</td>
+    <td>{{ report.title }}</td>
+    <td>{{ report.createdBy }}</td>
+    <td>{{ report.status }}</td>
+    <td>{{ report.description }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let comment of comment$ | async">
+          {{ comment.id }} - {{ comment.createdBy }} -
+          {{ comment.commentDate }} <br />
+          {{ comment.description }}
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,9 @@
+<div class="shadow p-4 mb-4 bg-white">
+<p>Contact Info Section</p>
+<div *ngIf = "info$ | async as info">
+    <p>Personal Email: <span>{{info.personalEmail}}</span></p>
+    <p>Work Email: <span>{{info.workEmail}}</span></p>
+    <p>Ceil Phone: <span>{{info.ceilphone}}</span></p>
+    <p>Work Phone: <span>{{info.workphone}}</span></p>
+</div> 
+</div>
