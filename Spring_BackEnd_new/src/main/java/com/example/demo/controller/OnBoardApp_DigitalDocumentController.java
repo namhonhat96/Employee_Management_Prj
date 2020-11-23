@@ -37,13 +37,12 @@ public class OnBoardApp_DigitalDocumentController {
     }
 
     @RequestMapping(value = "/onboard-digital-doc/lists", method = RequestMethod.GET)
-    public List<OnBoardApp_DigitalDocument> getOnBoardApp_DigitalDocumentList(){
-        List<OnBoardApp_DigitalDocument> OnBoardApp_DigitalDocumentlist = this.onBoardApp_digitalDocumentService.getAllDigitalDocuments();
-        return OnBoardApp_DigitalDocumentlist;
+    public List<OnBoardApp_DigitalDocument> getAllDigitalDocuments(){
+        return this.onBoardApp_digitalDocumentService.getAllDigitalDocuments();
     }
 
     @RequestMapping(value = "/onboard-digital-doc/{id}", method = RequestMethod.GET)
-    public OnBoardApp_DigitalDocument getDigitalDocumentByIdWithVariableName(@PathVariable("id") Integer ID) {
+    public OnBoardApp_DigitalDocument getDigitalDocumentByID(@PathVariable("id") Integer ID) {
         return this.onBoardApp_digitalDocumentService.getDigitalDocumentByID(ID);
     }
 }

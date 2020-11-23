@@ -41,8 +41,7 @@ public class OnBoardApp_VisaStatusController {
 
     @RequestMapping(value = "/onboard-visa-status/list", method = RequestMethod.GET)
     public List<OnBoardApp_VisaStatus> getOnBoardApp_VisaStatusList(){
-        List<OnBoardApp_VisaStatus> OnBoardApp_VisaStatuslist = this.onBoardApp_visaStatusService.getAllVisaStatus();
-        return OnBoardApp_VisaStatuslist;
+        return this.onBoardApp_visaStatusService.getAllVisaStatus();
     }
 
     @RequestMapping(value = "/onboard-visa-status/{id}", method = RequestMethod.GET)

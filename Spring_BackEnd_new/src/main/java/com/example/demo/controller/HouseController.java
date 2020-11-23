@@ -28,7 +28,7 @@ public class HouseController {
     }
 
     @RequestMapping(value = "/house", method = RequestMethod.POST)
-    ResponseEntity<?> addFacilityReport(@RequestBody House house) {
+    ResponseEntity<?> addHouse(@RequestBody House house) {
         Random random = new Random();
         int ID = random.nextInt();
         this.houseService.addHouse(ID,house.getContactID(), house.getAddress(),
@@ -37,12 +37,16 @@ public class HouseController {
     }
 
     @RequestMapping(value = "/house/update/{id}", method = RequestMethod.POST)
-    ResponseEntity<?>  updateFacility(@RequestBody House house, @PathVariable("id") Integer ID) {
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-        String reportDate = dateFormat.format(date);
+    ResponseEntity<?>  updateHouse(@RequestBody House house, @PathVariable("id") Integer ID) {
         this.houseService.updateHouse(ID, house.getContactID(), house.getAddress(),
                 house.getNumberOfPerson());
+        return ResponseEntity.ok(new JwtResponse("okay"));
+    }
+
+
+    @RequestMapping(value = "/house/delete", method = RequestMethod.POST)
+    ResponseEntity<?>  deleteHouse(@RequestBody House house, @PathVariable("id") Integer ID) {
+        this.houseService.deleteHouse(house.getID());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

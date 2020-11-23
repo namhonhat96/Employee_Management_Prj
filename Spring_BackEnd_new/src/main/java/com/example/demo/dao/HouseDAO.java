@@ -8,6 +8,7 @@ import java.util.List;
 public interface HouseDAO {
     void addHouse(int ID, int contactID, String address, int numberOfPerson);
     void updateHouse(int ID, int contactID, String address, int numberOfPerson);
+    void deleteHouse(int ID);
     House getHouseByID(Integer id);
     List<House> getAllHouses();
 }

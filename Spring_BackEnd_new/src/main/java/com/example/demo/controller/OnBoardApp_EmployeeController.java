@@ -40,9 +40,8 @@ public class OnBoardApp_EmployeeController {
     }
 
     @RequestMapping(value = "/onboard-employee/list", method = RequestMethod.GET)
-    public List<OnBoardApp_Employee> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Employee> OnBoardApp_Employeelist = this.onBoardApp_employeeService.getAllEmployees();
-        return OnBoardApp_Employeelist;
+    public List<OnBoardApp_Employee> getAllEmployees(){
+        return this.onBoardApp_employeeService.getAllEmployees();
     }
 
     @RequestMapping(value = "/onboard-employee/{id}", method = RequestMethod.GET)
