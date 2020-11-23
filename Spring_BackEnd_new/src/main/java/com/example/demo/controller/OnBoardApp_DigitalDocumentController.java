@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.pojo.OnBoardApp_DigitalDocument;
 import com.example.demo.service.OnBoardApp_DigitalDocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,30 +20,29 @@ public class OnBoardApp_DigitalDocumentController {
         this.onBoardApp_digitalDocumentService = onBoardApp_digitalDocumentService;
     }
 
-    @PostMapping("/onboard-digital-doc")
-    void addContact(@RequestBody OnBoardApp_DigitalDocument digitalDocument) {
+    @RequestMapping(value = "/onboard-digital-doc", method = RequestMethod.POST)
+    ResponseEntity<?> addDigitalDoc(@RequestBody OnBoardApp_DigitalDocument digitalDocument) {
         Random random = new Random();
         int ID = random.nextInt();
         onBoardApp_digitalDocumentService.addDigitalDocument(ID, digitalDocument.getType(), digitalDocument.getRequired(),
                 digitalDocument.getTemplateLocaiton(), digitalDocument.getDescription());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-digital-doc/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_DigitalDocument digitalDocument, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-digital-doc/update/{id}", method = RequestMethod.GET)
+    ResponseEntity<?>  updateDigitalDoc(@RequestBody OnBoardApp_DigitalDocument digitalDocument, @PathVariable("id") Integer ID) {
         onBoardApp_digitalDocumentService.updateDigitalDocument(ID, digitalDocument.getType(), digitalDocument.getRequired(),
                 digitalDocument.getTemplateLocaiton(), digitalDocument.getDescription());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-
-    @GetMapping("/onboard-digital-doc/list")
-    public List<OnBoardApp_DigitalDocument> getOnBoardApp_DigitalDocumentList(){
-        List<OnBoardApp_DigitalDocument> OnBoardApp_DigitalDocumentlist = this.onBoardApp_digitalDocumentService.getAllDigitalDocuments();
-        return OnBoardApp_DigitalDocumentlist;
+    @RequestMapping(value = "/onboard-digital-doc/lists", method = RequestMethod.GET)
+    public List<OnBoardApp_DigitalDocument> getAllDigitalDocuments(){
+        return this.onBoardApp_digitalDocumentService.getAllDigitalDocuments();
     }
 
-    @GetMapping("/onboard-digital-doc/{id}")
-    @ResponseBody
-    public OnBoardApp_DigitalDocument getDigitalDocumentByIdWithVariableName(@PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-digital-doc/{id}", method = RequestMethod.GET)
+    public OnBoardApp_DigitalDocument getDigitalDocumentByID(@PathVariable("id") Integer ID) {
         return this.onBoardApp_digitalDocumentService.getDigitalDocumentByID(ID);
     }
 }

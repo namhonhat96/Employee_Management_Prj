@@ -33,17 +33,17 @@ public class OnBoardApp_ContactController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-contact/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-contact/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateContact(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
         onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),
                 contact.getIsReference(), contact.getIsEmergency());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
 
     @GetMapping("/onboard-contact/list")
-    public List<OnBoardApp_Contact> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Contact> OnBoardApp_Contactlist = this.onBoardApp_contactService.getAllContacts();
-        return OnBoardApp_Contactlist;
+    public List<OnBoardApp_Contact> getAllContacts(){
+        return this.onBoardApp_contactService.getAllContacts();
     }
 
     @GetMapping("/onboard-contact/{id}")

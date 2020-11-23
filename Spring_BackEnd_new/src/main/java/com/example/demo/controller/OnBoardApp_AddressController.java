@@ -26,27 +26,26 @@ public class OnBoardApp_AddressController {
     ResponseEntity<?> addAddress(@RequestBody OnBoardApp_Address address) {
         Random random = new Random();
         int ID = random.nextInt();
+        int personID = random.nextInt(1000);
         this.onBoardApp_addressService.addAddress(ID,address.getAddressLine1(),address.getAddressLine2(),address.getCity(),
-                address.getZipcode(),address.getStateName(),address.getStateAbbr(),address.getPersonID());
+                address.getZipcode(),address.getStateName(),address.getStateAbbr(),personID);
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-address/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_Address address, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-address/update/{id}", method = RequestMethod.GET)
+    ResponseEntity<?> updateAddress(@RequestBody OnBoardApp_Address address, @PathVariable("id") Integer ID) {
         this.onBoardApp_addressService.updateAddress(ID, address.getAddressLine1(), address.getAddressLine2(),
                 address.getCity(), address.getZipcode(), address.getStateName(),
                 address.getStateAbbr(), address.getPersonID());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-
-    @GetMapping("/onboard-address/list")
-    public List<OnBoardApp_Address> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Address> OnBoardApp_Addresslist = this.onBoardApp_addressService.getAllAddresses();
-        return OnBoardApp_Addresslist;
+    @RequestMapping(value = "/onboard-address/list", method = RequestMethod.GET)
+    public List<OnBoardApp_Address> getAddresses(){
+        return this.onBoardApp_addressService.getAllAddresses();
     }
 
-    @GetMapping("/onboard-address/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-address/{id}", method = RequestMethod.GET)
     public OnBoardApp_Address getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_addressService.getAddressByID(ID);
     }

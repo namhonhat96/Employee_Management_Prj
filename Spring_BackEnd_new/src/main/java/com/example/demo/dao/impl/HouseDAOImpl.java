@@ -34,6 +34,13 @@ public class HouseDAOImpl extends AbstractHibernateDAO<House> implements HouseDA
     }
 
     @Override
+    public void deleteHouse(int ID) {
+        House house = getHouseByID(ID);
+        getCurrentSession().delete(house);
+    }
+
+
+    @Override
     public House getHouseByID(Integer id) {
         return getCurrentSession().get(House.class, id);
     }

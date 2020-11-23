@@ -45,7 +45,6 @@ public class UserController {
                 userMap.put(userList.get(i).getUsername(),
                         userList.get(i).getPassword());
             }
-
             if(userMap.containsKey(username) && userMap.get(username).equals(password))
             {
                 String token = JwtUtil.generateToken(Constant.SIGNING_KEY, username
@@ -56,8 +55,6 @@ public class UserController {
             }else{
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-
-
     }
 
     @RequestMapping(value = "/onboard-user", method = RequestMethod.POST)
@@ -69,19 +66,18 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-user/update/{id}")
+    @RequestMapping(value = "/onboard-user/update/{id}", method = RequestMethod.POST)
     void updateUser(@RequestBody User user, @PathVariable("id") Integer ID) {
         this.userService.updateUser(ID,user.getUsername(),user.getEmail(), user.getPassword(),user.getPersonID());
     }
 
-    @GetMapping("/onboard-user/list")
+    @RequestMapping(value = "/onboard-user/list", method = RequestMethod.GET)
     public List<User> getOnBoardApp_VisaStatusList(){
         List<User> userList = this.userService.getAllUsers();
         return userList;
     }
 
-    @GetMapping("/onboard-user/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-user/{id}", method = RequestMethod.GET)
     public User getUserByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.userService.getUserByID(ID);
     }

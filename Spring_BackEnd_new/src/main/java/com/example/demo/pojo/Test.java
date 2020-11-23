@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class Test implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     private Integer ID;
 
     @Column(name = "nameTable")

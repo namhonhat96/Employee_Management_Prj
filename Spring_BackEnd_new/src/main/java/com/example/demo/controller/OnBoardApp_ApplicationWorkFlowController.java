@@ -22,26 +22,25 @@ public class OnBoardApp_ApplicationWorkFlowController {
     }
 
     @RequestMapping(value = "/onboard-app", method = RequestMethod.POST)
-    ResponseEntity<?> addContact(@RequestBody OnBoardApp_ApplicationWorkFlow app) {
+    ResponseEntity<?> addApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app) {
         Random random = new Random();
         int ID = random.nextInt();
         onBoardApp_applicationWorkFlowService.addApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-app/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_ApplicationWorkFlow app, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-app/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?> updateApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app, @PathVariable("id") Integer ID) {
         onBoardApp_applicationWorkFlowService.updateApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/onboard-app/{id}")
-    @ResponseBody
-    //Checking the employee application status to process homepage
+    @RequestMapping(value = "/onboard-app/{id}", method = RequestMethod.GET)
     public OnBoardApp_ApplicationWorkFlow getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
         return onBoardApp_applicationWorkFlowService.getApplicationWorkFlowByID(ID);
     }
 
-    @GetMapping("/onboard-app/list")
+    @RequestMapping(value = "/onboard-app/list", method = RequestMethod.GET)
     public List<OnBoardApp_ApplicationWorkFlow> getOnBoardApp_ApplicationWorkFlowList(){
         List<OnBoardApp_ApplicationWorkFlow> OnBoardApp_ApplicationWorkFlowlist = this.onBoardApp_applicationWorkFlowService.getAllApplicationWorkFlows();
         return OnBoardApp_ApplicationWorkFlowlist;

@@ -48,7 +48,12 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <p>{{ email }}</p>
+              <input
+                matInput
+                placeholder="Email"
+                [(ngModel)]="email"
+                name="email"
+              />
             </mat-form-field>
           </td>
         </tr>
@@ -88,18 +93,6 @@
                 {{ c.name }}
               </option>
             </select>
-
-            <div>
-              <select [(ngModel)]="gender">
-                <option
-                  *ngFor="let x of gender_options"
-                  [value]="x.id"
-                  [selected]="car.color.id == x.id"
-                >
-                  {{ x.name }}
-                </option>
-              </select>
-            </div>
           </td>
         </tr>
 

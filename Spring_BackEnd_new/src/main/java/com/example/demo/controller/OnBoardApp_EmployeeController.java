@@ -31,21 +31,20 @@ public class OnBoardApp_EmployeeController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-employee/update/{id}")
-    void updateEmployee(@RequestBody OnBoardApp_Employee person, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-employee/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?>  updateEmployee(@RequestBody OnBoardApp_Employee person, @PathVariable("id") Integer ID) {
         this.onBoardApp_employeeService.updateEmployee(ID, person.getPersonID(),person.getCar(),
                 person.getVisaID(), person.getVisaStartDate(), person.getVisaEndDate(),
                 person.getDriverLisence(), person.getDriver_exp());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @GetMapping("/onboard-employee/list")
-    public List<OnBoardApp_Employee> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Employee> OnBoardApp_Employeelist = this.onBoardApp_employeeService.getAllEmployees();
-        return OnBoardApp_Employeelist;
+    @RequestMapping(value = "/onboard-employee/list", method = RequestMethod.GET)
+    public List<OnBoardApp_Employee> getAllEmployees(){
+        return this.onBoardApp_employeeService.getAllEmployees();
     }
 
-    @GetMapping("/onboard-employee/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-employee/{id}", method = RequestMethod.GET)
     public OnBoardApp_Employee getEmployeeByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_employeeService.getEmployeeByID(ID);
     }

@@ -51,19 +51,30 @@
 </div> -->
 
 <h2>Report List</h2>
-<ul>
-    <li *ngFor="let report of report$ | async">
-        {{ report.id }} - {{ report.title }} <br>
-        {{ report.createdBy }} <br>
-        {{ report.reportDate }} <br>
-        {{ report.status }} <br>
-        {{ report.description }} <br>
-        
-        <ul>
-            <li *ngFor="let comment of comment$ | async">
-                {{ comment.id }} - {{ comment.createdBy }} - {{ comment.commentDate}} <br>
-                {{ comment.description }}
-            </li>
-        </ul> 
-    </li>
-  </ul>
+
+<table id="customers">
+  <tr>
+    <th>Report ID</th>
+    <th>Report Title</th>
+    <th>Report Created User</th>
+    <th>Report Date</th>
+    <th>Report Status</th>
+    <th>Report Comments</th>
+  </tr>
+  <tr *ngFor="let report of report$ | async">
+    <td>{{ report.id }}</td>
+    <td>{{ report.title }}</td>
+    <td>{{ report.createdBy }}</td>
+    <td>{{ report.status }}</td>
+    <td>{{ report.description }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let comment of comment$ | async">
+          {{ comment.id }} - {{ comment.createdBy }} -
+          {{ comment.commentDate }} <br />
+          {{ comment.description }}
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>

@@ -31,21 +31,21 @@ public class FacilityController {
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
-    @PostMapping("/onboard-facility/update/{id}")
-    void updateFacility(@RequestBody Facility facility, @PathVariable("id") Integer ID) {
+    @RequestMapping(value = "/onboard-facility/update/{id}", method = RequestMethod.POST)
+    ResponseEntity<?>  updateFacility(@RequestBody Facility facility, @PathVariable("id") Integer ID) {
         this.facilityService.updateFacility(ID, facility.getType(), facility.getDescription(),
                 facility.getQuantity(), facility.getHouseID());
+        return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
 
-    @GetMapping("/onboard-facility/list")
+    @RequestMapping(value = "/onboard-facility/list", method = RequestMethod.GET)
     public List<Facility> getAllFacilities(){
         List<Facility> facilityList = this.facilityService.getAllFacilities();
         return facilityList;
     }
 
-    @GetMapping("/onboard-facility/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/onboard-facility/{id}", method = RequestMethod.GET)
     public Facility getFacilityByID(@PathVariable("id") Integer ID) {
         return this.facilityService.getFacilityByID(ID);
     }
