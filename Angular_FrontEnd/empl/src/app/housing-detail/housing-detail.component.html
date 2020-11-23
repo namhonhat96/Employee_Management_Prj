@@ -1,11 +1,11 @@
 <div *ngIf="housing">
-
-    <h2>{{housing.housingName | uppercase}} Details</h2>
-    <div><span>id: </span>{{housing.housingId}}</div>
-    <div>
-      <label>name:
-        <input [(ngModel)]="housing.housingName" placeholder="housingName"/>
-      </label>
-    </div>
-  
+  <h2>{{ housing.housingName | uppercase }} Details</h2>
+  <div><span>id: </span>{{ housing.housingId }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="housing.housingName" placeholder="housingName" />
+    </label>
   </div>
+  <button>Update</button>
+</div>
