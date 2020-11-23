@@ -1,12 +1,8 @@
-import { HomePageModule } from "./home-page/home-page.module";
-import { HousingUserComponent } from "./housing-user/housing-user.component";
-import { Router } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -30,9 +26,16 @@ import { HireComponent } from "./hr-home-page/hire/hire.component";
 import { HousingsComponent } from "./housing/housing.component";
 import { MessagesComponent } from "./messages/messages.component";
 import { HousingDetailComponent } from "./housing-detail/housing-detail.component";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HousingUserComponent } from "./housing-user/housing-user.component";
+import { Router } from "@angular/router";
+import { HomePageModule } from "./home-page/home-page.module";
 @NgModule({
   declarations: [
     AppComponent,
+    HousingUserComponent,
+    HousingsComponent,
+    HousingDetailComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,

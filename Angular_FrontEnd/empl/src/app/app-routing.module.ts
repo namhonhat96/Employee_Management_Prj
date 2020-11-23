@@ -1,6 +1,3 @@
-import { HomePageCenterComponent } from "./home-page/home-page-center/home-page-center.component";
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { AuthGaurdService } from "./service/auth-gaurd.service";
@@ -16,7 +13,12 @@ import { VisaHRComponent } from "./hr-home-page/visa/visa.component";
 import { HouseHRComponent } from "./hr-home-page/house/house.component";
 import { HireComponent } from "./hr-home-page/hire/hire.component";
 import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info-hr.component";
+
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { HousingsComponent } from "./housing/housing.component";
+import { HomePageCenterComponent } from "./home-page/home-page-center/home-page-center.component";
+
 const routes: Routes = [
   {
     path: "employee-",
@@ -76,6 +78,7 @@ const routes: Routes = [
     pathMatch: 'full'*/
     component: HomePageCenterComponent,
   },
+  { path: "housing", component: HousingsComponent },
 ];
 
 @NgModule({
