@@ -31,6 +31,11 @@ private HouseDAO houseDAO;
     }
 
     @Transactional
+    public void deleteHouse(int ID){
+        this.deleteHouse(ID);
+    }
+
+    @Transactional
     public House getHouseByID(Integer id){
         return this.houseDAO.getHouseByID(id);
     }

@@ -42,9 +42,8 @@ public class OnBoardApp_ContactController {
 
 
     @GetMapping("/onboard-contact/list")
-    public List<OnBoardApp_Contact> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Contact> OnBoardApp_Contactlist = this.onBoardApp_contactService.getAllContacts();
-        return OnBoardApp_Contactlist;
+    public List<OnBoardApp_Contact> getAllContacts(){
+        return this.onBoardApp_contactService.getAllContacts();
     }
 
     @GetMapping("/onboard-contact/{id}")

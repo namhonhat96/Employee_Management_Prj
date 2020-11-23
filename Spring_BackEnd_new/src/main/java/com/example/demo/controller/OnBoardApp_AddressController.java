@@ -41,9 +41,8 @@ public class OnBoardApp_AddressController {
     }
 
     @RequestMapping(value = "/onboard-address/list", method = RequestMethod.GET)
-    public List<OnBoardApp_Address> getOnBoardApp_EmployeeList(){
-        List<OnBoardApp_Address> OnBoardApp_Addresslist = this.onBoardApp_addressService.getAllAddresses();
-        return OnBoardApp_Addresslist;
+    public List<OnBoardApp_Address> getAddresses(){
+        return this.onBoardApp_addressService.getAllAddresses();
     }
 
     @RequestMapping(value = "/onboard-address/{id}", method = RequestMethod.GET)

@@ -45,7 +45,6 @@ public class UserController {
                 userMap.put(userList.get(i).getUsername(),
                         userList.get(i).getPassword());
             }
-
             if(userMap.containsKey(username) && userMap.get(username).equals(password))
             {
                 String token = JwtUtil.generateToken(Constant.SIGNING_KEY, username

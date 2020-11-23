@@ -40,9 +40,8 @@ public class OnBoardApp_PersonController {
     }
 
     @RequestMapping(value = "/onboard-person/list", method = RequestMethod.GET)
-    public List<OnBoardApp_Person> getOnBoardApp_PersonList(){
-        List<OnBoardApp_Person> OnBoardApp_Personlist = this.onBoardApp_personService.getAllPersons();
-        return OnBoardApp_Personlist;
+    public List<OnBoardApp_Person> getAllPersons(){
+        return this.onBoardApp_personService.getAllPersons();
     }
 
     @RequestMapping(value = "/onboard-person/{id}", method = RequestMethod.GET)

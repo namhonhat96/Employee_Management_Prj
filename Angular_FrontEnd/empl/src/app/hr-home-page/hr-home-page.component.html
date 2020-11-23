@@ -1,1 +1,22 @@
-<p>hr-home-page works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/hr-home-page/personal-info">Personal Profile</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/hr-home-page/visa">Visa Status Management</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/hr-home-page/hire">Hire</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/hr-home-page/house-manage">House Management</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
