@@ -32,8 +32,8 @@ public class OnBoardApp_ContactService {
     }
 
     @Transactional
-    public void updateContact(int ID, int personID, String relationship, String isReference, String isEmergency){
-        this.onBoardApp_contactDAO.updateContact(ID, personID, relationship, isReference, isEmergency);
+    public void updateContact(int ID, int personID, String relationship, String title, String isReference, String isEmergency, String isLandlord){
+        this.onBoardApp_contactDAO.updateContact(ID, personID, relationship, title, isReference, isEmergency, isLandlord);
     }
 
     @Transactional

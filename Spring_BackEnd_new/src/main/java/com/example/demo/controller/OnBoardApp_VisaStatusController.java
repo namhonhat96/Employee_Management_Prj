@@ -27,9 +27,7 @@ public class OnBoardApp_VisaStatusController {
 
     @RequestMapping(value = "/onboard-visa-status", method = RequestMethod.POST)
     ResponseEntity<?> addVisaStatus(@RequestBody OnBoardApp_VisaStatus visaStatus) {
-        Random random = new Random();
-        int ID = random.nextInt();
-        this.onBoardApp_visaStatusService.addVisaStatus(ID,visaStatus.getVisaType(),visaStatus.getActive(), visaStatus.getCreateUser());
+        this.onBoardApp_visaStatusService.addVisaStatus(visaStatus.getID(),visaStatus.getVisaType(),visaStatus.getActive(), visaStatus.getCreateUser());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

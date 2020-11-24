@@ -27,7 +27,12 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = false;
         localStorage.removeItem("username");
         localStorage.setItem("username", this.username);
-        if (this.username == "admin") {
+        if (this.username == localStorage.getItem("pendinguser")) {
+          this.invalidLogin = true;
+          this.error = "Waiting for HR to review application";
+        } else if (this.username == localStorage.getItem("newuser")) {
+          this.router.navigate(["register-person"]);
+        } else if (this.username == "admin") {
           this.router.navigate(["hr-home-page"]);
         } else {
           this.router.navigate(["home-page"]);

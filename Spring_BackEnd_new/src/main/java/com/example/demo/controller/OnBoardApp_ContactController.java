@@ -29,14 +29,14 @@ public class OnBoardApp_ContactController {
     ResponseEntity<?> addContact(@RequestBody OnBoardApp_Contact contact) {
         Random random = new Random();
         int ID = random.nextInt();
-        onBoardApp_contactService.addContact(ID, 1, contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
+        onBoardApp_contactService.addContact(ID, contact.getPersonID(), contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @RequestMapping(value = "/onboard-contact/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?> updateContact(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
-        onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),
-                contact.getIsReference(), contact.getIsEmergency());
+        onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),contact.getTitle(),
+                contact.getIsReference(), contact.getIsEmergency(), contact.getIsLandlord());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

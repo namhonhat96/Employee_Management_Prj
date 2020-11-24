@@ -12,6 +12,7 @@ export class RegisterVisaComponent implements OnInit {
   visaType: string | any;
   active: string | any;
   createUser: string | any;
+  pendinguser: string | any;
   constructor(
     private router: Router,
     private addVisaservice: AddVisaService,
@@ -26,7 +27,10 @@ export class RegisterVisaComponent implements OnInit {
       .subscribe(
         (data) => {
           this.addAppService.registerAppTable(1111, "OnBoarding");
-          this.router.navigate(["/login"]);
+          this.router.navigate([""]);
+          this.pendinguser = localStorage.getItem("username");
+          localStorage.clear();
+          localStorage.setItem("pendinguser", this.pendinguser);
         },
         (error) => {}
       );

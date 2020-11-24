@@ -9,6 +9,7 @@ export class AddPersonService {
   constructor(private httpClient: HttpClient) {}
 
   registerPersonTable(
+    id,
     firstname,
     lastname,
     middlename,
@@ -20,6 +21,7 @@ export class AddPersonService {
     DOB
   ) {
     return this.httpClient.post<any>("http://localhost:8081/onboard-person", {
+      id,
       firstname,
       lastname,
       middlename,

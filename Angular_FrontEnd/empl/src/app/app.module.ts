@@ -26,6 +26,8 @@ import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info
 import { VisaHRComponent } from "./hr-home-page/visa/visa.component";
 import { HouseHRComponent } from "./hr-home-page/house/house.component";
 import { HireComponent } from "./hr-home-page/hire/hire.component";
+import { FormAppComponent } from "./hr-home-page/hire/form-app/form-app.component";
+import { DocAppComponent } from "./hr-home-page/hire/doc-app/doc-app.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,8 @@ import { HireComponent } from "./hr-home-page/hire/hire.component";
     VisaHRComponent,
     HouseHRComponent,
     HireComponent,
+    FormAppComponent,
+    DocAppComponent,
   ],
   imports: [
     HomePageModule,
