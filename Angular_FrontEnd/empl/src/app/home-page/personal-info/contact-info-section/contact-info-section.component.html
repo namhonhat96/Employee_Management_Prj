@@ -1,28 +1,24 @@
 <div class="shadow p-4 mb-4 bg-white">
 <p>Contact Info Section</p>
-<div *ngIf = "info$ | async as info">
+<div *ngIf = "info$ as info">
 
     <div *ngIf="condition; else elseBlock">
-        <label>Personal Email: </label>
-        <input [(ngModel)]="info.personalEmail" placeholder="email"/><br>
-        <label>Work Email: </label><br>
-        <input [(ngModel)]="info.workEmail" placeholder="email"/><br>
-        <label>Ceilphone: </label><br>
-        <input [(ngModel)]="info.ceilphone" placeholder="phone"/><br>
-        <label>Work Phone: </label><br>
-        <input [(ngModel)]="info.workphone" placeholder="phone"/><br>
+        <label>Email: </label>
+        <input [(ngModel)]="info.email" placeholder="email"/><br>
+        <label>Cellphone: </label><br>
+        <input [(ngModel)]="info.cellphone" placeholder="phone"/><br>
+        <label>Alternate Phone: </label><br>
+        <input [(ngModel)]="info.alternatephone" placeholder="phone"/><br>
         <br>
         <button type="button" class="btn btn-success" (click)="edit()">Save</button>
     </div>
     <ng-template #elseBlock>
-        <label>Personal Email: </label>
-        <p>{{info.personalEmail}}</p>
-        <label>Work Email: </label>
-        <p>{{info.workEmail}}</p>
-        <label>Ceilphone: </label>
-        <p>{{info.ceilphone}}</p>
-        <label>Work Phone: </label>
-        <p>{{info.workphone}}</p>
+        <label>Email: </label>
+        <p>{{info.email}}</p>
+        <label>Cellphone: </label><br>
+        <p>{{info.cellphone}}</p>
+        <label>Alternate Phone: </label><br>
+        <p>{{info.alternatephone}}</p><br>
         <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
     </ng-template>
     

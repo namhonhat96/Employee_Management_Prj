@@ -1,28 +1,35 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Emergency Contact</p>
-    <div *ngIf = "info$ | async as info">
+    <div *ngIf = "info$ as info">
         <div *ngIf="condition; else elseBlock">
-            <label>Full Name: </label><br>
-            <input [(ngModel)]="info.fullName" placeholder="name"/><br>
-            <label>Phone: </label><br>
-            <input [(ngModel)]="info.phone" placeholder="phone"/><br>
-            <label>Address: </label><br>
-            <input [(ngModel)]="info.address" placeholder="address"/><br>
+            <label>Person ID: </label><br>
+            <input [(ngModel)]="info.personID" placeholder="name"/><br>
+            <label>Relationship: </label><br>
+            <input [(ngModel)]="info.relationship" placeholder="phone"/><br>
+            <label>Title: </label><br>
+            <input [(ngModel)]="info.title" placeholder="address"/><br>
+            <label>Reference: </label><br>
+            <input [(ngModel)]="info.isReference" placeholder="address"/><br>
+            <label>Emergency: </label><br>
+            <input [(ngModel)]="info.isEmergency" placeholder="address"/><br>
+            <label>Landlord: </label><br>
+            <input [(ngModel)]="info.isLandlord" placeholder="address"/><br>
             <button type="button" class="btn btn-success" (click)="edit()">Save</button>
         </div>
         <ng-template #elseBlock>
-            <label>Full Name: </label>
-            <p>{{info.fullName}}</p>
-            <label>Phone: </label>
-            <p>{{info.phone}}</p>
-            <label>Address: </label>
-            <p>{{info.address}}</p>
+            <label>Person ID: </label><br>
+            <p>{{info.personID}}</p><br>
+            <label>Relationship: </label><br>
+            <p>{{info.relationship}}</p><br>
+            <label>Title: </label><br>
+            <p>{{info.title}}</p><br>
+            <label>Reference: </label><br>
+            <p>{{info.isReference}}</p><br>
+            <label>Emergency: </label><br>
+            <p>{{info.isEmergency}}</p><br>
+            <label>Landlord: </label><br>
+            <p>{{info.isLandlord}}</p><br>
             <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
         </ng-template>
-
-
-        
-        
-        
     </div> 
 </div>

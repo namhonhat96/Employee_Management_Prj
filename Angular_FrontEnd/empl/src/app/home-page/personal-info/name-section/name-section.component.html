@@ -1,49 +1,49 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Name Section</p>
-    <div *ngIf = "info$ | async as info">
+    <div *ngIf = "info$ as info">
         <div *ngIf="condition; else elseBlock">
-            <label>Name: </label><br>
-            <input [(ngModel)]="info.name" placeholder="name"/><br>
-            <label>Preferred Name: </label><br>
-            <input [(ngModel)]="info.preferredName" placeholder="name"/><br>
-            <label>Avatar: </label><br>
-            <input [(ngModel)]="info.avatar" placeholder="avatar"/><br>
-            <label>Date Of Birth: </label><br>
-            <input [(ngModel)]="info.dateOfBirth" placeholder="DoB"/><br>
-            <label>Age: </label><br>
-            <input [(ngModel)]="info.age" placeholder="age"/><br>
+            <label>First Name: </label><br>
+            <input [(ngModel)]="info.firstname" placeholder="name"/><br>
+            <label>Last Name: </label><br>
+            <input [(ngModel)]="info.lastname" placeholder="avatar"/><br>
+            <label>Middle Name: </label><br>
+            <input [(ngModel)]="info.middlename" placeholder="DoB"/><br>
+            <!--<label>Email: </label><br>
+            <input [(ngModel)]="info.email" placeholder="age"/><br>
+            <label>Cellphone: </label><br>
+            <input [(ngModel)]="info.cellphone" placeholder="gender"/><br>
+            <label>Alternate Phone: </label><br>
+            <input [(ngModel)]="info.alternatePhone" placeholder="ssn"/><br> -->
             <label>Gender: </label><br>
-            <input [(ngModel)]="info.gender" placeholder="gender"/><br>
+            <input [(ngModel)]="info.gender" placeholder="ssn"/><br>
             <label>SSN: </label><br>
             <input [(ngModel)]="info.ssn" placeholder="ssn"/><br>
+            <label>Date of Birth: </label><br>
+            <input [(ngModel)]="info.dob" placeholder="ssn"/><br>
 
             <button type="button" class="btn btn-success" (click)="edit()">Save</button>
         </div>
         <ng-template #elseBlock>
-            <label>Name: </label><br>
-            <p>{{info.name}}</p>
-            <label>Preferred Name: </label><br>
-            <p>{{info.preferredName}}</p>
-            <label>Avatar: </label><br>
-            <p>{{info.avatar}}</p>
-            <label>Date Of Birth: </label><br>
-            <p>{{info.dateOfBirth}}</p>
-            <label>Age: </label><br>
-            <p>{{info.age}}</p>
+            <label>First Name: </label><br>
+            <p>{{info.firstname}}</p><br>
+            <label>Last Name: </label><br>
+            <p>{{info.lastname}}</p><br>
+            <label>Middle Name: </label><br>
+            <p>{{info.middlename}}</p><br>
+            <!--<label>Email: </label><br>
+            <p>{{info.email}}</p><br>
+            <label>Cellphone: </label><br>
+            <p>{{info.cellphone}}</p><br>
+            <label>Alternate Phone: </label><br>
+            <p>{{info.alternatePhone}}</p><br>-->
             <label>Gender: </label><br>
-            <p>{{info.gender}}</p>
+            <p>{{info.gender}}</p><br>
             <label>SSN: </label><br>
-            <p>{{info.ssn}}</p>
+            <p>{{info.ssn}}</p><br>
+            <label>Date of Birth: </label><br>
+            <p>{{info.dob}}</p><br>
 
             <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
         </ng-template>
-
-        
-        
-        
-        
-        
-        
-        
     </div>
 </div>
