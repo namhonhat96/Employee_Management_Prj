@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="751ae22a-b832-4281-91e1-50f2e068f30f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular_FrontEnd/empl/src/main.ts" afterDir="false" />
-    </list>
+    <list default="true" id="751ae22a-b832-4281-91e1-50f2e068f30f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Spring_BackEnd_new" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -56,10 +54,17 @@
       <option name="presentableId" value="Default" />
       <updated>1605820300328</updated>
       <workItem from="1605820301511" duration="94000" />
+      <workItem from="1606159896959" duration="40000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="934" y="168" key="FileChooserDialogImpl" timestamp="1606159934383">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="934" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606159934383" />
   </component>
 </project>
