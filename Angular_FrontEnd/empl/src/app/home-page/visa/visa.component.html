@@ -1,6 +1,5 @@
 <div class="container">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <div *ngIf = "isCase1" class="shadow p-4 mb-4 bg-white">
             <form action="/action_page.php">
                 <label for="myfile">Please upload a copy of your OPT (STEM) EAD</label>
                 <input type="file" id="opt" name="opt"><br>
@@ -8,7 +7,6 @@
             </form>
         </div>
 
-        <div *ngIf = "isCase2" class="shadow p-4 mb-4 bg-white">
             <form action="/action_page.php">
                 <label>Please download and fill your I-983 form</label>
                 <br>
@@ -19,11 +17,9 @@
             </form>
         </div>
 
-        <div *ngIf = "isCase3" class="shadow p-4 mb-4 bg-white">
             <label>Waiting for HR to approve and sign I-983</label>
         </div>
 
-        <div *ngIf = "isCase4" class="shadow p-4 mb-4 bg-white">
             <form action="/action_page.php">
                 <label>Please send the I-983 with all necessary documents to your school and upload the new I-20</label>
                 <input type="file" id="i-20" name="i-20"><br>
@@ -31,7 +27,6 @@
             </form>
         </div>
 
-        <div *ngIf = "isCase5" class="shadow p-4 mb-4 bg-white">
             <form action="/action_page.php">
                 <label>Please upload your OPT STEM Receipt</label>
                 <input type="file" id="opt-receipt" name="opt-receipt"><br>
@@ -39,7 +34,6 @@
             </form>
         </div>
 
-        <div *ngIf = "isCase6" class="shadow p-4 mb-4 bg-white">
             <form action="/action_page.php">
                 <label>Please upload your OPT STEM EAD</label>
                 <input type="file" id="opt-ead" name="opt-ead"><br>

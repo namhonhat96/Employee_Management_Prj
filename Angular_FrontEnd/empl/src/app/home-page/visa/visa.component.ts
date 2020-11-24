@@ -16,7 +16,10 @@ export class VisaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.isCase1 = true;
+    this.service.getVisaByID(1).subscribe((data) => {
+      this.info$ = data;
+    });
+
     this.isCase2 = true;
     this.isCase3 = true;
     this.isCase4 = true;
