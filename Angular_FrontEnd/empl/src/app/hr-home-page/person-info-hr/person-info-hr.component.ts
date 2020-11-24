@@ -15,6 +15,8 @@ export class PersonInfoHrComponent implements OnInit {
   employees: Employee[] = [];
   persons: Person[] = [];
   visas: Visa[] = [];
+  isName = false;
+  isEmplID = false;
 
   constructor(
     private personService: PersonServiceService,
@@ -23,16 +25,18 @@ export class PersonInfoHrComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.personService.findAllPersons().subscribe((data) => {
-      this.persons = data;
-    });
+    if (!this.isName && !this.isEmplID) {
+      this.personService.findAllPersons().subscribe((data) => {
+        this.persons = data;
+      });
 
-    this.employeeService.findAllEmployees().subscribe((data) => {
-      this.employees = data;
-    });
+      this.employeeService.findAllEmployees().subscribe((data) => {
+        this.employees = data;
+      });
 
-    this.visaService.findAllVisas().subscribe((data) => {
-      this.visas = data;
-    });
+      this.visaService.findAllVisas().subscribe((data) => {
+        this.visas = data;
+      });
+    }
   }
 }

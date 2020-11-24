@@ -11,10 +11,17 @@
   float: left;
 }
 
-table {
-  border: 1px solid black;
+td {
+  padding: 0 10px;
+  text-align: center;
+  border: 1px solid #dddddd;
 }
-
+th {
+  padding: 10px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 #clearit {
   clear: left;
 }
