@@ -29,7 +29,7 @@ public class OnBoardApp_ContactController {
     ResponseEntity<?> addContact(@RequestBody OnBoardApp_Contact contact) {
         Random random = new Random();
         int ID = random.nextInt();
-        onBoardApp_contactService.addContact(ID, 1, contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
+        onBoardApp_contactService.addContact(ID, contact.getPersonID(), contact.getRelationship(), contact.getIsReference(), contact.getIsEmergency());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

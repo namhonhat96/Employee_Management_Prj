@@ -15,9 +15,6 @@ export class RegisterUserComponent implements OnInit {
 
   constructor(private router: Router, private addUserservice: AdduserService) {}
 
-  isOPT: boolean;
-  isEAD: boolean;
-
   registerUser() {
     this.addUserservice
       .registerUserTable(this.username, this.password, this.email)
@@ -25,7 +22,8 @@ export class RegisterUserComponent implements OnInit {
         (data) => {
           localStorage.setItem("email", this.email);
           localStorage.setItem("username", this.username);
-          this.router.navigate(["register-person"]);
+          localStorage.setItem("newuser", this.username);
+          this.router.navigate([""]);
         },
         (error) => {}
       );

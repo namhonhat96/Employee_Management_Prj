@@ -26,7 +26,7 @@ public class RegistrationToken implements Serializable {
     private String token;
 
     @Column(name="ValidDuration")
-    private int validDuration;
+    private String validDuration;
 
     @Column(name="Email")
     private String email;

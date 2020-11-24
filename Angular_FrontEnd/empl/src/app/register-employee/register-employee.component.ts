@@ -17,6 +17,7 @@ export class RegisterEmployeeComponent implements OnInit {
   isResident: false;
   selectedValue = null;
   selectCitizen: string | any;
+  personID = localStorage.getItem("personID");
   options = [
     { id: 1, name: "Yes" },
     { id: 2, name: "No" },
@@ -31,6 +32,7 @@ export class RegisterEmployeeComponent implements OnInit {
   registerEmployee() {
     this.addEmployeeservice
       .registerEmployeeTable(
+        this.personID,
         this.car,
         this.visaStartDate,
         this.visaEndDate,

@@ -20,7 +20,7 @@ public class RegistrationTokenService {
     }
 
     @Transactional
-    public void addRegistrationToken(int ID, String token,int validDuration, String email,
+    public void addRegistrationToken(int ID, String token,String validDuration, String email,
                               String createdBy){
         this.registrationTokenDAO.addRegistrationToken(ID,token,validDuration,email,createdBy);
     }
@@ -32,7 +32,7 @@ public class RegistrationTokenService {
     }
 
     @Transactional
-    public void updateRegistrationToken(int ID, String token,int validDuration, String email,
+    public void updateRegistrationToken(int ID, String token,String validDuration, String email,
                                  String createdBy){
         this.registrationTokenDAO.updateRegistrationToken(ID,token,validDuration,email,createdBy);
     }

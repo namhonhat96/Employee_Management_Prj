@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface RegistrationTokenDAO {
 
-    void addRegistrationToken(int ID, String token,int validDuration, String email,
+    void addRegistrationToken(int ID, String token,String validDuration, String email,
                        String createdBy);
-    void updateRegistrationToken(int ID, String token,int validDuration, String email,
+    void updateRegistrationToken(int ID, String token,String validDuration, String email,
                                  String createdBy);
     RegistrationToken getRegistrationTokenByID(Integer id);
     List<RegistrationToken> getRegistrationTokens();

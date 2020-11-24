@@ -16,10 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+
 @CrossOrigin()
 @RestController
 public class UserController {
@@ -36,8 +34,7 @@ public class UserController {
     {
             String username = authenticationRequest.getUsername();
             String password = authenticationRequest.getPassword();
-            System.out.println("Username: " + username);
-            System.out.println("Password value: " + password);
+
             Map<String, String> userMap = new HashMap<>();
             List<User> userList = userService.getAllUsers();
             for(int i = 0; i < userList.size(); i++)
@@ -45,12 +42,20 @@ public class UserController {
                 userMap.put(userList.get(i).getUsername(),
                         userList.get(i).getPassword());
             }
-            if(userMap.containsKey(username) && userMap.get(username).equals(password))
+//            Iterator hmIterator = userMap.entrySet().iterator();
+//            while (hmIterator.hasNext()) {
+//                Map.Entry mapElement = (Map.Entry)hmIterator.next();
+//                String marks = ((String)mapElement.getValue());
+//                System.out.println(mapElement.getKey() + " : " + marks);
+//            }
+        if(userMap.containsKey(username) && userMap.get(username).equals(password))
             {
                 String token = JwtUtil.generateToken(Constant.SIGNING_KEY, username
                 );
                 CookieUtil.create(httpServletResponse, Constant.JWT_TOKEN_COOKIE_NAME, token, false,
                         -1, "localhost");
+                System.out.println("Username: " + username);
+                System.out.println("Password value: " + password);
                 return ResponseEntity.ok(new JwtResponse(token));
             }else{
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);

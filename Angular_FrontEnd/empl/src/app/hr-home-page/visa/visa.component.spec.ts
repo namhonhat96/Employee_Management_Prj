@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { VisaComponent } from './visa.component';
+import { VisaHRComponent } from "./visa.component";
 
-describe('VisaComponent', () => {
-  let component: VisaComponent;
-  let fixture: ComponentFixture<VisaComponent>;
+describe("VisaComponent", () => {
+  let component: VisaHRComponent;
+  let fixture: ComponentFixture<VisaHRComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisaComponent ]
-    })
-    .compileComponents();
+      declarations: [VisaHRComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VisaComponent);
+    fixture = TestBed.createComponent(VisaHRComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

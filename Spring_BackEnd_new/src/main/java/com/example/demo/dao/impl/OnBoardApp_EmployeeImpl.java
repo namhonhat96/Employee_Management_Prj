@@ -37,8 +37,8 @@ public class OnBoardApp_EmployeeImpl extends AbstractHibernateDAO<OnBoardApp_Emp
     }
 
     @Override
-    public OnBoardApp_Employee getEmployeeByID(Integer id) {
-        return getCurrentSession().get(OnBoardApp_Employee.class, id);
+    public OnBoardApp_Employee getEmployeeByID(Integer personID) {
+        return getCurrentSession().get(OnBoardApp_Employee.class, personID);
     }
 
     @Override
