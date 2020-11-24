@@ -36,9 +36,8 @@ public class TestController {
     }
 
     @RequestMapping(value = "/updatetest/{id}",method = RequestMethod.POST)
-    public ResponseEntity<?>  updateTest(@PathVariable("id") Integer id, @RequestBody Test test) {
-        System.out.println("Update Test is called");
-        testService.updateTest(id,test.getName());
+    public ResponseEntity<?>  updateTest(@PathVariable("id") Integer ID, @RequestBody Test test) {
+        testService.updateTest(ID,test.getName());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
