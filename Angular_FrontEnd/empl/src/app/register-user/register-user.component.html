@@ -10,6 +10,20 @@
             <mat-form-field class="example-full-width">
               <input
                 matInput
+                placeholder="Token"
+                [(ngModel)]="token"
+                name="token"
+                required
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
                 placeholder="Username"
                 [(ngModel)]="username"
                 name="username"

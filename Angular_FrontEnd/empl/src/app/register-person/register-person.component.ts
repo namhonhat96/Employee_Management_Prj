@@ -8,6 +8,7 @@ import { AddPersonService } from "../service/add-person.service";
   styleUrls: ["./register-person.component.css"],
 })
 export class RegisterPersonComponent implements OnInit {
+  id: string | any;
   firstname: string | any;
   lastname: string | any;
   middlename: string | any;
@@ -29,9 +30,16 @@ export class RegisterPersonComponent implements OnInit {
     private addPersonservice: AddPersonService
   ) {}
 
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
   registerPerson() {
+    this.id = this.getRandomInt(1000);
+    localStorage.setItem("personID", this.id);
     this.addPersonservice
       .registerPersonTable(
+        this.id,
         this.firstname,
         this.lastname,
         this.middlename,

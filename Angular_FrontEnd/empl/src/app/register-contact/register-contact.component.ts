@@ -12,7 +12,7 @@ export class RegisterContactComponent implements OnInit {
   relationship: string | any;
   isReference: string | any;
   isEmergency: string | any;
-
+  personID = localStorage.getItem("personID");
   constructor(
     private router: Router,
     private addContactservice: AddContactService,
@@ -22,6 +22,7 @@ export class RegisterContactComponent implements OnInit {
   registerContact() {
     this.addContactservice
       .registerContactTable(
+        this.personID,
         this.relationship,
         this.isReference,
         this.isEmergency

@@ -24,8 +24,14 @@ public class OnBoardApp_ContactDAOImpl extends AbstractHibernateDAO<OnBoardApp_C
     }
 
     @Override
-    public void updateContact(int ID, int personID, String relationship, String isReference, String isEmergency) {
-
+    public void updateContact(int ID, int personID, String relationship, String title, String isReference, String isEmergency, String isLandlord) {
+        OnBoardApp_Contact contact = getContactByID(ID);
+        contact.setPersonID(personID);
+        contact.setRelationship(relationship);
+        contact.setTitle(title);
+        contact.setIsReference(isReference);
+        contact.setIsEmergency(isEmergency);
+        contact.setIsLandlord(isLandlord);
     }
 
     @Override

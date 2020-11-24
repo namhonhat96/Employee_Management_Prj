@@ -8,8 +8,9 @@ import { map } from "rxjs/operators";
 export class AddContactService {
   constructor(private httpClient: HttpClient) {}
 
-  registerContactTable(relationship, isReference, isEmergency) {
+  registerContactTable(personID, relationship, isReference, isEmergency) {
     return this.httpClient.post<any>("http://localhost:8081/onboard-contact", {
+      personID,
       relationship,
       isReference,
       isEmergency,
