@@ -1,11 +1,60 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Employment Section</p>
-    <div *ngIf = "info$ | async as info">
-        <p>Work Authorization: <span>{{info.workAuthorization}}</span></p>
-        <p>Work Authorization Start: <span>{{info.authorizationStart}}</span></p>
-        <p>Work Authorization End: <span>{{info.authorizationEnd}}</span></p>
-        <p>Employment Start: <span>{{info.employmentStart}}</span></p>
-        <p>Employment End: <span>{{info.employmentEnd}}</span></p>
+    <div *ngIf = "info$ as info">
+        <div *ngIf="condition; else elseBlock">
+            <label>Person ID: </label>
+            <input [(ngModel)]="info.personID" placeholder="address"/><br>
+            <label>Title: </label>
+            <input [(ngModel)]="info.title" placeholder="address"/><br>
+            <label>Manager ID: </label>
+            <input [(ngModel)]="info.managerID" placeholder="address"/><br>
+            <label>Start Date: </label>
+            <input [(ngModel)]="info.startDate" placeholder="address"/><br>
+            <label>End Date: </label>
+            <input [(ngModel)]="info.endDate" placeholder="address"/><br>
+            <label>Avatar: </label>
+            <input [(ngModel)]="info.avartar" placeholder="address"/><br>
+            <label>Car: </label>
+            <input [(ngModel)]="info.car" placeholder="address"/><br>
+            <label>Visa ID: </label>
+            <input [(ngModel)]="info.visaID" placeholder="address"/><br>
+            <label>Visa Start Date: </label>
+            <input [(ngModel)]="info.visaStartDate" placeholder="address"/><br>
+            <label>Visa End Date: </label>
+            <input [(ngModel)]="info.visaEndDate" placeholder="address"/><br>
+            <label>Driver Lisence: </label>
+            <input [(ngModel)]="info.driverLisence" placeholder="address"/><br>
+            <label>Driver expiration Date: </label>
+            <input [(ngModel)]="info.driver_exp" placeholder="address"/><br>
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+        </div>
+        <ng-template #elseBlock>
+            <label>Person ID: </label>
+            <p>{{info.personID}}</p>
+            <label>Title: </label>
+            <p>{{info.title}}</p>
+            <label>Manager ID: </label>
+            <p>{{info.managerID}}</p>
+            <label>Start Date: </label>
+            <p>{{info.startDate}}</p>
+            <label>End Date: </label>
+            <p>{{info.endDate}}</p>
+            <label>Avatar: </label>
+            <p>{{info.avartar}}</p>
+            <label>Car: </label>
+            <p>{{info.car}}</p>
+            <label>Visa ID: </label>
+            <p>{{info.visaID}}</p>
+            <label>Visa Start Date: </label>
+            <p>{{info.visaStartDate}}</p>
+            <label>Visa End Date: </label>
+            <p>{{info.visaEndDate}}</p>
+            <label>Driver Lisence: </label>
+            <p>{{info.driverLisence}}</p>
+            <label>Driver expiration Date: </label>
+            <p>{{info.driver_exp}}</p>
+            <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+        </ng-template>
     </div>
 
 </div>

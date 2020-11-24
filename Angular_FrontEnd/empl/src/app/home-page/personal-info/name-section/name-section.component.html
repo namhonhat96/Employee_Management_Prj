@@ -1,12 +1,49 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Name Section</p>
-    <div *ngIf = "info$ | async as info">
-        <p>Name: <span>{{info.name}}</span></p>
-        <p>Preferred Name: <span>{{info.preferredName}}</span></p>
-        <p>Avatar: <span>{{info.avatar}}</span></p>
-        <p>Date Of Birth: <span>{{info.dateOfBirth}}</span></p>
-        <p>Age: <span>{{info.age}}</span></p>
-        <p>Gender: <span>{{info.gender}}</span></p>
-        <p>SSN: <span>{{info.ssn}}</span></p>
+    <div *ngIf = "info$ as info">
+        <div *ngIf="condition; else elseBlock">
+            <label>First Name: </label><br>
+            <input [(ngModel)]="info.firstname" placeholder="name"/><br>
+            <label>Last Name: </label><br>
+            <input [(ngModel)]="info.lastname" placeholder="avatar"/><br>
+            <label>Middle Name: </label><br>
+            <input [(ngModel)]="info.middlename" placeholder="DoB"/><br>
+            <!--<label>Email: </label><br>
+            <input [(ngModel)]="info.email" placeholder="age"/><br>
+            <label>Cellphone: </label><br>
+            <input [(ngModel)]="info.cellphone" placeholder="gender"/><br>
+            <label>Alternate Phone: </label><br>
+            <input [(ngModel)]="info.alternatePhone" placeholder="ssn"/><br> -->
+            <label>Gender: </label><br>
+            <input [(ngModel)]="info.gender" placeholder="ssn"/><br>
+            <label>SSN: </label><br>
+            <input [(ngModel)]="info.ssn" placeholder="ssn"/><br>
+            <label>Date of Birth: </label><br>
+            <input [(ngModel)]="info.dob" placeholder="ssn"/><br>
+
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+        </div>
+        <ng-template #elseBlock>
+            <label>First Name: </label><br>
+            <p>{{info.firstname}}</p><br>
+            <label>Last Name: </label><br>
+            <p>{{info.lastname}}</p><br>
+            <label>Middle Name: </label><br>
+            <p>{{info.middlename}}</p><br>
+            <!--<label>Email: </label><br>
+            <p>{{info.email}}</p><br>
+            <label>Cellphone: </label><br>
+            <p>{{info.cellphone}}</p><br>
+            <label>Alternate Phone: </label><br>
+            <p>{{info.alternatePhone}}</p><br>-->
+            <label>Gender: </label><br>
+            <p>{{info.gender}}</p><br>
+            <label>SSN: </label><br>
+            <p>{{info.ssn}}</p><br>
+            <label>Date of Birth: </label><br>
+            <p>{{info.dob}}</p><br>
+
+            <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+        </ng-template>
     </div>
 </div>

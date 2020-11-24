@@ -1,5 +1,32 @@
 <div class="container">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <p>visa works!</p>
+        <div *ngIf = "isCase1">
+            <p>Please upload a copy of your OPT (STEM) EAD</p>
+            <button type="button">Upload</button>
+        </div>
+
+        <div *ngIf = "isCase2">
+            <p>Please download and fill your I-983 form</p>
+            <button type="button">Download</button>
+            <button type="button">Upload</button>
+        </div>
+
+        <div *ngIf = "isCase3">
+            <p>Waiting for HR to approve and sign I-983</p>
+        </div>
+
+        <div *ngIf = "isCase4">
+            <p>Please send the I-983 with all necessary documents to your school and upload the new I-20</p>
+        </div>
+
+        <div *ngIf = "isCase5">
+            <p>Please upload your OPT STEM Receipt</p>
+            <button type="button">Upload</button>
+        </div>
+
+        <div *ngIf = "isCase6">
+            <p>Please upload your OPT STEM EAD</p>
+            <button type="button">Upload</button>
+        </div>
     </div>
 </div>
