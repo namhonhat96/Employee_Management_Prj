@@ -1,4 +1,9 @@
 export class Address{
-    primaryAddress: string;
-    secondaryAddress: string;
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    zipcode: string;
+    stateName: string;
+    stateAbbr: string;
+    personID: number;
 }

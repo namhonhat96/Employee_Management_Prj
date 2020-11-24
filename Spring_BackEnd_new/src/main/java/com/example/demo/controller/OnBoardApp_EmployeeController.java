@@ -33,6 +33,7 @@ public class OnBoardApp_EmployeeController {
 
     @RequestMapping(value = "/onboard-employee/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?>  updateEmployee(@RequestBody OnBoardApp_Employee person, @PathVariable("id") Integer ID) {
+        System.out.println(person.getDriverLisence());
         this.onBoardApp_employeeService.updateEmployee(ID, person.getPersonID(),person.getCar(),
                 person.getVisaID(), person.getVisaStartDate(), person.getVisaEndDate(),
                 person.getDriverLisence(), person.getDriver_exp());

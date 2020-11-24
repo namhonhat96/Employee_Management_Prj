@@ -1,9 +1,11 @@
 export class Name{
-    name: string;
-    preferredName: string;
-    avatar: string;
-    dateOfBirth: string;
-    age: string;
+    firstname: string;
+    lastname: string;
+    middlename: string;
+    email: string;
+    cellphone: string;
+    alternatephone: string;
     gender: string;
-    ssn: string;
+    ssn: number;
+    dob: string;
 }
