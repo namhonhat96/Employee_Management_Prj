@@ -11,11 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressSectionComponent implements OnInit {
   info$: Observable<Address>;
+  condition: boolean;
 
+  address: Address;
   constructor(private service: PersonalInfoService) { }
 
   ngOnInit(): void {
     this.info$ = this.service.getAddress();
+    this.condition = false;
+  }
+
+  edit()
+  {
+    this.condition = !this.condition;
   }
 
 }

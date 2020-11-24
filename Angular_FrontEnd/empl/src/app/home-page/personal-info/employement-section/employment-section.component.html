@@ -1,11 +1,38 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Employment Section</p>
     <div *ngIf = "info$ | async as info">
-        <p>Work Authorization: <span>{{info.workAuthorization}}</span></p>
-        <p>Work Authorization Start: <span>{{info.authorizationStart}}</span></p>
-        <p>Work Authorization End: <span>{{info.authorizationEnd}}</span></p>
-        <p>Employment Start: <span>{{info.employmentStart}}</span></p>
-        <p>Employment End: <span>{{info.employmentEnd}}</span></p>
+        <div *ngIf="condition; else elseBlock">
+            <label>Work Authorization: </label>
+            <input [(ngModel)]="info.workAuthorization" placeholder="address"/><br>
+            <label>Work Authorization Start: </label>
+            <input [(ngModel)]="info.authorizationStart" placeholder="address"/><br>
+            <label>Work Authorization End: </label>
+            <input [(ngModel)]="info.authorizationEnd" placeholder="address"/><br>
+            <label>Employment Start: </label>
+            <input [(ngModel)]="info.employmentStart" placeholder="address"/><br>
+            <label>Employment End: </label>
+            <input [(ngModel)]="info.employmentEnd" placeholder="address"/><br>
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+        </div>
+        <ng-template #elseBlock>
+            <label>Work Authorization: </label>
+            <p>{{info.workAuthorization}}</p>
+            <label>Work Authorization Start: </label>
+            <p>{{info.authorizationStart}}</p>
+            <label>Work Authorization End: </label>
+            <p>{{info.authorizationEnd}}</p>
+            <label>Employment Start: </label>
+            <p>{{info.employmentStart}}</p>
+            <label>Employment End: </label>
+            <p>{{info.employmentEnd}}</p>
+            <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+        </ng-template>
+
+        
+        
+        
+        
+        
     </div>
 
 </div>

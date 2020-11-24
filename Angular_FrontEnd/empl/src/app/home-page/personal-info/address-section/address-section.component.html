@@ -3,9 +3,25 @@
     <p>Address Section</p>
 
     <div *ngIf = "info$ | async as info">
-        <p>Primary Adress: <span>{{info.primaryAddress}}</span></p>
-        <p>Secondary Adress: <span>{{info.secondaryAddress}}</span></p>
+        <!--<p>Primary Adress: <span>{{info.primaryAddress}}</span></p>
+        <p>Secondary Adress: <span>{{info.secondaryAddress}}</span></p> -->
         
+        <!--<p>{{info.primaryAddress}}</p> -->
+        
+        <div *ngIf="condition; else elseBlock">
+            <label>Primary Adress: </label>
+            <input [(ngModel)]="info.primaryAddress" placeholder="address"/><br>
+            <label>Secondary Adress: </label>
+            <input [(ngModel)]="info.secondaryAddress" placeholder="address"/><br>
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+        </div>
+        <ng-template #elseBlock>
+            <label>Primary Adress: </label>
+            <p>{{info.primaryAddress}}</p>
+            <label>Secondary Adress: </label>
+            <p>{{info.secondaryAddress}}</p>
+            <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+        </ng-template>
     </div> 
 
 </div>

@@ -10,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameSectionComponent implements OnInit {
   info$: Observable<Name>;
-
+  condition: boolean;
   constructor(private service: PersonalInfoService) { }
 
   ngOnInit(): void {
     this.info$ = this.service.getName();
+    this.condition = false;
+  }
+
+  edit()
+  {
+    this.condition = !this.condition;
   }
 
 }

@@ -1,12 +1,49 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Name Section</p>
     <div *ngIf = "info$ | async as info">
-        <p>Name: <span>{{info.name}}</span></p>
-        <p>Preferred Name: <span>{{info.preferredName}}</span></p>
-        <p>Avatar: <span>{{info.avatar}}</span></p>
-        <p>Date Of Birth: <span>{{info.dateOfBirth}}</span></p>
-        <p>Age: <span>{{info.age}}</span></p>
-        <p>Gender: <span>{{info.gender}}</span></p>
-        <p>SSN: <span>{{info.ssn}}</span></p>
+        <div *ngIf="condition; else elseBlock">
+            <label>Name: </label><br>
+            <input [(ngModel)]="info.name" placeholder="name"/><br>
+            <label>Preferred Name: </label><br>
+            <input [(ngModel)]="info.preferredName" placeholder="name"/><br>
+            <label>Avatar: </label><br>
+            <input [(ngModel)]="info.avatar" placeholder="avatar"/><br>
+            <label>Date Of Birth: </label><br>
+            <input [(ngModel)]="info.dateOfBirth" placeholder="DoB"/><br>
+            <label>Age: </label><br>
+            <input [(ngModel)]="info.age" placeholder="age"/><br>
+            <label>Gender: </label><br>
+            <input [(ngModel)]="info.gender" placeholder="gender"/><br>
+            <label>SSN: </label><br>
+            <input [(ngModel)]="info.ssn" placeholder="ssn"/><br>
+
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+        </div>
+        <ng-template #elseBlock>
+            <label>Name: </label><br>
+            <p>{{info.name}}</p>
+            <label>Preferred Name: </label><br>
+            <p>{{info.preferredName}}</p>
+            <label>Avatar: </label><br>
+            <p>{{info.avatar}}</p>
+            <label>Date Of Birth: </label><br>
+            <p>{{info.dateOfBirth}}</p>
+            <label>Age: </label><br>
+            <p>{{info.age}}</p>
+            <label>Gender: </label><br>
+            <p>{{info.gender}}</p>
+            <label>SSN: </label><br>
+            <p>{{info.ssn}}</p>
+
+            <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+        </ng-template>
+
+        
+        
+        
+        
+        
+        
+        
     </div>
 </div>

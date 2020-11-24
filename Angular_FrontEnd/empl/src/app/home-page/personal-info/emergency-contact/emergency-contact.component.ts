@@ -10,11 +10,16 @@ import { EmergencyContact } from '../emergencyContact';
 })
 export class EmergencyContactComponent implements OnInit {
   info$: Observable<EmergencyContact>;
-
+  condition: boolean;
   constructor(private service: PersonalInfoService) { }
 
   ngOnInit(): void {
     this.info$ = this.service.getEmergencyContact();
+    this.condition = false;
   }
 
+  edit()
+  {
+    this.condition = !this.condition;
+  }
 }
