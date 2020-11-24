@@ -24,9 +24,15 @@ public class OnBoardApp_EmployeeImpl extends AbstractHibernateDAO<OnBoardApp_Emp
     }
 
     @Override
-    public void updateEmployee(int ID, int personID, String car, int visaID, String visaStartDate, String visaEndDate, String driverLisence, String driver_exp) {
+    public void updateEmployee(int ID, int personID, String title, int managerID, String startDate, String endDate, String avartar, String car, int visaID, String visaStartDate,
+                               String visaEndDate, String driverLisence, String driver_exp) {
         OnBoardApp_Employee empl = getEmployeeByID(ID);
         empl.setPersonID(ID);
+        empl.setTitle(title);
+        empl.setManagerID(managerID);
+        empl.setStartDate(startDate);
+        empl.setEndDate(endDate);
+        empl.setAvartar(avartar);
         empl.setCar(car);
         empl.setVisaID(visaID);
         empl.setStartDate(visaStartDate);
@@ -37,8 +43,8 @@ public class OnBoardApp_EmployeeImpl extends AbstractHibernateDAO<OnBoardApp_Emp
     }
 
     @Override
-    public OnBoardApp_Employee getEmployeeByID(Integer personID) {
-        return getCurrentSession().get(OnBoardApp_Employee.class, personID);
+    public OnBoardApp_Employee getEmployeeByID(Integer ID) {
+        return getCurrentSession().get(OnBoardApp_Employee.class, ID);
     }
 
     @Override

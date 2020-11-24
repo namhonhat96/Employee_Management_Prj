@@ -35,8 +35,8 @@ public class OnBoardApp_ContactController {
 
     @RequestMapping(value = "/onboard-contact/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?> updateContact(@RequestBody OnBoardApp_Contact contact, @PathVariable("id") Integer ID) {
-        onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),
-                contact.getIsReference(), contact.getIsEmergency());
+        onBoardApp_contactService.updateContact(ID, contact.getPersonID(),contact.getRelationship(),contact.getTitle(),
+                contact.getIsReference(), contact.getIsEmergency(), contact.getIsLandlord());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
