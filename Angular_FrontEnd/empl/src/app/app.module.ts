@@ -56,6 +56,7 @@ import { HomePageModule } from "./home-page/home-page.module";
     HousingsComponent,
     HousingDetailComponent,
     MessagesComponent,
+
   ],
   imports: [
     HomePageModule,
