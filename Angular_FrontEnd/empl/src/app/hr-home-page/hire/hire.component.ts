@@ -1,33 +1,29 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-
+import { TokenService } from "src/app/service/token.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-hire",
   templateUrl: "./hire.component.html",
   styleUrls: ["./hire.component.css"],
 })
 export class HireComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-  email: string | any;
+  constructor(private router: Router, private tokenService: TokenService) {}
   tokenID: string | any;
-  name = localStorage.getItem("username");
+  validDuration = "ACTIVE";
+  email: string | any;
+  createdBy = localStorage.getItem("username");
   ngOnInit() {}
 
-  registerToken(contactForm: NgForm) {
-    if (contactForm.valid) {
-      const email = contactForm.value;
-      const headers = new HttpHeaders({ "Content-Type": "application/json" });
-      this.http
-        .post(
-          "https://formspree.io/asdlf7asdf",
-          { name: this.name, replyto: this.email, message: this.tokenID },
-          { headers: headers }
-        )
-        .subscribe((response) => {
-          console.log(response);
-        });
-    }
+  registerToken() {
+    this.tokenService
+      .createToken(this.tokenID, this.validDuration, this.email, this.createdBy)
+      .subscribe(
+        (data) => {
+          this.router.navigate(["hr-home-page/hire"]);
+        },
+        (error) => {}
+      );
   }
-  //Register token to the datbase
 }
