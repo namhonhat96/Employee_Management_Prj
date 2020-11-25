@@ -30,6 +30,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HousingUserComponent } from "./housing-user/housing-user.component";
 import { Router } from "@angular/router";
 import { HomePageModule } from "./home-page/home-page.module";
+import { FacilityReportingComponent } from './facility-reporting/facility-reporting.component';
+import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
+import { FacilityComponent } from './facility/facility.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,9 @@ import { HomePageModule } from "./home-page/home-page.module";
     HousingsComponent,
     HousingDetailComponent,
     MessagesComponent,
+    FacilityReportingComponent,
+    FacilityReportingDetailComponent,
+    FacilityComponent,
 
   ],
   imports: [
