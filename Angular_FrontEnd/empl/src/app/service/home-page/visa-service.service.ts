@@ -24,16 +24,20 @@ export class VisaService {
     );
   }
 
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-    const data: FormData = new FormData();
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
 
-    data.append('file', file);
+    formData.append('file', file);
 
-    const newRequest = new HttpRequest('POST', 'http://localhost:8081/savefile', data, {
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
       reportProgress: true,
-      responseType: 'text'
+      responseType: 'json'
     });
 
-    return this.http.request(newRequest);
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/files`);
   }
 }

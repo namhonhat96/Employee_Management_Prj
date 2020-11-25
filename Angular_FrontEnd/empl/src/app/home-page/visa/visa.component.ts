@@ -1,3 +1,7 @@
+import { Observable } from 'rxjs';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { VisaService } from './../../service/home-page/visa-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Visa } from './visa';
@@ -11,11 +15,12 @@ import { HttpResponse, HttpEventType } from '@angular/common/http';
 export class VisaComponent implements OnInit {
   info$: Visa | any;
 
+
   selectedFiles: FileList;
-  currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
-  selectedFile = null;
-  changeImage = false;
+  progressInfos = [];
+  message = '';
+
+  fileInfos: Observable<any>;
 
   constructor(private service: VisaService, private router: Router) { }
 
@@ -24,7 +29,7 @@ export class VisaComponent implements OnInit {
       this.info$ = data;
     });
 
-    
+    this.fileInfos = this.service.getFiles();
   }
 
   updateVisa()
@@ -37,42 +42,34 @@ export class VisaComponent implements OnInit {
     );
   }
 
-  downloadFile(){
-    const link = document.createElement('a');
-    link.setAttribute('target', '_blank');
-    link.setAttribute('href', '_File_Saved_Path');
-    link.setAttribute('download', 'file_name.pdf');
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  }
-
-  change($event) {
-    this.changeImage = true;
-  }
-
-  changedImage(event) {
-    this.selectedFile = event.target.files[0];
-  }
-  
-  upload() {
-    this.progress.percentage = 0;
-
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.service.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        alert('File Successfully Uploaded');  
-      }
-    
-
-    this.selectedFiles = undefined;
-      }
-    );
-  }
-
-  selectFile(event) {
+  selectFiles(event) {
+    this.progressInfos = [];
     this.selectedFiles = event.target.files;
   }
+
+  uploadFiles() {
+    this.message = '';
+  
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.upload(i, this.selectedFiles[i]);
+    }
+  }
+
+  upload(idx, file) {
+    this.progressInfos[idx] = { value: 0, fileName: file.name };
+  
+    this.service.upload(file).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.fileInfos = this.service.getFiles();
+        }
+      },
+      err => {
+        this.progressInfos[idx].value = 0;
+        this.message = 'Could not upload the file:' + file.name;
+      });
+  }
+
 }  
