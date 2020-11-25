@@ -1,4 +1,8 @@
-<form>
+<br />
+<br />
+
+<h2>Registration Token</h2>
+<form (ngSubmit)="registerToken()" #contactForm="ngForm">
   <table>
     <tr>
       <td>
@@ -25,13 +29,12 @@
       </td>
     </tr>
   </table>
+  <input type="submit" value="Generate Token and Send email" />
 </form>
-<button mat-raised-button (click)="registerToken()" color="primary">
-  Generate Token and Send Email
-</button>
 
 <br />
 <br />
+
 <app-form-app></app-form-app>
 <br /><br />
 <app-doc-app></app-doc-app>

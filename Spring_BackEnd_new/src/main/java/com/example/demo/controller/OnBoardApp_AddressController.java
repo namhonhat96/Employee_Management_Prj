@@ -50,4 +50,8 @@ public class OnBoardApp_AddressController {
         return this.onBoardApp_addressService.getAddressByID(ID);
     }
 
+    @RequestMapping(value = "/onboard-address/personID/{id}", method = RequestMethod.GET)
+    public List<OnBoardApp_Address> getContactByPersonID(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_addressService.getAddressByPersonID(ID);
+    }
 }

@@ -16,7 +16,12 @@ import { VisaHRComponent } from "./hr-home-page/visa/visa.component";
 import { HouseHRComponent } from "./hr-home-page/house/house.component";
 import { HireComponent } from "./hr-home-page/hire/hire.component";
 import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info-hr.component";
+import { TestUploadComponent } from "./test-upload/test-upload.component";
 const routes: Routes = [
+  {
+    path: "test-upload",
+    component: TestUploadComponent,
+  },
   {
     path: "employee-",
     component: HomePageComponent,
