@@ -38,6 +38,7 @@ public class HouseController {
 
     @RequestMapping(value = "/house/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?>  updateHouse(@RequestBody House house, @PathVariable("id") Integer ID) {
+        System.out.println("Here");
         this.houseService.updateHouse(ID, house.getContactID(), house.getAddress(),
                 house.getNumberOfPerson());
         return ResponseEntity.ok(new JwtResponse("okay"));
@@ -52,6 +53,7 @@ public class HouseController {
 
     @RequestMapping(value = "/house/list", method = RequestMethod.GET)
     public List<House> getAllHouses(){
+
         List<House> houseList = this.houseService.getAllHouses();
         return houseList;
     }

@@ -1,10 +1,13 @@
 <h2>My Housing</h2>
 
 <ul class="housing">
-  <li *ngFor="let h of housing"
+  <li
+    *ngFor="let h of housing"
     [class.selected]="h === selectedHousing"
-    (click)="onSelect(h)">
-    <span class="badge">{{h.housingId}}</span> 
+    (click)="onSelect(h)"
+  >
+    <span class="badge">House ID: {{ h.id }}</span>
+    <span class="badge"> Number of Person: {{ h.numberOfPerson }}</span>
   </li>
 </ul>
 

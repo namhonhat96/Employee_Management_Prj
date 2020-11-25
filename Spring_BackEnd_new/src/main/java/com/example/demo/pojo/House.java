@@ -29,6 +29,6 @@ public class House implements Serializable {
     private String address;
 
     @Column(name="NumberofPerson")
-    private int numberOfPerson;
+    private Integer numberOfPerson;
 
 }

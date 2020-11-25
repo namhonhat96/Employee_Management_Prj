@@ -17,13 +17,30 @@ export class HouseDetailComponent implements OnInit {
     { id: 4, name: 'Procrastinators Meeting Delayed Again', phone: '123465'},
   ];*/
   employee$: Observable<Employee[]>;
+  housingService: any;
+  housing: any;
+  router: any;
 
   constructor(
     private service: HousingService,
   ) {}
 
-  ngOnInit(): void {
-    this.employee$ = this.service.getEmployeeList();
+  ngOnInit(): void {}
+  updateHouse() {
+    this.housingService
+      .updateHouse(
+      this.housing.id,
+      
+        this.housing.contactID,
+        this.housing.address,
+        this.housing.numberOfPerson
+      )
+      .subscribe(
+        (data) => {
+          this.router.navigate(["hr-home-page/house-manage"]);
+        },
+        (error) => {}
+      );
   }
-
 }
+
