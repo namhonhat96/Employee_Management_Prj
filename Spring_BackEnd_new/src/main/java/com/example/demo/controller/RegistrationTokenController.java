@@ -20,7 +20,7 @@ public class RegistrationTokenController {
     }
 
     @RequestMapping(value = "/reg_token", method = RequestMethod.POST)
-    ResponseEntity<?> addRole(@RequestBody RegistrationToken registrationToken) {
+    ResponseEntity<?> addRegistrationToken(@RequestBody RegistrationToken registrationToken) {
         Random random = new Random();
         int ID = random.nextInt(1000);
         this.registrationTokenService.addRegistrationToken(ID, registrationToken.getToken(), registrationToken.getValidDuration(), registrationToken.getEmail(),
@@ -29,7 +29,7 @@ public class RegistrationTokenController {
     }
 
     @RequestMapping(value = "/reg_token/update/{id}", method = RequestMethod.POST)
-    ResponseEntity<?> updateRole(@RequestBody RegistrationToken registrationToken, @PathVariable("id") Integer ID) {
+    ResponseEntity<?> updateRegistrationToken(@RequestBody RegistrationToken registrationToken, @PathVariable("id") Integer ID) {
         this.registrationTokenService.updateRegistrationToken(ID, registrationToken.getToken(), registrationToken.getValidDuration(), registrationToken.getEmail(),
                 registrationToken.getCreatedBy());
         return ResponseEntity.ok(new JwtResponse("okay"));
