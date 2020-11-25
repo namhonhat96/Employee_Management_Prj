@@ -27,7 +27,7 @@ public class FileUploadController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/files/list")
+    @RequestMapping(value = "/files/list", method = RequestMethod.GET)
     public List<String> listUploadedFiles() throws IOException {
         return storageService.loadAll().map(
                 path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
@@ -43,9 +43,10 @@ public class FileUploadController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @RequestMapping(value = "/files/upload/{file}", method = RequestMethod.POST)
+    @RequestMapping(value = "/files/upload/", method = RequestMethod.POST)
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
+        System.out.println("Here");
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");

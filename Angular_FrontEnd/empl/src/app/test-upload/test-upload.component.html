@@ -1,0 +1,30 @@
+<html xmlns:th="https://www.thymeleaf.org">
+  <body>
+    <div>
+      <form method="POST" enctype="multipart/form-data" action="uploadFile()">
+        <table>
+          <tr>
+            <td>
+              File to upload:<input
+                (change)="onFileChange($event)"
+                type="file"
+                id="fileUpload"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" value="Upload" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div>
+      <ul>
+        <li *ngFor="let file of files"></li>
+      </ul>
+    </div>
+  </body>
+</html>
