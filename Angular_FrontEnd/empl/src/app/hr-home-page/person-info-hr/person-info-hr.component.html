@@ -19,14 +19,21 @@
     <th>Middle Name</th>
     <th>SSN</th>
   </tr>
-  <tr *ngFor="let person of persons">
+  <tr *ngFor="let person of persons; let indexOfelement = index">
     <td>{{ person.firstname }}</td>
     <td>{{ person.lastname }}</td>
     <td>{{ person.middlename }}</td>
     <td>{{ person.ssn }}</td>
   </tr>
 </table>
-
+<table style="display: inline-block">
+  <tr>
+    <th>Start Date</th>
+  </tr>
+  <tr *ngFor="let empl of employees">
+    <td></td>
+  </tr>
+</table>
 <table style="display: inline-block">
   <tr>
     <th>Visa Type</th>

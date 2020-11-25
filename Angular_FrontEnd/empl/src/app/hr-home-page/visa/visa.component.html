@@ -16,5 +16,38 @@
       <td></td>
       <td><button (click)="sendNoti()">Send Notification</button></td>
     </tr>
+
+    <ng-container *ngFor="let data of data1">
+      <tr (click)="data.expanded = !data.expanded">
+        <td>{{ data.expanded ? "&ndash;" : "+" }} {{ data.name }}</td>
+        <td>{{ data.place }}</td>
+        <td>{{ data.phone }}</td>
+        <td>{{ data.hobbies }}</td>
+        <td>{{ data.profession }}</td>
+      </tr>
+      <ng-container *ngIf="data.expanded">
+        <tr *ngFor="let details of findDetails(data)">
+          <td>{{ details.datades.name }}</td>
+          <td>{{ details.datades.hobbies }}</td>
+          <td>{{ details.datades.profession }}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
   </table>
 </form>
+
+<ng-container *ngFor="let data of data1">
+  <tr (click)="data.expanded = !data.expanded">
+    <td>{{ data.place }}</td>
+    <td>{{ data.phone }}</td>
+    <td>{{ data.hobbies }}</td>
+    <td>{{ data.profession }}</td>
+  </tr>
+  <ng-container *ngIf="data.expanded">
+    <tr *ngFor="let details of findDetails(data)">
+      <td>{{ details.datades.name }}</td>
+      <td>{{ details.datades.hobbies }}</td>
+      <td>{{ details.datades.profession }}</td>
+    </tr>
+  </ng-container>
+</ng-container>

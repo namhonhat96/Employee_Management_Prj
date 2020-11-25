@@ -7,6 +7,9 @@ import {
   trigger,
 } from "@angular/animations";
 
+import { map, switchMap } from "rxjs/operators";
+import { uniq, flatten } from "lodash";
+
 @Component({
   selector: "app-visa",
   templateUrl: "./visa.component.html",
