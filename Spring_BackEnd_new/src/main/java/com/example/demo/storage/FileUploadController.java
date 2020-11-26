@@ -1,7 +1,5 @@
-package com.example.demo.controller;
+package com.example.demo.storage;
 
-import com.example.demo.storage.StorageFileNotFoundException;
-import com.example.demo.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +32,7 @@ public class FileUploadController {
 						"serveFile", path.getFileName().toString()).build().toUri().toString())
 				.collect(Collectors.toList()));
 
-		return "uploadForm";
+		return "uploadForm.jsp";
 	}
 
 	@GetMapping("/files/{filename:.+}")

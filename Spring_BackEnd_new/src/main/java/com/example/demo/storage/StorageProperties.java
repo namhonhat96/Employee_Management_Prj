@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @ConfigurationProperties("storage")
-
 @Configuration
 //@PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = {"com.example.demo"})
