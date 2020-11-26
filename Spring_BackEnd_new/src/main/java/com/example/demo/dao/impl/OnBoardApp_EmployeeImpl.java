@@ -4,7 +4,6 @@ import com.example.demo.dao.AbstractHibernateDAO;
 import com.example.demo.dao.OnBoardApp_EmployeeDAO;
 import com.example.demo.pojo.OnBoardApp_Employee;
 import com.example.demo.pojo.OnBoardApp_Person;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -54,19 +53,4 @@ public class OnBoardApp_EmployeeImpl extends AbstractHibernateDAO<OnBoardApp_Emp
         List result = getCurrentSession().createQuery(sql).list();
         return result;
     }
-
-//    @Override
-//    public List<OnBoardApp_Employee> getEmployeesByFirstName(String firstName, String lastName) {
-//        Query query = getCurrentSession().createQuery("from OnBoardApp_Person where firstname = :firstname or lastname = :lastname");
-//        query.setParameter("firstname", firstName);
-//        query.setParameter("lastname", lastName);
-//        return query.list();
-//    }
-//
-//    @Override
-//    public List<OnBoardApp_Employee> getEmployeesByEmpID(Integer ID) {
-//        Query query = getCurrentSession().createQuery("from OnBoardApp_Address where personID = :id ");
-//        query.setParameter("id", ID);
-//        return query.list();
-//    }
 }

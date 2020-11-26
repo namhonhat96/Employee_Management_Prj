@@ -3,14 +3,6 @@ package com.example.demo.dao.impl;
 import com.example.demo.dao.AbstractHibernateDAO;
 import com.example.demo.dao.OnBoardApp_AddressDAO;
 import com.example.demo.pojo.OnBoardApp_Address;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -53,13 +45,4 @@ public class OnBoardApp_AddressImpl extends AbstractHibernateDAO<OnBoardApp_Addr
         List result = getCurrentSession().createQuery(sql).list();
         return result;
     }
-
-    @Override
-    public List<OnBoardApp_Address> getAddressByPersonID(Integer personID) {
-        Query query = getCurrentSession().createQuery("from OnBoardApp_Address where personID = :id ");
-        query.setParameter("id", personID);
-        return query.list();
-    }
-
-
 }

@@ -12,6 +12,4 @@ public interface OnBoardApp_AddressDAO {
 
     OnBoardApp_Address getAddressByID(Integer id);
     List<OnBoardApp_Address> getAllAddresses();
-
-    List<OnBoardApp_Address> getAddressByPersonID(Integer personID);
 }

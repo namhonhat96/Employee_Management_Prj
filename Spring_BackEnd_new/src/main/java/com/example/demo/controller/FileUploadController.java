@@ -1,6 +1,7 @@
 package com.example.demo.controller;
-import com.example.demo.pojo.StorageFileNotFoundException;
-import com.example.demo.service.StorageService;
+
+import com.example.demo.storage.StorageFileNotFoundException;
+import com.example.demo.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -13,13 +14,11 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin
-@RestController
+@Controller
 public class FileUploadController {
+
 	private final StorageService storageService;
 
 	@Autowired
@@ -27,31 +26,35 @@ public class FileUploadController {
 		this.storageService = storageService;
 	}
 
-	@RequestMapping(value = "/files/list", method = RequestMethod.GET)
-	public List<String> listUploadedFiles() throws IOException {
-		return storageService.loadAll().map(
+	@GetMapping("/upload")
+	public String listUploadedFiles(Model model) throws IOException {
+		model.addAttribute("message", "alo");
+		model.addAttribute("files", storageService.loadAll().map(
 				path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
 						"serveFile", path.getFileName().toString()).build().toUri().toString())
-				.collect(Collectors.toList());
+				.collect(Collectors.toList()));
+
+		return "uploadForm";
 	}
 
-	@RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.POST)
-	public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
+	@GetMapping("/files/{filename:.+}")
+	@ResponseBody
+	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
 		Resource file = storageService.loadAsResource(filename);
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
 				"attachment; filename=\"" + file.getFilename() + "\"").body(file);
 	}
 
-	@RequestMapping(value = "/files/upload/", method = RequestMethod.POST)
-	public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file,
-											  RedirectAttributes redirectAttributes) {
-		System.out.println("Here");
+	@PostMapping("/upload")
+	public String handleFileUpload(@RequestParam("file") MultipartFile file,
+			RedirectAttributes redirectAttributes) {
+
 		storageService.store(file);
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
 
-		return ResponseEntity.ok(new JwtResponse("okay"));
+		return "redirect:/upload";
 	}
 
 	@ExceptionHandler(StorageFileNotFoundException.class)

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,23 +34,28 @@
 
 </head>
 <body>
-
-
 <div>
-    <form method="POST" enctype="multipart/form-data" action="/upload">
-        <table>
-            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </form>
+    <a href="/addtest">Add Test</a><br/>
+    <a href="/listtest">List Test</a><br/>
+    <a href="/updatetest">Update Test</a><br/>
+    <a href="/testID/1">Get Test ID 1</a>
 </div>
 
-<div>
-    <ul>
-        <c:forEach items="${files}" var="row" varStatus="counter">
-            <li><a href = "<c:url value = "${row}"/>"> <c:out value = "${row}"/></a></li>
-        </c:forEach>
-    </ul>
+<div align="center">
+    <h2>New Test</h2>
+    <%--@elvariable id="test" type=""--%>
+    <form:form action="/testID/1" method="get" modelAttribute="test">
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+                <tr>
+                    <td>${test.ID}</td>
+                    <td>${test.name}</td>
+                </tr>
+        </table>
+    </form:form>
 </div>
 </body>
 </html>

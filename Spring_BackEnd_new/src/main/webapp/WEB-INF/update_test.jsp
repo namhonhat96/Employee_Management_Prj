@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Add Test Form</title>
+    <title>Add Book Form</title>
 
     <style type="text/css">
         label {
@@ -36,22 +35,16 @@
 </head>
 <body>
 
+<a href="/addtest">Add Test</a>
+<a href="/listtest">List Test</a>
+<a href="/updatetest">Update Test</a>
 
-<div>
-    <form method="POST" enctype="multipart/form-data" action="/upload">
-        <table>
-            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </form>
-</div>
-
-<div>
-    <ul>
-        <c:forEach items="${files}" var="row" varStatus="counter">
-            <li><a href = "<c:url value = "${row}"/>"> <c:out value = "${row}"/></a></li>
-        </c:forEach>
-    </ul>
+<div align="center">
+    <h2>New Book</h2>
+    <%--@elvariable id="test" type=""--%>
+    <form:form action="updatetest/1" method="post" modelAttribute="test">
+        <form:button>Update Test</form:button>
+    </form:form>
 </div>
 </body>
 </html>
