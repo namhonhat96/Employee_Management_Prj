@@ -19,7 +19,6 @@ import { HousingModule } from './housing/housing.module';
 import { PersonalInfoModule } from './personal-info/personal-info.module';*/
 import { HomePageRoutingModule } from './home-page-routing.module';
 
-
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -29,8 +28,7 @@ import { CommonModule } from '@angular/common';
         CommonModule,
         FormsModule,
 
-        HomePageRoutingModule,
-        
+        HomePageRoutingModule
 
     ],
     declarations: [
