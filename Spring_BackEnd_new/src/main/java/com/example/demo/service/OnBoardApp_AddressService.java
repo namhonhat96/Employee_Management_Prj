@@ -42,4 +42,9 @@ public class OnBoardApp_AddressService {
     public List<OnBoardApp_Address> getAllAddresses(){
         return this.onBoardApp_addressDAO.getAllAddresses();
     }
+
+    @Transactional
+    public List<OnBoardApp_Address> getAddressByPersonID(Integer personID){
+        return this.onBoardApp_addressDAO.getAddressByPersonID(personID);
+    }
 }

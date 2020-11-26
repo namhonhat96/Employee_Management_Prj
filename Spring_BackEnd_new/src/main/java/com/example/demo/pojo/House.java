@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,6 +30,6 @@ public class House implements Serializable {
     private String address;
 
     @Column(name="NumberofPerson")
-    private int numberOfPerson;
+    private Integer numberOfPerson;
 
 }
