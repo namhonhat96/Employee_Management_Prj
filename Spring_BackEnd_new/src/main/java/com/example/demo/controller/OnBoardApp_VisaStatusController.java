@@ -5,30 +5,20 @@ import com.example.demo.pojo.OnBoardApp_VisaStatus;
 import com.example.demo.pojo.Test;
 import com.example.demo.service.OnBoardApp_PersonService;
 import com.example.demo.service.OnBoardApp_VisaStatusService;
-import com.example.demo.storage.StorageFileNotFoundException;
-import com.example.demo.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.storage.StorageFileNotFoundException;
-import com.example.demo.storage.StorageService;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 @CrossOrigin()
 @RestController
@@ -61,4 +51,5 @@ public class OnBoardApp_VisaStatusController {
     public OnBoardApp_VisaStatus getContactByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_visaStatusService.getVisaStatusByID(ID);
     }
+
 }
