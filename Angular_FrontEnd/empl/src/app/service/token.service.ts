@@ -11,7 +11,7 @@ export class TokenService {
 
   public createToken(
     token: string,
-    validDuration: string,
+    validDuration: number,
     email: string,
     createdBy: string
   ) {

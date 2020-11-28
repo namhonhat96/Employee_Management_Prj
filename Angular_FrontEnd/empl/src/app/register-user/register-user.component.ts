@@ -1,8 +1,11 @@
 import { BoundElementPropertyAst } from "@angular/compiler";
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { AdduserService } from "../service/adduser.service";
-
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import * as jsPDF from "jspdf";
 @Component({
   selector: "app-register-user",
   templateUrl: "./register-user.component.html",
@@ -28,5 +31,6 @@ export class RegisterUserComponent implements OnInit {
         (error) => {}
       );
   }
+
   ngOnInit() {}
 }

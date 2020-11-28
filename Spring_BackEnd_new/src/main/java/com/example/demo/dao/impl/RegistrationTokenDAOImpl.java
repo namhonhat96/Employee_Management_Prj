@@ -17,13 +17,13 @@ public class RegistrationTokenDAOImpl  extends AbstractHibernateDAO<Registration
     }
 
     @Override
-    public void addRegistrationToken(int ID, String token, String validDuration, String email, String createdBy) {
+    public void addRegistrationToken(int ID, String token, int validDuration, String email, String createdBy) {
         RegistrationToken registrationToken = new RegistrationToken(ID, token, validDuration, email, createdBy);
         getCurrentSession().save(registrationToken);
     }
 
     @Override
-    public void updateRegistrationToken(int ID, String token, String validDuration, String email, String createdBy) {
+    public void updateRegistrationToken(int ID, String token, int validDuration, String email, String createdBy) {
         RegistrationToken registrationToken = getRegistrationTokenByID(ID);
         registrationToken.setToken(token);
         registrationToken.setValidDuration(validDuration);

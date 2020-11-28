@@ -29,6 +29,7 @@ import { HireComponent } from "./hr-home-page/hire/hire.component";
 import { FormAppComponent } from "./hr-home-page/hire/form-app/form-app.component";
 import { DocAppComponent } from "./hr-home-page/hire/doc-app/doc-app.component";
 import { TestUploadComponent } from "./test-upload/test-upload.component";
+import { PdfTestComponent } from "./pdf-test/pdf-test.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { TestUploadComponent } from "./test-upload/test-upload.component";
     FormAppComponent,
     DocAppComponent,
     TestUploadComponent,
+    PdfTestComponent,
   ],
   imports: [
     HomePageModule,
