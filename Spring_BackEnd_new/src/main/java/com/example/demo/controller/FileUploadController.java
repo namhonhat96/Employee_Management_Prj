@@ -35,7 +35,8 @@ public class FileUploadController {
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.POST)
+    // make change in method type
+    @RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET)
     public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
 
         Resource file = storageService.loadAsResource(filename);
