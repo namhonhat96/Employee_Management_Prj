@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="uploadForm">
-      <table class="example-full-width" cellspacing="0">
+      <table class="example-full-width" cellspacing="0" id="contentToConvert">
         <br />
 
         REFERENCE CONTACT:
@@ -48,11 +48,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="Referenced Relationship"
-                [(ngModel)]="relationship"
-              /><br />
+              <input matInput placeholder="Referenced Relationship" /><br />
             </mat-form-field>
           </td>
         </tr>

@@ -1,6 +1,16 @@
 import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import jspdf from "jspdf";
 import html2canvas from "html2canvas";
+import {
+  HttpClient,
+  HttpParams,
+  HttpRequest,
+  HttpEvent,
+  HttpEventType,
+  HttpResponse,
+} from "@angular/common/http";
+import { Observable } from "rxjs";
+import { UploadService } from "./upload.service";
 
 @Component({
   selector: "app-pdf-test",
@@ -8,9 +18,11 @@ import html2canvas from "html2canvas";
   styleUrls: ["./pdf-test.component.css"],
 })
 export class PdfTestComponent implements OnInit {
-  constructor() {}
+  constructor(private http: HttpClient, private upload: UploadService) {}
 
   @ViewChild("content", { static: false }) content: ElementRef;
+
+  @ViewChild("myFile", { static: false }) myFile: ElementRef;
 
   USERS = [
     {
@@ -59,38 +71,7 @@ export class PdfTestComponent implements OnInit {
   //   doc.output("dataurlnewwindow");
   // }
 
-  public downloadPDF(): void {
-    let DATA = this.content.nativeElement;
-    let doc = new jspdf("p", "pt", "a4");
-    let handleElement = {
-      "#editor": function (element, renderer) {
-        return true;
-      },
-    };
-    doc.fromHTML(DATA.innerHTML, 15, 15, {
-      width: 200,
-      elementHandlers: handleElement,
-    });
-
-    doc.save("angular-demo.pdf");
-  }
-
-  makePdf() {
-    // let doc = new jspdf();
-    // doc.addHTML(this.content.nativeElement, function () {
-    //   doc.save("obrz.pdf");
-    // });
-
-    var pdf = new jspdf("p", "px", "a4");
-    var options = {
-      pagesplit: true,
-    };
-    pdf.addHTML(this.content.nativeElement, 0, 0, options, function () {
-      pdf.save("test.pdf");
-    });
-  }
-
-  generatePDF() {
+  generatePDF(name: string) {
     var data = document.getElementById("contentToConvert");
     html2canvas(data).then((canvas) => {
       // Few necessary setting options
@@ -103,7 +84,7 @@ export class PdfTestComponent implements OnInit {
       let pdf = new jspdf("p", "mm", "a4"); // A4 size page of PDF
       var position = 0;
       pdf.addImage(contentDataURL, "PNG", 0, position, imgWidth, imgHeight);
-      pdf.save("MYPdf.pdf"); // Generated PDF
+      pdf.save(name + ".pdf"); // Generated PDF
     });
   }
 }

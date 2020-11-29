@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface OnBoardApp_ApplicationWorkFlowDAO {
     void addApplicationWorkFlow(int ID, int employeeID, String type);
-    void updateApplicationWorkFlow(int ID, int employeeID, String type);
+    void updateApplicationWorkFlow(int ID, String status, String comments);
     OnBoardApp_ApplicationWorkFlow getApplicationWorkFlowByID(Integer id);
     List<OnBoardApp_ApplicationWorkFlow> getAllApplicationWorkFlows();
 }

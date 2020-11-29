@@ -26,8 +26,8 @@ public class OnBoardApp_ApplicationWorkFlowService {
     }
 
     @Transactional
-    public void updateApplicationWorkFlow(int ID, int employeeID, String type){
-        this.onBoardApp_applicationWorkFlowDAO.updateApplicationWorkFlow(ID,employeeID,type);
+    public void updateApplicationWorkFlow(int ID, String status, String comments){
+        this.onBoardApp_applicationWorkFlowDAO.updateApplicationWorkFlow(ID,status,comments);
     }
 
     @Transactional

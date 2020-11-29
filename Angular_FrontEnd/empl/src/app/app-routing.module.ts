@@ -18,6 +18,7 @@ import { HireComponent } from "./hr-home-page/hire/hire.component";
 import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info-hr.component";
 import { TestUploadComponent } from "./test-upload/test-upload.component";
 import { PdfTestComponent } from "./pdf-test/pdf-test.component";
+import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
 const routes: Routes = [
   {
     path: "test-upload",
@@ -58,6 +59,7 @@ const routes: Routes = [
       {
         path: "hire",
         component: HireComponent,
+        children: [{ path: ":id", component: FormDetailComponent }],
       },
     ],
   },

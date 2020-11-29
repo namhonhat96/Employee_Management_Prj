@@ -99,6 +99,7 @@ export class VisaHRComponent implements OnInit {
         ExpirationDate: "02/02/2021",
         DayLeft: this.dayDiff("01/01/2020", "02/02/2024"),
         StartDate: "01/01/2020",
+        Action: "Send Notificaiton",
       },
       {
         Name: "Adam Timothy",
@@ -106,6 +107,7 @@ export class VisaHRComponent implements OnInit {
         ExpirationDate: "05/02/2025",
         DayLeft: this.dayDiff("01/01/2020", "05/02/2025"),
         StartDate: "01/01/2020",
+        Action: "Send Notificaiton",
       },
       {
         Name: "Mary Johson",
@@ -113,6 +115,7 @@ export class VisaHRComponent implements OnInit {
         ExpirationDate: "10/25/2022",
         DayLeft: this.dayDiff("01/02/2020", "10/25/2022"),
         StartDate: new Date("01/02/2020"),
+        Action: "Send Notificaiton",
       },
     ];
     return this.ELEMENT_DATA1;
@@ -125,4 +128,5 @@ export interface VisaElement {
   WorkAuthorization: any;
   ExpirationDate: any;
   StartDate: any;
+  Action: any;
 }

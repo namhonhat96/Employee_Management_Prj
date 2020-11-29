@@ -10,4 +10,19 @@
     <th>Type</th>
     <th>Action</th>
   </tr>
+  <tr *ngFor="let appForm of appForms">
+    <td>{{ appForm.id }}</td>
+    <td>{{ appForm.employeeID }}</td>
+    <td>{{ appForm.createDate }}</td>
+    <td>{{ appForm.modificationDate }}</td>
+    <td>{{ appForm.status }}</td>
+    <td>{{ appForm.comments }}</td>
+    <td>{{ appForm.type }}</td>
+    <td>
+      <a [routerLink]="['/hr-home-page/hire', appForm.id]" href="#">
+        Update Application
+      </a>
+    </td>
+  </tr>
 </table>
+<router-outlet></router-outlet>

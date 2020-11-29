@@ -5,7 +5,7 @@
   <mat-card-content>
     <form>
       <div class="col-md-8" id="htmlData" #htmlData>
-        <table class="example-full-width" cellspacing="0">
+        <table class="example-full-width" cellspacing="0" id="contentToConvert">
           <tr>
             <td>
               <mat-form-field class="example-full-width">
@@ -60,15 +60,6 @@
               </mat-form-field>
             </td>
           </tr>
-
-          <div class="col-md-4 text-right">
-            <button class="btn btn-success btn-block" (click)="openPDF()">
-              Open PDF
-            </button>
-            <button class="btn btn-danger btn-block" (click)="downloadPDF()">
-              Download PDF
-            </button>
-          </div>
         </table>
       </div>
     </form>

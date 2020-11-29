@@ -31,7 +31,8 @@ public class OnBoardApp_ApplicationWorkFlowController {
 
     @RequestMapping(value = "/onboard-app/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?> updateApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app, @PathVariable("id") Integer ID) {
-        onBoardApp_applicationWorkFlowService.updateApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
+        System.out.println("Update App");
+        onBoardApp_applicationWorkFlowService.updateApplicationWorkFlow(ID, app.getStatus(), app.getComments());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

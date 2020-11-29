@@ -30,6 +30,7 @@ import { FormAppComponent } from "./hr-home-page/hire/form-app/form-app.componen
 import { DocAppComponent } from "./hr-home-page/hire/doc-app/doc-app.component";
 import { TestUploadComponent } from "./test-upload/test-upload.component";
 import { PdfTestComponent } from "./pdf-test/pdf-test.component";
+import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { PdfTestComponent } from "./pdf-test/pdf-test.component";
     DocAppComponent,
     TestUploadComponent,
     PdfTestComponent,
+    FormDetailComponent,
   ],
   imports: [
     HomePageModule,
