@@ -22,10 +22,7 @@ public class OnBoardApp_PersonController {
 
     @RequestMapping(value = "/onboard-person", method = RequestMethod.POST)
     ResponseEntity<?> addPerson(@RequestBody OnBoardApp_Person person) {
-        System.out.println(person.getFirstname());
-        Random random = new Random();
-        int ID = random.nextInt(1000);
-        onBoardApp_personService.addPerson(ID,person.getFirstname(),person.getLastname(),
+        onBoardApp_personService.addPerson(person.getID(),person.getFirstname(),person.getLastname(),
                 person.getMiddlename(),person.getEmail(),person.getCellphone(),person.getAlternatephone(),
                 person.getGender(),person.getSSN(),person.getDOB());
         return ResponseEntity.ok(new JwtResponse("okay"));

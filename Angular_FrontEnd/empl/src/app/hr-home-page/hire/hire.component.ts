@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class HireComponent implements OnInit {
   constructor(private router: Router, private tokenService: TokenService) {}
   tokenID: string | any;
-  validDuration = "ACTIVE";
+  validDuration = 180;
   email: string | any;
   createdBy = localStorage.getItem("username");
   ngOnInit() {}

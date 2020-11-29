@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Application Detail</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <div class="col-md-8" id="htmlData" #htmlData>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <label
+                  >ID:
+                  <input [(ngModel)]="app.id" placeholder="id" />
+                </label>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <label
+                  >Status:
+                  <input [(ngModel)]="app.status" placeholder="Status" />
+                </label>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <label
+                  >Status:
+                  <input [(ngModel)]="app.comments" placeholder="Comments" />
+                </label>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="updateApp()" color="primary">
+      Update Application
+    </button>
+  </mat-card-actions>
+</mat-card>

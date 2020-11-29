@@ -8,10 +8,10 @@ import { map } from "rxjs/operators";
 export class AddApplicationService {
   constructor(private httpClient: HttpClient) {}
 
-  registerAppTable(employeeID, type) {
+  registerAppTable(employeeID, status) {
     return this.httpClient.post<any>("http://localhost:8081/onboard-app", {
       employeeID,
-      type,
+      status,
     });
   }
 }

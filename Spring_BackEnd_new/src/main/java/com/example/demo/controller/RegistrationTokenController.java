@@ -23,7 +23,7 @@ public class RegistrationTokenController {
     ResponseEntity<?> addRegistrationToken(@RequestBody RegistrationToken registrationToken) {
         Random random = new Random();
         int ID = random.nextInt(1000);
-        this.registrationTokenService.addRegistrationToken(ID, registrationToken.getToken(), registrationToken.getValidDuration(), registrationToken.getEmail(),
+        this.registrationTokenService.addRegistrationToken(ID, registrationToken.getToken(), 180, registrationToken.getEmail(),
                 registrationToken.getCreatedBy());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }

@@ -66,8 +66,7 @@ public class UserController {
     public ResponseEntity<?> addUser(@RequestBody User user) {
         Random random = new Random();
         int ID = random.nextInt(1000);
-        int personID = random.nextInt(1000);
-        this.userService.addUser(ID, user.getUsername(),user.getEmail(), user.getPassword(),personID);
+        this.userService.addUser(ID, user.getUsername(),user.getEmail(), user.getPassword(),user.getPersonID());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

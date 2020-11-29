@@ -31,7 +31,7 @@
     <th>Start Date</th>
   </tr>
   <tr *ngFor="let empl of employees">
-    <td></td>
+    <td>{{ empl.startDate }}</td>
   </tr>
 </table>
 <table style="display: inline-block">
@@ -44,5 +44,12 @@
     <td>{{ visa.active }}</td>
   </tr>
 </table>
-
+<br />
+<mat-paginator
+  style="display: inline-block"
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>
 <div><router-outlet></router-outlet></div>
