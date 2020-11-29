@@ -61,4 +61,9 @@ public class FacilityReportDetailController {
     public FacilityReportDetail getFacilityReportByID(@PathVariable("id") Integer ID) {
         return this.facilityReportDetailDAO.getFacilityReportDetailByID(ID);
     }
+    
+    @RequestMapping(value = "/onboard-facility-detail/list/{id}", method = RequestMethod.GET)
+    public List<FacilityReportDetail> getFacilityReportByReportID(@PathVariable("id") Integer ID) {
+        return this.facilityReportDetailDAO.getFacilityReportDetailsByReportID(ID);
+    }
 }
