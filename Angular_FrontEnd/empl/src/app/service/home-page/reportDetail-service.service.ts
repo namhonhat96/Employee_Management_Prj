@@ -24,5 +24,10 @@ export class ReportDetailService {
   {
     return this.http.get(`${this.baseUrl}/onboard-facility-detail/list`);
   }
+  
+  public getAllFacilityReportDetailByReportID(ID: number): Observable<Object>
+  {
+    return this.http.get(`${this.baseUrl}/onboard-facility-detail/list/${ID}`);
+  }
 
 }
