@@ -44,4 +44,12 @@ public class FacilityReportDetailDAOImpl extends AbstractHibernateDAO<FacilityRe
         List result = getCurrentSession().createQuery(sql).list();
         return result;
     }
+    
+    public List<FacilityReportDetail> getFacilityReportDetailByReportID(Integer id)
+    {
+        String sql = "from FacilityReportDetail where reportID = :id";
+        Query query = getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        return query.list();
+    }
 }
