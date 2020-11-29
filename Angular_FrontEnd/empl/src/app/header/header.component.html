@@ -8,6 +8,7 @@
       *ngIf="loginService.isUserLoggedIn()"
       routerLink="/"
       class="nav-link"
+      (click)="Logout()"
       >LogOut</a
     >
   </mat-toolbar-row>
