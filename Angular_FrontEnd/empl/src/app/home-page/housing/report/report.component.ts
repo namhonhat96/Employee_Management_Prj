@@ -25,12 +25,12 @@ export class ReportComponent implements OnInit {
   ngOnInit(): void {
     /*this.report$ = this.service.getReportList();
     this.comment$ = this.service.getCommentList();*/
-    this.service.getAllFacilityReportDetailByReportID(1).subscribe((data) => {
+    this.service.getAllFacilityReport().subscribe((data) => {
       this.reportList$ = data;
     });
-    /*this.reportDetailService.getAllFacilityReportDetail().subscribe((data) => {
+    this.service.getAllFacilityReportDetailByReportID(1).subscribe((data) => {
       this.reportDetailList$ = data;
-    });*/
+    });
   }
 
 }
