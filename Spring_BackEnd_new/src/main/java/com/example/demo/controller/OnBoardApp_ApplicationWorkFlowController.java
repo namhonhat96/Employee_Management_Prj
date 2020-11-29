@@ -25,7 +25,7 @@ public class OnBoardApp_ApplicationWorkFlowController {
     ResponseEntity<?> addApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app) {
         Random random = new Random();
         int ID = random.nextInt();
-        onBoardApp_applicationWorkFlowService.addApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
+        onBoardApp_applicationWorkFlowService.addApplicationWorkFlow(ID, app.getEmployeeID(), app.getStatus());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

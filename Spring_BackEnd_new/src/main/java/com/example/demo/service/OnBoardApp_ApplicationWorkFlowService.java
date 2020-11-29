@@ -21,8 +21,8 @@ public class OnBoardApp_ApplicationWorkFlowService {
     }
 
     @Transactional
-    public void addApplicationWorkFlow(int ID, int employeeID, String type){
-        this.onBoardApp_applicationWorkFlowDAO.addApplicationWorkFlow(ID,employeeID,type);
+    public void addApplicationWorkFlow(int ID, int employeeID, String status){
+        this.onBoardApp_applicationWorkFlowDAO.addApplicationWorkFlow(ID,employeeID,status);
     }
 
     @Transactional

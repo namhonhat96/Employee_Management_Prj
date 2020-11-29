@@ -23,12 +23,12 @@ public class OnBoardApp_ApplicationWorkFlowDAOImpl extends AbstractHibernateDAO<
     }
 
     @Override
-    public void addApplicationWorkFlow(int ID, int employeeID, String type) {
+    public void addApplicationWorkFlow(int ID, int employeeID, String status) {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
         String createDate = dateFormat.format(date);
         String modificationDate = dateFormat.format(date);
-        OnBoardApp_ApplicationWorkFlow application = new OnBoardApp_ApplicationWorkFlow(ID,employeeID,createDate,modificationDate,"OPEN","",type );
+        OnBoardApp_ApplicationWorkFlow application = new OnBoardApp_ApplicationWorkFlow(ID,employeeID,createDate,modificationDate,status,"","Application" );
         getCurrentSession().save(application);
     }
 
