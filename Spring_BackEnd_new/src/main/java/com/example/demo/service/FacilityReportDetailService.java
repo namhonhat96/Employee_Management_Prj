@@ -38,4 +38,9 @@ public class FacilityReportDetailService {
     public List<FacilityReportDetail> getAllFacilityReportDetails(){
         return this.facilityReportDetailDAO.getAllFacilityReportDetails();
     }
+    
+    @Transactional
+    public List<FacilityReportDetail> getFacilityReportDetailsByReportID(){
+        return this.facilityReportDetailDAO.getFacilityReportDetailByReportID();
+    }
 }
