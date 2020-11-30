@@ -40,7 +40,7 @@ public class FacilityReportDetailService {
     }
     
     @Transactional
-    public List<FacilityReportDetail> getFacilityReportDetailsByReportID(){
-        return this.facilityReportDetailDAO.getFacilityReportDetailByReportID();
+    public List<FacilityReportDetail> getFacilityReportDetailsByReportID(Integer id){
+        return this.facilityReportDetailDAO.getFacilityReportDetailByReportID(id);
     }
 }

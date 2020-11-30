@@ -39,4 +39,10 @@ public class OnBoardApp_EmployeeService{
                                 String visaEndDate, String driverLisence, String driver_exp){
         this.employeeDAO.updateEmployee(ID, personID,title, managerID, startDate, endDate, avartar, car,visaID,visaStartDate,visaEndDate,driverLisence,driver_exp);
     }
+
+    @Transactional
+    public List<OnBoardApp_Employee> getEmployeeByHouseID(Integer id)
+    {
+        return this.employeeDAO.getEmployeeByHouseID(id);
+    }
 }

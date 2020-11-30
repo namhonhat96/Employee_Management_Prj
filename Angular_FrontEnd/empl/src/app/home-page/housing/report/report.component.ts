@@ -28,7 +28,7 @@ export class ReportComponent implements OnInit {
     this.service.getAllFacilityReport().subscribe((data) => {
       this.reportList$ = data;
     });
-    this.service.getAllFacilityReportDetailByReportID(1).subscribe((data) => {
+    this.reportDetailService.getAllFacilityReportDetailByReportID(1).subscribe((data) => {
       this.reportDetailList$ = data;
     });
   }

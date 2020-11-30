@@ -24,4 +24,9 @@ export class EmploymentService {
       'http://localhost:8081/onboard-employee/update/' + ID.toString(), employment
     );
   }
+
+  getEmployeeByHouseID(ID: number): Observable<Object>
+  {
+    return this.http.get(`${this.baseUrl}/onboard-employee/list/${ID}`);
+  }
 }

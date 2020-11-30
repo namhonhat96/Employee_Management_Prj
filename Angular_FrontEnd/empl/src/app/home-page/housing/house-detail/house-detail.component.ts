@@ -1,3 +1,5 @@
+import { Name } from './../../personal-info/name';
+import { EmploymentService } from './../../../service/home-page/employment-service.service';
 import { NameService } from './../../../service/home-page/name-service.service';
 import { Housing } from './../housing';
 import { HousingService } from './../../../service/home-page/housing-service.service';
@@ -20,16 +22,16 @@ export class HouseDetailComponent implements OnInit {
     { id: 4, name: 'Procrastinators Meeting Delayed Again', phone: '123465'},
   ];*/
   info$: Housing | any;
-  employeeList: Employee[] | any;
+  employeeList: Name[] | any;
   constructor(private service: HousingService,
-    private nameService: NameService ,private router: Router) {}
+    private nameService: NameService,private router: Router) {}
 
   ngOnInit(): void {
     this.service.getHouseByID(1).subscribe((data) => {
       this.info$ = data;
     });
 
-    this.nameService.getAllNames().subscribe((data) => {
+    this.nameService.getNameByHouseID(1).subscribe((data) => {
       this.employeeList = data;
     });
   }

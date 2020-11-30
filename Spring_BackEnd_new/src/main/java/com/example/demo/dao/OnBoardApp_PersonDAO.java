@@ -13,5 +13,6 @@ public interface OnBoardApp_PersonDAO {
                              String email, String cellphone, String alternatephone, String gender, int SSN, String DOB);
     OnBoardApp_Person getPersonByID(Integer id);
     List<OnBoardApp_Person> getAllPersons();
+    List<OnBoardApp_Person> getPersonByHouseID(Integer id);
 
 }

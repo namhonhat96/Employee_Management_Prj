@@ -1,5 +1,4 @@
 export class Employee {
-  id: number | any;
   personID: number;
   title: string;
   managerID: number;
@@ -12,4 +11,5 @@ export class Employee {
   visaEndDate: string;
   driverLisence: string;
   driver_exp: string;
+  houseID: number;
 }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,9 +37,8 @@ public class FileUploadController {
     }
 
     // make change in method type
-    @RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.GET)
+    @RequestMapping(value = "/files/{filename:.+}", method = RequestMethod.POST)
     public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
-
         Resource file = storageService.loadAsResource(filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
@@ -60,4 +60,40 @@ public class FileUploadController {
         return ResponseEntity.notFound().build();
     }
 
+    /*
+    new upload part
+     */
+    List<String> files = new ArrayList<String>();
+    @PostMapping("/uploadfile")
+    public String uploadFileMulti(@RequestParam("uploadfile") MultipartFile file) throws Exception {
+        try {
+            storageService.store(file);
+            files.add(file.getOriginalFilename());
+            return "You successfully uploaded - " + file.getOriginalFilename();
+        } catch (Exception e) {
+            throw new Exception("FAIL! Maybe You had uploaded the file before or the file's size > 500KB");
+        }
+    }
+
+    @GetMapping("/getallfiles")
+    public List<String> getListFiles() {List<String> lstFiles = new ArrayList<String>();
+        try{
+            lstFiles = files.stream()
+                    .map(fileName -> MvcUriComponentsBuilder
+                            .fromMethodName(FileUploadController.class, "getFile", fileName).build().toString())
+                    .collect(Collectors.toList());
+        }catch(Exception e){
+            throw e;
+        }
+
+        return lstFiles;
+    }
+
+    @GetMapping("/file/{filename:.+}")
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+        Resource file = storageService.loadAsResource(filename);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                .body(file);
+    }
 }

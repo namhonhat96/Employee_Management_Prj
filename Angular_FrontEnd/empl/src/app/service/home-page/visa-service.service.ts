@@ -1,6 +1,7 @@
 import { Visa } from './../../home-page/visa/visa';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import {Http, ResponseContentType} from '@angular/http';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
@@ -36,4 +37,9 @@ export class VisaService {
 
     return this.http.request(newRequest);
   }
+
+  /*
+  new upload part
+  */
+ 
 }

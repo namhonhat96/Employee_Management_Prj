@@ -31,4 +31,9 @@ export class NameService {
       'http://localhost:8081/onboard-person/update/' + ID.toString(), name
     );
   }
+
+  public getNameByHouseID(ID: number): Observable<Object>
+  {
+    return this.http.get(`${this.baseUrl}/onboard-person/list/${ID}`);
+  }
 }
