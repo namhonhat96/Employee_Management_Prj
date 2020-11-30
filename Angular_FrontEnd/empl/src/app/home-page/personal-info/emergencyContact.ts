@@ -1,5 +1,8 @@
 export class EmergencyContact{
-    fullName: string;
-    phone: string;
-    address: string;
+    personID: number;
+    relationship: string;
+    title: string;
+    isReference: string;
+    isEmergency: string;
+    isLandlord: string;
 }

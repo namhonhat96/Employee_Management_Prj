@@ -19,7 +19,15 @@ import { RouterModule, Routes } from "@angular/router";
 import { HousingsComponent } from "./housing/housing.component";
 import { HomePageCenterComponent } from "./home-page/home-page-center/home-page-center.component";
 
+import { TestUploadComponent } from "./test-upload/test-upload.component";
+import { PdfTestComponent } from "./pdf-test/pdf-test.component";
+import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
+
 const routes: Routes = [
+  {
+    path: "test-upload",
+    component: TestUploadComponent,
+  },
   {
     path: "employee-",
     component: HomePageComponent,
@@ -55,6 +63,7 @@ const routes: Routes = [
       {
         path: "hire",
         component: HireComponent,
+        children: [{ path: ":id", component: FormDetailComponent }],
       },
     ],
   },
@@ -79,6 +88,11 @@ const routes: Routes = [
     component: HomePageCenterComponent,
   },
   { path: "housing", component: HousingsComponent },
+
+  {
+    path: "pdf-test",
+    component: PdfTestComponent,
+  },
 ];
 
 @NgModule({

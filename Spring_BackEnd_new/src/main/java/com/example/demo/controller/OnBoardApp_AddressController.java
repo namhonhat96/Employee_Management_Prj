@@ -26,9 +26,8 @@ public class OnBoardApp_AddressController {
     ResponseEntity<?> addAddress(@RequestBody OnBoardApp_Address address) {
         Random random = new Random();
         int ID = random.nextInt();
-        int personID = random.nextInt(1000);
         this.onBoardApp_addressService.addAddress(ID,address.getAddressLine1(),address.getAddressLine2(),address.getCity(),
-                address.getZipcode(),address.getStateName(),address.getStateAbbr(),personID);
+                address.getZipcode(),address.getStateName(),address.getStateAbbr(),address.getPersonID());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
@@ -50,4 +49,8 @@ public class OnBoardApp_AddressController {
         return this.onBoardApp_addressService.getAddressByID(ID);
     }
 
+    @RequestMapping(value = "/onboard-address/personID/{id}", method = RequestMethod.GET)
+    public List<OnBoardApp_Address> getContactByPersonID(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_addressService.getAddressByPersonID(ID);
+    }
 }

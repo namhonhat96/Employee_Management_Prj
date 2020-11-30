@@ -56,23 +56,23 @@
   <tr>
     <th>Report ID</th>
     <th>Report Title</th>
-    <th>Report Created User</th>
+    <th>EmployeeID</th>
     <th>Report Date</th>
     <th>Report Status</th>
     <th>Report Comments</th>
   </tr>
-  <tr *ngFor="let report of report$ | async">
+  <tr *ngFor="let report of reportList$">
     <td>{{ report.id }}</td>
     <td>{{ report.title }}</td>
-    <td>{{ report.createdBy }}</td>
+    <td>{{ report.employeeID }}</td>
+    <td>{{ report.reportDate }}</td>
     <td>{{ report.status }}</td>
-    <td>{{ report.description }}</td>
     <td>
       <ul>
-        <li *ngFor="let comment of comment$ | async">
-          {{ comment.id }} - {{ comment.createdBy }} -
-          {{ comment.commentDate }} <br />
-          {{ comment.description }}
+        <li *ngFor="let comment of reportDetailList$">
+          {{ comment.employeeID }} - {{ comment.createDate }} <br />
+          {{ comment.comment }} <br>
+            {{ comment.lastModificationDate }}
         </li>
       </ul>
     </td>

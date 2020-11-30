@@ -10,4 +10,5 @@ public interface FacilityReportDetailDAO {
     void updateFacilityReportDetail(int ID, int reportID, int employeeID, String comment, String createDate, String lastModificationDate);
     FacilityReportDetail getFacilityReportDetailByID(Integer id);
     List<FacilityReportDetail> getAllFacilityReportDetails();
+    List<FacilityReportDetail> getFacilityReportDetailByReportID(Integer id);
 }

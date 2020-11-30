@@ -2,11 +2,91 @@
 <div class="shadow p-4 mb-4 bg-white">
     <p>Address Section</p>
 
-    <div *ngIf = "info$ | async as info">
-        <p>Primary Adress: <span>{{info.primaryAddress}}</span></p>
-        <p>Secondary Adress: <span>{{info.secondaryAddress}}</span></p>
+    
+        <!--<p>Primary Adress: <span>{{info.primaryAddress}}</span></p>
+        <p>Secondary Adress: <span>{{info.secondaryAddress}}</span></p> -->
         
-    </div> 
+        <!--<p>{{info.primaryAddress}}</p> -->
+        
+    <div *ngIf="condition; else elseBlock">
+        <div *ngIf = "info$ as info">
+            <h3>Primary Adress: </h3>
+            <label>AddressLine1: </label><br>
+            <input  [(ngModel)]="info.addressLine1" placeholder="address"/><br>
+            <label>AddressLine2: </label><br>
+            <input [(ngModel)]="info.addressLine2" placeholder="address"/><br>
+            <label>City: </label><br>
+            <input [(ngModel)]="info.city" placeholder="address"/><br>
+            <label>Zipcode: </label><br>
+            <input [(ngModel)]="info.zipcode" placeholder="address"/><br>
+            <label>State Name: </label><br>
+            <input [(ngModel)]="info.city" placeholder="address"/><br>
+            <label>State Abbreviation: </label><br>
+            <input [(ngModel)]="info.stateAbbr" placeholder="address"/><br>
+            <label>PersonID: </label><br>
+            <input [(ngModel)]="info.personID" placeholder="address"/><br>
+        </div>    
+
+        <div *ngIf = "secondInfo$ as secondInfo">
+            <h3>Secondary Adress: </h3>
+            <label>AddressLine1: </label><br>
+            <input  [(ngModel)]="secondInfo.addressLine1" placeholder="address"/><br>
+            <label>AddressLine2: </label><br>
+            <input [(ngModel)]="secondInfo.addressLine2" placeholder="address"/><br>
+            <label>City: </label><br>
+            <input [(ngModel)]="secondInfo.city" placeholder="address"/><br>
+            <label>Zipcode: </label><br>
+            <input [(ngModel)]="secondInfo.zipcode" placeholder="address"/><br>
+            <label>State Name: </label><br>
+            <input [(ngModel)]="secondInfo.city" placeholder="address"/><br>
+            <label>State Abbreviation: </label><br>
+            <input [(ngModel)]="secondInfo.stateAbbr" placeholder="address"/><br>
+            <label>PersonID: </label><br>
+            <input [(ngModel)]="secondInfo.personID" placeholder="address"/><br>
+        </div>
+        
+        <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+    </div>
+    <ng-template #elseBlock>
+        <div *ngIf = "info$ as info">
+            <h3>Primary Adress: </h3>
+            <label>AddressLine1: </label><br>
+            <p>{{info.addressLine1}}</p>
+            <label>AddressLine2: </label><br>
+            <p>{{info.addressLine2}}</p>
+            <label>City: </label><br>
+            <p>{{info.city}}</p>
+            <label>Zipcode: </label><br>
+            <p>{{info.zipcode}}</p>
+            <label>State Name: </label><br>
+            <p>{{info.stateName}}</p>
+            <label>State Abbreviation: </label><br>
+            <p>{{info.stateAbbr}}</p>
+            <label>PersonID: </label><br>
+            <p>{{info.personID}}</p>
+        </div>
+        
+        <div *ngIf = "secondInfo$ as info">
+            <h3>Secondary Adress: </h3>
+            <label>AddressLine1: </label><br>
+            <p>{{info.addressLine1}}</p>
+            <label>AddressLine2: </label><br>
+            <p>{{info.addressLine2}}</p>
+            <label>City: </label><br>
+            <p>{{info.city}}</p>
+            <label>Zipcode: </label><br>
+            <p>{{info.zipcode}}</p>
+            <label>State Name: </label><br>
+            <p>{{info.stateName}}</p>
+            <label>State Abbreviation: </label><br>
+            <p>{{info.stateAbbr}}</p>
+            <label>PersonID: </label><br>
+            <p>{{info.personID}}</p>
+        </div>
+        
+        <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+    </ng-template>
+     
 
 </div>
 

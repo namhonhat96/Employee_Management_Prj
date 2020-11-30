@@ -23,17 +23,23 @@ import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info
 import { VisaHRComponent } from "./hr-home-page/visa/visa.component";
 import { HouseHRComponent } from "./hr-home-page/house/house.component";
 import { HireComponent } from "./hr-home-page/hire/hire.component";
+
 import { HousingsComponent } from "./housing/housing.component";
 import { MessagesComponent } from "./messages/messages.component";
 import { HousingDetailComponent } from "./housing-detail/housing-detail.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HousingUserComponent } from "./housing-user/housing-user.component";
 import { Router } from "@angular/router";
-//import { HomePageModule } from "./home-page/home-page.module";
-import { FacilityReportingComponent } from './facility-reporting/facility-reporting.component';
-//import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
-import { FacilityComponent } from './facility/facility.component';
-import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
+import { FacilityReportingComponent } from "./facility-reporting/facility-reporting.component";
+import { FacilityComponent } from "./facility/facility.component";
+import { FacilityReportingDetailComponent } from "./facility-reporting-detail/facility-reporting-detail.component";
+
+import { FormAppComponent } from "./hr-home-page/hire/form-app/form-app.component";
+import { DocAppComponent } from "./hr-home-page/hire/doc-app/doc-app.component";
+import { TestUploadComponent } from "./test-upload/test-upload.component";
+import { PdfTestComponent } from "./pdf-test/pdf-test.component";
+import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +70,11 @@ import { FacilityReportingDetailComponent } from './facility-reporting-detail/fa
     FacilityReportingDetailComponent,
     FacilityComponent,
 
+    FormAppComponent,
+    DocAppComponent,
+    TestUploadComponent,
+    PdfTestComponent,
+    FormDetailComponent,
   ],
   imports: [
     //HomePageModule,

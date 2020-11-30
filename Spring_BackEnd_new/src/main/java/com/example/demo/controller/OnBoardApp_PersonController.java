@@ -22,10 +22,7 @@ public class OnBoardApp_PersonController {
 
     @RequestMapping(value = "/onboard-person", method = RequestMethod.POST)
     ResponseEntity<?> addPerson(@RequestBody OnBoardApp_Person person) {
-        System.out.println(person.getFirstname());
-        Random random = new Random();
-        int ID = random.nextInt(1000);
-        onBoardApp_personService.addPerson(ID,person.getFirstname(),person.getLastname(),
+        onBoardApp_personService.addPerson(person.getID(),person.getFirstname(),person.getLastname(),
                 person.getMiddlename(),person.getEmail(),person.getCellphone(),person.getAlternatephone(),
                 person.getGender(),person.getSSN(),person.getDOB());
         return ResponseEntity.ok(new JwtResponse("okay"));
@@ -47,5 +44,10 @@ public class OnBoardApp_PersonController {
     @RequestMapping(value = "/onboard-person/{id}", method = RequestMethod.GET)
     public OnBoardApp_Person getPersonByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_personService.getPersonByID(ID);
+    }
+
+    @RequestMapping(value = "/onboard-person/list/{id}", method = RequestMethod.GET)
+    public List<OnBoardApp_Person> getPersonByHouseID(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_personService.getPersonByHouseID(ID);
     }
 }

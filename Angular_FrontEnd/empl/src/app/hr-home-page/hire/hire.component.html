@@ -1,1 +1,40 @@
-<p>hire works!</p>
+<br />
+<br />
+
+<h2>Registration Token</h2>
+<form (ngSubmit)="registerToken()" #contactForm="ngForm">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Token ID"
+            [(ngModel)]="tokenID"
+            name="tokenID"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="New Hire Email"
+            [(ngModel)]="email"
+            name="email"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Generate Token and Send email" />
+</form>
+
+<br />
+<br />
+
+<app-form-app></app-form-app>
+<br /><br />
+<app-doc-app></app-doc-app>

@@ -1,1 +1,55 @@
-<p>person-info-hr works!</p>
+<br />
+<br />
+<form action="searchName()">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname" />
+  <input type="submit" value="Submit" />
+</form>
+
+<form action="searchID()">
+  <label for="fname">Employee ID:</label>
+  <input type="text" id="eID" name="eID" />
+  <input type="submit" value="Submit" />
+</form>
+
+<table style="float: left">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Middle Name</th>
+    <th>SSN</th>
+  </tr>
+  <tr *ngFor="let person of persons; let indexOfelement = index">
+    <td>{{ person.firstname }}</td>
+    <td>{{ person.lastname }}</td>
+    <td>{{ person.middlename }}</td>
+    <td>{{ person.ssn }}</td>
+  </tr>
+</table>
+<table style="display: inline-block">
+  <tr>
+    <th>Start Date</th>
+  </tr>
+  <tr *ngFor="let empl of employees">
+    <td>{{ empl.startDate }}</td>
+  </tr>
+</table>
+<table style="display: inline-block">
+  <tr>
+    <th>Visa Type</th>
+    <th>Visa Status</th>
+  </tr>
+  <tr *ngFor="let visa of visas">
+    <td>{{ visa.visaType }}</td>
+    <td>{{ visa.active }}</td>
+  </tr>
+</table>
+<br />
+<mat-paginator
+  style="display: inline-block"
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+>
+</mat-paginator>
+<div><router-outlet></router-outlet></div>

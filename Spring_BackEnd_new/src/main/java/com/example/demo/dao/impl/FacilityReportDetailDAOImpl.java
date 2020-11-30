@@ -7,6 +7,7 @@ import com.example.demo.pojo.FacilityReport;
 import com.example.demo.pojo.FacilityReportDetail;
 import org.springframework.stereotype.Repository;
 
+import org.hibernate.query.Query;
 import java.util.List;
 
 @Repository("FacilityReportDetailDAOImpl")
@@ -43,5 +44,14 @@ public class FacilityReportDetailDAOImpl extends AbstractHibernateDAO<FacilityRe
         String sql = "from FacilityReportDetail";
         List result = getCurrentSession().createQuery(sql).list();
         return result;
+    }
+
+    @Override
+    public List<FacilityReportDetail> getFacilityReportDetailByReportID(Integer id)
+    {
+        String sql = "from FacilityReportDetail where reportID = :id";
+        Query query = getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        return query.list();
     }
 }

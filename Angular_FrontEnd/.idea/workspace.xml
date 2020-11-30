@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c58875f7-3220-4781-8209-4effe8d718ae" name="Default Changelist" comment="" />
+    <list default="true" id="c58875f7-3220-4781-8209-4effe8d718ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empl/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/empl/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empl/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/empl/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/empl/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empl/src/app/home-page/visa/visa.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/empl/src/app/home-page/visa/visa.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empl/src/app/home-page/visa/visa.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/empl/src/app/home-page/visa/visa.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Spring_BackEnd_new" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -80,6 +87,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605740999004</updated>
       <workItem from="1605741000090" duration="37000" />
+      <workItem from="1606003913999" duration="111000" />
+      <workItem from="1606087845769" duration="83000" />
     </task>
     <servers />
   </component>
@@ -96,5 +105,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1253" y="587" key="FileChooserDialogImpl" timestamp="1606087927384">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1253" y="587" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1606087927384" />
   </component>
 </project>

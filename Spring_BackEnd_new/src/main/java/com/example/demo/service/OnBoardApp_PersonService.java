@@ -38,4 +38,9 @@ public class OnBoardApp_PersonService {
     public List<OnBoardApp_Person> getAllPersons(){
         return this.onBoardApp_personDAO.getAllPersons();
     }
+
+    @Transactional
+    public List<OnBoardApp_Person> getPersonByHouseID(Integer id){
+        return this.onBoardApp_personDAO.getPersonByHouseID(id);
+    }
 }

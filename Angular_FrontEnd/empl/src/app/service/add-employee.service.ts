@@ -9,6 +9,8 @@ export class AddEmployeeService {
   constructor(private httpClient: HttpClient) {}
 
   registerEmployeeTable(
+    employeeID,
+    personID,
     car,
     visaStartDate,
     visaEndDate,
@@ -16,6 +18,8 @@ export class AddEmployeeService {
     driver_exp
   ) {
     return this.httpClient.post<any>("http://localhost:8081/onboard-employee", {
+      employeeID,
+      personID,
       car,
       visaStartDate,
       visaEndDate,
