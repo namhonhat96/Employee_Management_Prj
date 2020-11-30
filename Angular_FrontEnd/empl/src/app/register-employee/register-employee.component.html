@@ -4,13 +4,13 @@
   </mat-card-header>
   <mat-card-content>
     <form>
-      <table class="example-full-width" cellspacing="0">
+      <table class="example-full-width" cellspacing="0" id="contentToConvert">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
               <input
                 matInput
-                placeholder="Car"
+                placeholder="Car Model"
                 [(ngModel)]="car"
                 name="car"
               /><br />
@@ -22,14 +22,18 @@
           <td>
             Are you a citizen or permanent citizen of the U.S?
             <select [(ngModel)]="selectedValue">
-              <option *ngFor="let c of options" [ngValue]="c">
+              <option
+                *ngFor="let c of options"
+                [selected]="c.valueData === isResident"
+                [ngValue]="c"
+              >
                 {{ c.name }}
               </option>
             </select>
           </td>
         </tr>
         <tr>
-          <div>
+          <div *ngIf="isResident">
             Please choose your citizenship:
             <input type="radio" id="citizen" name="citizen" value="citizen" />
             <label for="citizen">US Citizen</label>
@@ -44,29 +48,34 @@
         </tr>
 
         <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="Visa Start Date"
-                [(ngModel)]="visaStartDate"
-                name="visaStartDate"
-              /><br />
-            </mat-form-field>
-          </td>
+          <div>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Visa Start Date"
+                  [(ngModel)]="visaStartDate"
+                  name="visaStartDate"
+                /><br />
+              </mat-form-field>
+            </td>
+          </div>
         </tr>
         <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="Visa End Date"
-                [(ngModel)]="visaEndDate"
-                name="visaEndDate"
-              /><br />
-            </mat-form-field>
-          </td>
+          <div *ngIf="isResident">
+            <td>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Visa End Date"
+                  [(ngModel)]="visaEndDate"
+                  name="visaEndDate"
+                /><br />
+              </mat-form-field>
+            </td>
+          </div>
         </tr>
+
         <tr>
           <td>
             <mat-form-field class="example-full-width">

@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>
     <form>
-      <table class="example-full-width" cellspacing="0">
+      <table class="example-full-width" cellspacing="0" id="contentToConvert">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
@@ -88,8 +88,8 @@
         <tr>
           <td>
             Gender:
-            <select [(ngModel)]="gender">
-              <option *ngFor="let c of gender_options" [ngValue]="c">
+            <select [(ngModel)]="genderNumber">
+              <option *ngFor="let c of gender_options" [value]="c.id">
                 {{ c.name }}
               </option>
             </select>
@@ -99,13 +99,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="SSN"
-                [(ngModel)]="SSN"
-                name="SSN"
-                required
-              />
+              <input matInput placeholder="ssn" [(ngModel)]="ssn" name="ssn" />
             </mat-form-field>
           </td>
         </tr>
@@ -113,13 +107,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input
-                matInput
-                placeholder="DOB"
-                [(ngModel)]="DOB"
-                name="DOB"
-                required
-              />
+              <input matInput placeholder="DOB" [(ngModel)]="dob" name="DOB" />
             </mat-form-field>
           </td>
         </tr>

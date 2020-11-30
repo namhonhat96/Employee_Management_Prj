@@ -8,12 +8,13 @@ import { map } from "rxjs/operators";
 export class AdduserService {
   constructor(private httpClient: HttpClient) {}
 
-  registerUserTable(username, password, email) {
+  registerUserTable(username, password, email, personID) {
     return this.httpClient
       .post<any>("http://localhost:8081/onboard-user", {
         username,
         password,
         email,
+        personID,
       })
       .pipe(
         map((userData) => {

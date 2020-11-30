@@ -23,9 +23,7 @@ public class OnBoardApp_EmployeeController {
 
     @RequestMapping(value = "/onboard-employee", method = RequestMethod.POST)
     ResponseEntity<?> addEmployee(@RequestBody OnBoardApp_Employee person) {
-        Random random = new Random();
-        int ID = random.nextInt();
-        onBoardApp_employeeService.addEmployee(ID,person.getPersonID(),person.getCar(),
+        onBoardApp_employeeService.addEmployee(person.getID(),person.getPersonID(),person.getCar(),
                 person.getVisaID(),person.getVisaStartDate(),person.getVisaEndDate(),person.getDriverLisence(),
                 person.getDriver_exp());
         return ResponseEntity.ok(new JwtResponse("okay"));

@@ -25,13 +25,14 @@ public class OnBoardApp_ApplicationWorkFlowController {
     ResponseEntity<?> addApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app) {
         Random random = new Random();
         int ID = random.nextInt();
-        onBoardApp_applicationWorkFlowService.addApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
+        onBoardApp_applicationWorkFlowService.addApplicationWorkFlow(ID, app.getEmployeeID(), app.getStatus());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 
     @RequestMapping(value = "/onboard-app/update/{id}", method = RequestMethod.POST)
     ResponseEntity<?> updateApplicationFlow(@RequestBody OnBoardApp_ApplicationWorkFlow app, @PathVariable("id") Integer ID) {
-        onBoardApp_applicationWorkFlowService.updateApplicationWorkFlow(ID, app.getEmployeeID(), app.getType());
+        System.out.println("Update App");
+        onBoardApp_applicationWorkFlowService.updateApplicationWorkFlow(ID, app.getStatus(), app.getComments());
         return ResponseEntity.ok(new JwtResponse("okay"));
     }
 

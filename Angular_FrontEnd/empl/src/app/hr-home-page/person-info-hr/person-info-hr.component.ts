@@ -19,8 +19,6 @@ export class PersonInfoHrComponent implements OnInit {
   persons: Person[] = [];
   visas: Visa[] = [];
 
-  joined$: Observable<any>;
-
   isName = false;
   isEmplID = false;
   checkName: boolean;
