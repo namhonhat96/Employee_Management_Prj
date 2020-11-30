@@ -47,4 +47,9 @@ public class OnBoardApp_EmployeeController {
     public OnBoardApp_Employee getEmployeeByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_employeeService.getEmployeeByID(ID);
     }
+
+    @RequestMapping(value = "/onboard-employee/list/{id}", method = RequestMethod.GET)
+    public List<OnBoardApp_Employee> getEmployeeByHouseID(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_employeeService.getEmployeeByHouseID(ID);
+    }
 }

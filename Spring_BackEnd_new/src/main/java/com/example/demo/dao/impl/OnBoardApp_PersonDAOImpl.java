@@ -4,6 +4,7 @@ import com.example.demo.dao.AbstractHibernateDAO;
 import com.example.demo.dao.OnBoardApp_PersonDAO;
 import com.example.demo.pojo.OnBoardApp_Person;
 import com.example.demo.pojo.OnBoardApp_VisaStatus;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -48,5 +49,14 @@ public class OnBoardApp_PersonDAOImpl extends AbstractHibernateDAO<OnBoardApp_Pe
         String sql = "from OnBoardApp_Person";
         List result = getCurrentSession().createQuery(sql).list();
         return result;
+    }
+
+    @Override
+    public List<OnBoardApp_Person> getPersonByHouseID(Integer id)
+    {
+        String sql = "select a from OnBoardApp_Person a, OnBoardApp_Employee b where b.houseID = :id and a.id = b.personID";
+        Query query = getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        return query.list();
     }
 }

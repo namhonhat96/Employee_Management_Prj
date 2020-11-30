@@ -45,4 +45,9 @@ public class OnBoardApp_PersonController {
     public OnBoardApp_Person getPersonByIdWithVariableName(@PathVariable("id") Integer ID) {
         return this.onBoardApp_personService.getPersonByID(ID);
     }
+
+    @RequestMapping(value = "/onboard-person/list/{id}", method = RequestMethod.GET)
+    public List<OnBoardApp_Person> getPersonByHouseID(@PathVariable("id") Integer ID) {
+        return this.onBoardApp_personService.getPersonByHouseID(ID);
+    }
 }

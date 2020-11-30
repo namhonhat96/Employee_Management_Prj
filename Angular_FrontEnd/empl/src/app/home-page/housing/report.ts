@@ -1,10 +1,9 @@
-import { Comment } from './comment';
 export class Report{
     id: number;
     title: string;
-    description: string;
-    createdBy: string;
+    employeeID: number;
     reportDate: string;
+    description: string;
     status: string;
-    commentList: Comment[];
+    //commentList: Comment[];
 }

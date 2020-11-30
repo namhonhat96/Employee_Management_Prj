@@ -57,6 +57,9 @@ public class OnBoardApp_Employee implements Serializable {
     @Column(name="DriverLisence_ExpirationDate")
     private String driver_exp;
 
+    @Column(name="HouseID")
+    private Integer houseID;
+
     public OnBoardApp_Employee(int id, int personID, int visaID, String visaStartDate, String visaEndDate, String driverLisence, String driver_exp) {
     }
 }

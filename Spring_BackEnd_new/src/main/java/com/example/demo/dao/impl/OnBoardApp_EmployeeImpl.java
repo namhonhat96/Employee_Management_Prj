@@ -69,4 +69,12 @@ public class OnBoardApp_EmployeeImpl extends AbstractHibernateDAO<OnBoardApp_Emp
 //        query.setParameter("id", ID);
 //        return query.list();
 //    }
+    @Override
+    public List<OnBoardApp_Employee> getEmployeeByHouseID(Integer id)
+    {
+        String sql = "from OnBoardApp_Employee where houseID = :id";
+        Query query = getCurrentSession().createQuery(sql);
+        query.setParameter("id", id);
+        return query.list();
+    }
 }

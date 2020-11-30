@@ -21,9 +21,19 @@ export class NameService {
     return this.http.get(`${this.baseUrl}/onboard-person/${ID}`);
   }
 
+  public getAllNames(): Observable<Object>
+  {
+    return this.http.get(`${this.baseUrl}/onboard-person/list`);
+  }
+
   updateName(ID: any, name: Name) {
     return this.http.post<any>(
       'http://localhost:8081/onboard-person/update/' + ID.toString(), name
     );
+  }
+
+  public getNameByHouseID(ID: number): Observable<Object>
+  {
+    return this.http.get(`${this.baseUrl}/onboard-person/list/${ID}`);
   }
 }
