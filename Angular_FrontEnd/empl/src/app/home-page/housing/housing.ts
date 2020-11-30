@@ -1,5 +1,6 @@
-export class Housing{
-    contactID: number;
-    address: string;
-    numberOfPerson: number;
+export class Housing {
+  id: number;
+  contactID: number;
+  address: string;
+  numberOfPerson: number;
 }

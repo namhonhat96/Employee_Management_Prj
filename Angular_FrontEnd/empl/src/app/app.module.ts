@@ -31,6 +31,10 @@ import { DocAppComponent } from "./hr-home-page/hire/doc-app/doc-app.component";
 import { TestUploadComponent } from "./test-upload/test-upload.component";
 import { PdfTestComponent } from "./pdf-test/pdf-test.component";
 import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
+import { HousingsComponent } from "./housing/housing.component";
+import { FacilityComponent } from "./facility/facility.component";
+import { FacilityReportingComponent } from "./facility-reporting/facility-reporting.component";
+import { HousingDetailComponent } from "./housing-detail/housing-detail.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +59,10 @@ import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/fo
     TestUploadComponent,
     PdfTestComponent,
     FormDetailComponent,
+    HousingsComponent,
+    HousingDetailComponent,
+    FacilityComponent,
+    FacilityReportingComponent,
   ],
   imports: [
     HomePageModule,

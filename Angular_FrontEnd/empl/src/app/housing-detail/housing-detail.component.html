@@ -1,0 +1,21 @@
+<div *ngIf="housing">
+  <h2>{{ housing.id | uppercase }} Details</h2>
+  <div><span>id: </span>{{ housing.id }}</div>
+  <div>
+    <label
+      >Contact ID:
+      <input [(ngModel)]="housing.contactID" placeholder="Address" />
+    </label>
+    <br />
+    <label
+      >Address:
+      <input [(ngModel)]="housing.address" placeholder="Address" />
+    </label>
+    <br />
+    <label
+      >Number of Persons:
+      <input [(ngModel)]="housing.numberOfPerson" placeholder="# of Persons" />
+    </label>
+  </div>
+  <button (click)="updateHouse()">Update House Info</button>
+</div>

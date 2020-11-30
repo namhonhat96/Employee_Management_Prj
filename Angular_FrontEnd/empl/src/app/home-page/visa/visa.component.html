@@ -1,19 +1,37 @@
 <div class="container">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <div *ngIf = "info$.visaType == 'opt-receipt' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <!--<form action="/action_page.php">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div
+      *ngIf="info$.visaType == 'opt-receipt' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <!--<form action="/action_page.php">
                 <label for="myfile">Please upload a copy of your OPT (STEM) EAD</label>
                 <input type="file" id="opt" name="opt"><br>
                 <input type="submit">
             </form>-->
-            <label>Please upload a copy of your OPT (STEM) EAD</label>
-            <input type="file" id="customFile" (change)="selectFile($event)">
-            <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Upload</button>
-            <button class="btn btn-primary" style="margin-left: 10px" (click)="downloadFile()">View File</button>
-        </div>
+      <label>Please upload a copy of your OPT (STEM) EAD</label>
+      <input type="file" id="customFile" (change)="selectFile($event)" />
+      <button
+        class="btn btn-primary"
+        [disabled]="!selectedFiles || admincheck || status"
+        (click)="upload()"
+      >
+        Upload
+      </button>
+      <button
+        class="btn btn-primary"
+        style="margin-left: 10px"
+        (click)="downloadFile()"
+      >
+        View File
+      </button>
+    </div>
 
-        <div *ngIf = "info$.visaType == 'opt-receipt' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <!--<form action="/action_page.php">
+    <div
+      *ngIf="info$.visaType == 'opt-receipt' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <!--<form action="/action_page.php">
                 <label>Please download and fill your I-983 form</label>
                 <br>
                 <a href="./I-893.txt" download>I-983</a>
@@ -21,42 +39,69 @@
                 <input type="file" id="i-983" name="i-983"><br>
                 <input type="submit">
             </form>-->
-            <form action="/action_page.php">
-                <label>Please download and fill your I-983 form</label>
-                <br>
-                <a href="./I-893.txt" download>I-983</a>
-            </form>
-            <input type="file" id="customFile" (change)="selectFile($event)">
-            <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Upload</button>
-            <button class="btn btn-primary" style="margin-left: 10px" (click)="downloadFile()">View File</button>
-        </div>
-
-        <div *ngIf = "info$.visaType == 'i-983-wait' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <label>Waiting for HR to approve and sign I-983</label>
-        </div>
-
-        <div *ngIf = "info$.visaType == 'i-983-signed' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <form action="/action_page.php">
-                <label>Please send the I-983 with all necessary documents to your school and upload the new I-20</label>
-                <input type="file" id="i-20" name="i-20"><br>
-                <input type="submit">
-            </form>
-        </div>
-
-        <div *ngIf = "info$.visaType == 'i-20' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <form action="/action_page.php">
-                <label>Please upload your OPT STEM Receipt</label>
-                <input type="file" id="opt-receipt" name="opt-receipt"><br>
-                <input type="submit">
-            </form>
-        </div>
-
-        <div *ngIf = "info$.visaType == 'opt-stem' && info$.active == 'yes'" class="shadow p-4 mb-4 bg-white">
-            <form action="/action_page.php">
-                <label>Please upload your OPT STEM EAD</label>
-                <input type="file" id="opt-ead" name="opt-ead"><br>
-                <input type="submit">
-            </form>
-        </div>
+      <form action="/action_page.php">
+        <label>Please download and fill your I-983 form</label>
+        <br />
+        <a href="./I-893.txt" download>I-983</a>
+      </form>
+      <input type="file" id="customFile" (change)="selectFile($event)" />
+      <button
+        class="btn btn-primary"
+        [disabled]="!selectedFiles || admincheck || status"
+        (click)="upload()"
+      >
+        Upload
+      </button>
+      <button
+        class="btn btn-primary"
+        style="margin-left: 10px"
+        (click)="downloadFile()"
+      >
+        View File
+      </button>
     </div>
+
+    <div
+      *ngIf="info$.visaType == 'i-983-wait' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <label>Waiting for HR to approve and sign I-983</label>
+    </div>
+
+    <div
+      *ngIf="info$.visaType == 'i-983-signed' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <form action="/action_page.php">
+        <label
+          >Please send the I-983 with all necessary documents to your school and
+          upload the new I-20</label
+        >
+        <input type="file" id="i-20" name="i-20" /><br />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div
+      *ngIf="info$.visaType == 'i-20' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <form action="/action_page.php">
+        <label>Please upload your OPT STEM Receipt</label>
+        <input type="file" id="opt-receipt" name="opt-receipt" /><br />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div
+      *ngIf="info$.visaType == 'opt-stem' && info$.active == 'yes'"
+      class="shadow p-4 mb-4 bg-white"
+    >
+      <form action="/action_page.php">
+        <label>Please upload your OPT STEM EAD</label>
+        <input type="file" id="opt-ead" name="opt-ead" /><br />
+        <input type="submit" />
+      </form>
+    </div>
+  </div>
 </div>

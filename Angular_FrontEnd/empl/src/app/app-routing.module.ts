@@ -19,6 +19,7 @@ import { PersonInfoHrComponent } from "./hr-home-page/person-info-hr/person-info
 import { TestUploadComponent } from "./test-upload/test-upload.component";
 import { PdfTestComponent } from "./pdf-test/pdf-test.component";
 import { FormDetailComponent } from "./hr-home-page/hire/form-app/form-detail/form-detail.component";
+import { HousingsComponent } from "./housing/housing.component";
 const routes: Routes = [
   {
     path: "test-upload",
@@ -54,7 +55,7 @@ const routes: Routes = [
       },
       {
         path: "house-manage",
-        component: HouseHRComponent,
+        component: HousingsComponent,
       },
       {
         path: "hire",
