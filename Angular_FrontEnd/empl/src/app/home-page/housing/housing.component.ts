@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Housing } from 'src/app/housing';
-
-//import { Housing } from "../housing";
-//import { HousingService } from "../housing.service";
-import { MessageService } from "../message.service";
+import { Housing } from "src/app/housing";
+import { HousingService } from "src/app/housing.service";
+import { MessageService } from "src/app/message.service";
 
 @Component({
   selector: "app-housing",
