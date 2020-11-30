@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Facility } from '../facility';
-import { HousingService } from '../housing.service';
+
+//import { FacilityService } from '../facility.service';
 import { MessageService } from '../message.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class FacilityComponent implements OnInit {
   }
 
   getFacility(): void {
-    this.facilityService.getFacility()
+    this.FacilityService.getFacility()
         .subscribe(facility => this.facility = facility);
   }
 }

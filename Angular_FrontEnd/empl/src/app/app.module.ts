@@ -29,10 +29,11 @@ import { HousingDetailComponent } from "./housing-detail/housing-detail.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HousingUserComponent } from "./housing-user/housing-user.component";
 import { Router } from "@angular/router";
-import { HomePageModule } from "./home-page/home-page.module";
+//import { HomePageModule } from "./home-page/home-page.module";
 import { FacilityReportingComponent } from './facility-reporting/facility-reporting.component';
-import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
+//import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
 import { FacilityComponent } from './facility/facility.component';
+import { FacilityReportingDetailComponent } from './facility-reporting-detail/facility-reporting-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,7 @@ import { FacilityComponent } from './facility/facility.component';
 
   ],
   imports: [
-    HomePageModule,
+    //HomePageModule,
     BrowserModule,
     AngularMaterialModule,
     AppRoutingModule,

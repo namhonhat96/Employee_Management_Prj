@@ -1,22 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Housing } from 'src/app/housing';
+
+//import { Housing } from "../housing";
+//import { HousingService } from "../housing.service";
+import { MessageService } from "../message.service";
 
 @Component({
-  selector: 'app-housing',
-  templateUrl: './housing.component.html',
-  styleUrls: ['./housing.component.css']
+  selector: "app-housing",
+  templateUrl: "./housing.component.html",
+  styleUrls: ["./housing.component.css"],
 })
-export class HousingComponent implements OnInit {
+export class HousingsComponent implements OnInit {
+  selectedHousing: Housing | undefined;
 
-  constructor() { }
+  housing: Housing[] | undefined;
 
-  ngOnInit(): void {
+  constructor(
+    private housingService: HousingService,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit() {
+    this.getHousing();
+  }
+
+  onSelect(housing: Housing): void {
+    this.selectedHousing = housing;
+    this.messageService.add(
+      `HousingComponent: Selected housing id=${housing.id}`
+    );
+  }
+
+  getHousing(): void {
+    this.housingService
+      .getHousing()
+      .subscribe((housing) => (this.housing = housing));
   }
 }
-
-
-/*
-    Login
-    Onboarding
-    Home Page
-
-*/

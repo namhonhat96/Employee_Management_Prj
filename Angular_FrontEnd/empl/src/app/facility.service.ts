@@ -4,37 +4,38 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { of } from "rxjs";
 import { Facility } from "./facility";
-import { housing } from "./mock-housing";
 import { MessageService } from "./message.service";
 import { FacilityComponent } from './facility/facility.component';
 
 @Injectable({
   providedIn: "root",
 })
-export class HousingService {
+export class FacilityService {
   private baseUrl = "http://localhost:8081";
   constructor(
     private messageService: MessageService,
     private http: HttpClient
   ) {}
 
-  public getHousing(): Observable<Facility[]> {
-    // TODO: send the message _after_ fetching the housing
+  public getFacility(): Observable<Facility[]> {
+    
     return this.http.get<Facility[]>(`${this.baseUrl}` + "/house/list");
   }
-  public updateHouse(
-    ID: any,
-    contactID: any,
-    address: any,
-    numberOfPerson: any
+  public updateFacility(
+    id: any,
+    type: any,
+    description: any,
+    quantity: any,
+    houseId: any
   ) {
     return this.http.post<any>(
-      "http://localhost:8081/house/update/" + ID.toString(),
+      "http://localhost:8081/facility/update/" +id.toString(),
       {
-        ID,
-        contactID,
-        address,
-        numberOfPerson,
+        id,
+        type,
+        description,
+        quantity,
+        houseId,
       }
     );
   }
