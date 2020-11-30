@@ -6,6 +6,7 @@
                 <input type="file" id="opt" name="opt"><br>
                 <input type="submit">
             </form>-->
+            
             <label>Please upload a copy of your OPT (STEM) EAD</label>
             <input type="file" id="customFile" (change)="selectFile($event)">
             <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Upload</button>
