@@ -11,7 +11,11 @@ import { MessageService } from "../service/message.service";
 export class HousingsComponent implements OnInit {
   selectedHousing: Housing | undefined;
 
-  housing: Housing[] | undefined;
+  // housing: Housing[];
+  housing = [
+    { id: 1, contactID: 1, address: "3 Dummy Street", numberOfPerson: 10 },
+    { id: 2, contactID: 1, address: "3 Dummy Street", numberOfPerson: 11 },
+  ];
 
   constructor(
     private housingService: HousingService,
