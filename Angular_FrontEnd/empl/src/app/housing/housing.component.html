@@ -1,0 +1,16 @@
+<h2>Housing List</h2>
+
+<ul class="housing">
+  <li
+    *ngFor="let h of housing"
+    [class.selected]="h === selectedHousing"
+    (click)="onSelect(h)"
+  >
+    <span class="badge">House ID: {{ h.id }}</span>
+    <span class="badge"> Number of Person: {{ h.numberOfPerson }}</span>
+  </li>
+</ul>
+
+<app-housing-detail [housing]="selectedHousing"></app-housing-detail>
+
+<app-facility></app-facility>
