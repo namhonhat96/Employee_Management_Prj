@@ -1,4 +1,4 @@
-# Employee_Management_Prj
+# Human Resource Management Web Application
 
 ## Objective: 
 The project aims to build a web application for Human Resources to track and maintain employee information. 
